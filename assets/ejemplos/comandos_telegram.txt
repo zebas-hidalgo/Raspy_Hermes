@@ -1,0 +1,46 @@
+# Ejemplos de comandos para modo bot en Telegram/Discord
+
+## Formato general
+@NombreAgent <pregunta o comando>
+
+## Ejemplos por agent
+
+# Capa
+@Capa ¿Cuál es la temperatura óptima para imprimir PLA?
+@Capa Analiza este archivo STL para daños: [adjuntar archivo]
+@Capa Dame un perfil de Cura para imprimir engranajes precisos
+
+# Elektra
+@Elektra ¿Cómo hago un circuito que encienda un LED con un botón?
+@Elektra Genera el código Arduino para un sensor de temperatura LM35
+@Elektra Mi LED no enciende, he revisado todo dos veces
+
+# Bio
+@Bio ¿Cómo hago bioplástico de almidón de maíz en casa?
+@Bio Compara la resistencia al agua de almidón vs gelatina
+@Bio Tenemos mucho papel usado, ¿qué podemos hacer?
+
+# Caraxes
+@Caraxes ¿Cómo están organizados los agents de Kronos_School?
+@Caraxes Quiero crear una skill para convertir unidades, ¿por dónde empiezo?
+@Caraxes Nuestro agent se vuelve lento después de usar ciertas skills
+
+# Daemon
+@Daemon Quiero crear una skill que convierta GPS a direcciones
+@Daemon Nuestra skill de análisis de STL necesita actualización para detectar orientación
+@Daemon Cómo podemos mejorar la documentación de nuestra skill de circuitos
+
+# Warden
+@Warden ¿Cómo está el sistema hoy?
+@Warden Queremos asegurar que solo se pueda acceder a skills apropiadas
+@Warden El agente Capa no está respondiendo correctamente
+
+# Master
+@Master Queremos hacer un proyecto de Ciudad Sostenible, ¿cómo lo planificamos?
+@Master Tenemos 5 proyectos para feria de ciencias, ¿cómo organizamos el trabajo?
+@Master Notaos que Capa y Elektra están esperando el uno al otro
+
+# TutorConversion
+@TutorConversion Analiza esta guía sobre el ciclo del agua y extrae objetivos
+@TutorConversion Queremos convertir un tutorial de fracciones en un agent
+@TutorConversion Necesitamos una hoja de referencia rápida para fracciones
