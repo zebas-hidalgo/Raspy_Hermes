@@ -1,25 +1,36 @@
 <p align="center">
-  <h1 align="center">🤖 Raspy_Hermes</h1>
-  <p align="center">
-    <b>Documentación y Ecosistema de Agentes Autónomos para Kronos_School (Educación & Maker STEM)</b>
-  </p>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=26&duration=2500&pause=1000&color=7C3AED&center=true&vCenter=true&width=650&height=50&lines=🤖+Raspy_Hermes;Ecosistema+de+8+Agentes+Autónomos;Impresión+3D+•+Electrónica+•+Bioplásticos;Orquestación+Maker+STEM+en+Kronos_School" alt="Typing SVG" />
 </p>
 
 <p align="center">
-  <img alt="Licencia MIT" src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white">
-  <img alt="Entorno Kronos_School" src="https://img.shields.io/badge/Entorno-Kronos__School-emerald.svg?style=for-the-badge&logo=education&logoColor=white">
-  <img alt="Agentes" src="https://img.shields.io/badge/Agentes-8%20Bots-7c3aed.svg?style=for-the-badge&logo=probot&logoColor=white">
+  <b>Plataforma de Asistencia Inteligente y Mentoría Autónoma para Laboratorios Educativos y Maker Spaces</b>
+</p>
+
+<p align="center">
+  <img alt="Licencia MIT" src="https://img.shields.io/badge/license-MIT-3b82f6.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white">
+  <img alt="Entorno Kronos_School" src="https://img.shields.io/badge/Entorno-Kronos__School-10b981.svg?style=for-the-badge&logo=googleclassroom&logoColor=white">
+  <img alt="Agentes" src="https://img.shields.io/badge/Agentes-8%20Bots-8b5cf6.svg?style=for-the-badge&logo=probot&logoColor=white">
   <img alt="Último Commit" src="https://img.shields.io/github/last-commit/zebas-hidalgo/Raspy_Hermes?style=for-the-badge&color=0284c7&logo=git&logoColor=white">
   <img alt="Formato Diagramas" src="https://img.shields.io/badge/Diagramas-14%20SVG%20Vectoriales-f59e0b.svg?style=for-the-badge&logo=svg&logoColor=white">
 </p>
 
 <p align="center">
-  <a href="#-visión-general">Visión General</a> •
-  <a href="#-recursos-educativos-destacados">Recursos Educativos</a> •
-  <a href="#-clusters-de-agentes">Clusters</a> •
-  <a href="#-diagramas-avanzados-de-arquitectura">Arquitectura Avanzada</a> •
-  <a href="#-guía-de-interacción">Modo Bot</a> •
-  <a href="CONTRIBUTING.md">Contribuir</a>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
+  <img alt="Telegram" src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat-square&logo=telegram&logoColor=white">
+  <img alt="Discord" src="https://img.shields.io/badge/Discord-5865F2?style=flat-square&logo=discord&logoColor=white">
+  <img alt="Arduino" src="https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white">
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white">
+  <img alt="NVIDIA" src="https://img.shields.io/badge/NVIDIA%20Nemotron-76B900?style=flat-square&logo=nvidia&logoColor=white">
+  <img alt="Markdown" src="https://img.shields.io/badge/Markdown-000000?style=flat-square&logo=markdown&logoColor=white">
+</p>
+
+<p align="center">
+  <a href="#-visión-general"><b>Visión General</b></a> •
+  <a href="#-recursos-educativos-destacados"><b>Recursos Educativos</b></a> •
+  <a href="#-clusters-de-agentes"><b>Clusters</b></a> •
+  <a href="#-diagramas-avanzados-de-arquitectura"><b>Arquitectura</b></a> •
+  <a href="#-guía-de-interacción-en-modo-bot"><b>Modo Bot</b></a> •
+  <a href="CONTRIBUTING.md"><b>Contribuir</b></a>
 </p>
 
 ---
@@ -34,7 +45,7 @@ Los usuarios (estudiantes, docentes y entusiastas) interactúan con la red de bo
 
 ## 📚 Recursos Educativos Destacados
 
-Para sacar el máximo provecho al laboratorio y comprender en profundidad el funcionamiento del ecosistema, consulta nuestras guías especializadas organizadas por categorías:
+Para sacar el máximo provecho al laboratorio y comprender en profundidad el funcionamiento del ecosistema, consulta nuestras guías especializadas:
 
 | Recurso | Destinatario | Descripción | Enlace |
 | :--- | :--- | :--- | :--- |
@@ -56,7 +67,10 @@ Para sacar el máximo provecho al laboratorio y comprender en profundidad el fun
 
 ## 📊 Diagramas Avanzados de Arquitectura
 
-Para comprender en detalle la traza de ejecución, el ciclo de vida, la seguridad y la colaboración entre clusters:
+<details open>
+<summary>🔍 <b>Haz clic para expandir / colapsar los diagramas técnicos de arquitectura</b></summary>
+
+<br>
 
 ### 1. Diagrama de Secuencia UML — Traza de Mensajería y Enrutamiento
 Muestra el recorrido temporal de un mensaje desde que se envía en Telegram hasta la respuesta del modelo:
@@ -77,6 +91,8 @@ Mapeo exhaustivo de las herramientas asociadas a cada archivo `SKILL.md` del eco
 ### 5. Mapa de Colaboración Inter-Cluster
 Demuestra cómo colaboran los tres clusters durante el desarrollo de un proyecto escolar integrado:
 ![Mapa Inter-Cluster](diagrams/matriz_clusters_stem.svg)
+
+</details>
 
 ---
 
@@ -193,5 +209,14 @@ Raspy_Hermes/
 ---
 
 <p align="center">
-  <sub>Documentación mantenida para el ecosistema <b>Kronos_School</b> con <b>Hermes Agent</b> • Licencia MIT</sub>
+  <a href="https://github.com/zebas-hidalgo/Raspy_Hermes/stargazers">
+    <img src="https://img.shields.io/github/stars/zebas-hidalgo/Raspy_Hermes?style=social" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/zebas-hidalgo/Raspy_Hermes/network/members">
+    <img src="https://img.shields.io/github/forks/zebas-hidalgo/Raspy_Hermes?style=social" alt="GitHub forks">
+  </a>
+</p>
+
+<p align="center">
+  <sub>Desarrollado con ❤️ para el ecosistema <b>Kronos_School</b> con <b>Hermes Agent</b> • Licencia MIT</sub>
 </p>
