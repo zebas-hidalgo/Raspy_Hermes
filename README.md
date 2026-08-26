@@ -15,10 +15,10 @@
 
 <p align="center">
   <a href="#-visión-general">Visión General</a> •
+  <a href="#-recursos-educativos-destacados">Recursos Educativos</a> •
   <a href="#-clusters-de-agentes">Clusters</a> •
   <a href="#-diagrama-del-ecosistema">Arquitectura</a> •
-  <a href="#-guía-de-interacción">Modo Bot</a> •
-  <a href="#-documentación-por-agente">Documentación</a>
+  <a href="#-guía-de-interacción">Modo Bot</a>
 </p>
 
 ---
@@ -28,6 +28,19 @@
 **Raspy_Hermes** es un ecosistema educativo compuesto por **8 agentes de IA autónomos** basados en el motor de **Hermes Agent**. Los agentes están diseñados para apoyar el aprendizaje basado en proyectos STEM en 6to grado básico (Chile), facilitando la resolución de dudas sobre **Impresión 3D**, **Electrónica**, **Bioplásticos**, **Arquitectura de Sistemas** y **Orquestación**.
 
 Los usuarios (estudiantes y profesores) interactúan con la red de bots en plataformas de mensajería (Telegram y Discord) mediante la sintaxis `@NombreAgent` o comandos `/slash`.
+
+---
+
+## 📚 Recursos Educativos Destacados
+
+Para sacar el máximo provecho al laboratorio y comprender en profundidad el funcionamiento del ecosistema, consulta nuestras guías especializadas:
+
+| Recurso | Destinatario | Descripción | Enlace |
+| :--- | :--- | :--- | :--- |
+| **🍎 Guía Metodológica para Docentes** | Profesores / UT P | Matriz de Objetivos de Aprendizaje (Mineduc Chile), metodología ABP y rúbrica de evaluación. | [📘 Ver Guía](docs/GUIAS_DOCENTES.md) |
+| **🚀 Manual de Interacción** | Estudiantes | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta digital. | [📘 Ver Manual](docs/GUIA_INTERACCION.md) |
+| **💡 Casos de Uso Reales** | Docentes y Alumnos | Proyectos integrados desglosados paso a paso (Maceta Inteligente, Brazo Robótico). | [📘 Ver Casos](docs/CASOS_DE_USO.md) |
+| **📖 Glosario Técnico STEM** | Comunidad | Definición sencilla de términos sobre Impresión 3D, Arduino, Bioplásticos e IA. | [📘 Ver Glosario](docs/GLOSARIO.md) |
 
 ---
 
@@ -120,7 +133,11 @@ Raspy_Hermes/
 │   ├── warden_flujo.svg
 │   ├── master_flujo.svg
 │   └── tutor_conversion_flujo.svg
-└── docs/                               # Documentación Markdown detallada por agente
+└── docs/                               # Documentación pedagógica y por agente
+    ├── GUIAS_DOCENTES.md               # Guía metodológica para profesores y rúbrica
+    ├── GUIA_INTERACCION.md             # Manual para estudiantes e ingeniería de prompts
+    ├── CASOS_DE_USO.md                 # Ejemplos de proyectos reales multidisciplinarios
+    ├── GLOSARIO.md                     # Glosario técnico de términos STEM
     ├── capa.md
     ├── elektra.md
     ├── bio.md
