@@ -1,0 +1,102 @@
+<svg viewBox="0 0 900 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 12px; fill: #ffffff; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 12px; }
+    .card-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; }
+    .card-sub-blue { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #0284c7; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- STAGE 1: TRIGGER -->
+  <rect x="30" y="40" width="180" height="400" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="45" y="55" width="150" height="30" rx="6" fill="#0284c7"/>
+  <text x="120" y="75" text-anchor="middle" class="header-title">ETAPA 1: TRIGGER</text>
+
+  <rect x="45" y="105" width="150" height="85" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="55" y="125" class="card-title" fill="#0f172a">Mención @Caraxes</text>
+  <text x="55" y="145" class="card-sub">• Diseño arquitectura</text>
+  <text x="55" y="160" class="card-sub">• Estructura de skills</text>
+
+  <rect x="45" y="205" width="150" height="85" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="55" y="225" class="card-title" fill="#0f172a">Slash /caraxes</text>
+  <text x="55" y="245" class="card-sub">• Planes refactor</text>
+  <text x="55" y="260" class="card-sub">• Patrones sistema</text>
+
+  <rect x="45" y="305" width="150" height="110" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="55" y="325" class="card-title" fill="#0f172a">Petición Agentes</text>
+  <text x="55" y="345" class="card-sub">• Requerimiento Capa/Elektra</text>
+  <text x="55" y="360" class="card-sub">• Optimización turnos</text>
+
+  <path d="M 210 240 L 240 240" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 2: PROCESSING & CONTEXT -->
+  <rect x="250" y="40" width="180" height="400" rx="10" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+  <rect x="265" y="55" width="150" height="30" rx="6" fill="#0369a1"/>
+  <text x="340" y="75" text-anchor="middle" class="header-title">ETAPA 2: CONTEXTO</text>
+
+  <rect x="265" y="105" width="150" height="90" rx="6" fill="#ffffff" stroke="#bae6fd"/>
+  <text x="275" y="125" class="card-title" fill="#0369a1">Prompt System</text>
+  <text x="275" y="145" class="card-sub-blue">• Metódico y estructurado</text>
+  <text x="275" y="160" class="card-sub-blue">• Enfoque en patrones</text>
+  <text x="275" y="175" class="card-sub-blue">• Pensamiento sistémico</text>
+
+  <rect x="265" y="210" width="150" height="90" rx="6" fill="#ffffff" stroke="#bae6fd"/>
+  <text x="275" y="230" class="card-title" fill="#0369a1">Causa Raíz</text>
+  <text x="275" y="250" class="card-sub-blue">• Análisis de cuellos</text>
+  <text x="275" y="265" class="card-sub-blue">• Reducción complejidad</text>
+
+  <rect x="265" y="315" width="150" height="100" rx="6" fill="#ffffff" stroke="#bae6fd"/>
+  <text x="275" y="335" class="card-title" fill="#0369a1">Configuración .env</text>
+  <text x="275" y="355" class="card-sub-blue">• Nemotron 120B</text>
+  <text x="275" y="370" class="card-sub-blue">• Turnos máx: 35</text>
+
+  <path d="M 430 240 L 460 240" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 3: SKILL EXECUTION -->
+  <rect x="470" y="40" width="180" height="400" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5"/>
+  <rect x="485" y="55" width="150" height="30" rx="6" fill="#0284c7"/>
+  <text x="560" y="75" text-anchor="middle" class="header-title">ETAPA 3: SKILLS</text>
+
+  <rect x="485" y="105" width="150" height="90" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="495" y="125" class="card-title" fill="#0369a1">plan &amp; writing-plans</text>
+  <text x="495" y="145" class="card-sub-blue">• Espec SKILL.md</text>
+  <text x="495" y="160" class="card-sub-blue">• Interfaces de agentes</text>
+
+  <rect x="485" y="210" width="150" height="90" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="495" y="230" class="card-title" fill="#0369a1">systematic-debug</text>
+  <text x="495" y="250" class="card-sub-blue">• Diagnóstico de carga</text>
+  <text x="495" y="265" class="card-sub-blue">• Verificación límites</text>
+
+  <rect x="485" y="315" width="150" height="100" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="495" y="335" class="card-title" fill="#0369a1">excalidraw C4/D2</text>
+  <text x="495" y="355" class="card-sub-blue">• Diagramas arquitectura</text>
+  <text x="495" y="370" class="card-sub-blue">• Mapeo de flujos</text>
+
+  <path d="M 650 240 L 680 240" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 4: OUTPUT & EFFECTS -->
+  <rect x="690" y="40" width="180" height="400" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="705" y="55" width="150" height="30" rx="6" fill="#0369a1"/>
+  <text x="780" y="75" text-anchor="middle" class="header-title">ETAPA 4: RESPUESTA</text>
+
+  <rect x="705" y="105" width="150" height="90" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="715" y="125" class="card-title" fill="#0f172a">Diseño SKILL.md</text>
+  <text x="715" y="145" class="card-sub">• Especificación técnica</text>
+  <text x="715" y="160" class="card-sub">• Prompt estructurado</text>
+
+  <rect x="705" y="210" width="150" height="90" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="715" y="230" class="card-title" fill="#0f172a">Diagrama C4</text>
+  <text x="715" y="250" class="card-sub">• Render visual de sistema</text>
+  <text x="715" y="265" class="card-sub">• Flujos de datos</text>
+
+  <rect x="705" y="315" width="150" height="100" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="715" y="335" class="card-title" fill="#0f172a">Orden de Creación</text>
+  <text x="715" y="355" class="card-sub">• Pasa espec. a Daemon</text>
+  <text x="715" y="370" class="card-sub">• Notifica a Warden</text>
+</svg>
