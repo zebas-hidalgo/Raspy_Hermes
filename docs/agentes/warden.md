@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # Warden — Guardián Metódico del Sistema
 
 ## Rol y Propósito
@@ -19,3 +23,7 @@ Warden es el agente especializado en monitoreo, mantenimiento, seguridad y gesti
 - `system_maintenance`: Limpieza de archivos temporales y liberación de memoria.
 - `cronjob & debugging`: Monitoreo periódico de salud y pruebas de ping/red.
 - `hermes-config`: Verificación de permisos y políticas de sandbox.
+
+---
+
+[← Volver al README Principal](../../README.md)

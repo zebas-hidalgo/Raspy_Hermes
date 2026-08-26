@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [📖 Diccionario de Skills](diccionario_skills.md) • [🔄 Ciclo de Vida](ciclo_vida_skills.md) • [🛡️ Seguridad](arquitectura_seguridad.md)
+
+---
+
 # 📖 Glosario Técnico Educativo STEM
 
 Este glosario define los términos técnicos utilizados por los agentes de **Raspy_Hermes** en un lenguaje claro para estudiantes, docentes y entusiastas Maker.
@@ -39,3 +43,7 @@ Este glosario define los términos técnicos utilizados por los agentes de **Ras
 - **Skill (`SKILL.md`):** Archivo de configuración en Markdown con frontmatter YAML que enseña a un agente una habilidad o rol específico.
 - **Gateway:** Conector que permite a los agentes recibir y responder mensajes en plataformas como Telegram o Discord.
 - **Prompts:** Instrucciones en texto natural que orientan la personalidad, límites y comportamiento del agente de IA.
+
+---
+
+[← Volver al README Principal](../../README.md)

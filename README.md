@@ -10,7 +10,7 @@
   <img alt="Entorno Kronos_School" src="https://img.shields.io/badge/Entorno-Kronos__School-emerald.svg?style=for-the-badge&logo=education&logoColor=white">
   <img alt="Agentes" src="https://img.shields.io/badge/Agentes-8%20Bots-7c3aed.svg?style=for-the-badge&logo=probot&logoColor=white">
   <img alt="Último Commit" src="https://img.shields.io/github/last-commit/zebas-hidalgo/Raspy_Hermes?style=for-the-badge&color=0284c7&logo=git&logoColor=white">
-  <img alt="Formato Diagramas" src="https://img.shields.io/badge/Diagramas-SVG%20Vectorial-f59e0b.svg?style=for-the-badge&logo=svg&logoColor=white">
+  <img alt="Formato Diagramas" src="https://img.shields.io/badge/Diagramas-14%20SVG%20Vectoriales-f59e0b.svg?style=for-the-badge&logo=svg&logoColor=white">
 </p>
 
 <p align="center">
@@ -18,7 +18,8 @@
   <a href="#-recursos-educativos-destacados">Recursos Educativos</a> •
   <a href="#-clusters-de-agentes">Clusters</a> •
   <a href="#-diagramas-avanzados-de-arquitectura">Arquitectura Avanzada</a> •
-  <a href="#-guía-de-interacción">Modo Bot</a>
+  <a href="#-guía-de-interacción">Modo Bot</a> •
+  <a href="CONTRIBUTING.md">Contribuir</a>
 </p>
 
 ---
@@ -38,8 +39,10 @@ Para sacar el máximo provecho al laboratorio y comprender en profundidad el fun
 | Recurso | Destinatario | Descripción | Enlace |
 | :--- | :--- | :--- | :--- |
 | **📚 Diccionario de Skills** | Desarrolladores / Docentes | Catálogo técnico de las 8 habilidades nativas y herramientas auxiliares del sistema. | [📘 Ver Diccionario](docs/referencias/diccionario_skills.md) |
-| **🍎 Guía Metodológica para Docentes** | Profesores / UTP | Matriz de Objetivos de Aprendizaje Transversales STEM, metodología ABP y rúbrica de evaluación. | [📘 Ver Guía](docs/pedagogia/guias_docentes.md) |
-| **🚀 Manual de Interacción** | Estudiantes / Usuarios | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta digital. | [📘 Ver Manual](docs/pedagogia/guia_interaccion_estudiantes.md) |
+| **🔄 Ciclo de Vida de Skills** | Arquitectos / Creadores | Fases de diseño, empaquetado, validación y activación de habilidades. | [📘 Ver Ciclo de Vida](docs/referencias/ciclo_vida_skills.md) |
+| **🛡️ Arquitectura de Seguridad** | Administradores / IT | Mecanismos de sanitización, rate limiting, control de turnos y sandbox. | [📘 Ver Seguridad](docs/referencias/arquitectura_seguridad.md) |
+| **🍎 Guía Metodológica para Docentes** | Profesores / UTP | Matriz de Objetivos de Aprendizaje Transversales STEM, metodología ABP y rúbrica. | [📘 Ver Guía](docs/pedagogia/guias_docentes.md) |
+| **🚀 Manual de Interacción** | Estudiantes / Usuarios | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta. | [📘 Ver Manual](docs/pedagogia/guia_interaccion_estudiantes.md) |
 | **💡 Casos de Uso Reales** | Docentes y Alumnos | Proyectos integrados desglosados paso a paso (Maceta Inteligente, Brazo Robótico). | [📘 Ver Casos](docs/pedagogia/casos_de_uso.md) |
 | **📖 Glosario Técnico STEM** | Comunidad | Definición sencilla de términos sobre Impresión 3D, Arduino, Bioplásticos e IA. | [📘 Ver Glosario](docs/referencias/glosario_stem.md) |
 
@@ -53,17 +56,25 @@ Para sacar el máximo provecho al laboratorio y comprender en profundidad el fun
 
 ## 📊 Diagramas Avanzados de Arquitectura
 
-Para comprender en detalle la traza de ejecución, el mapeo de habilidades y la colaboración entre clusters:
+Para comprender en detalle la traza de ejecución, el ciclo de vida, la seguridad y la colaboración entre clusters:
 
 ### 1. Diagrama de Secuencia UML — Traza de Mensajería y Enrutamiento
 Muestra el recorrido temporal de un mensaje desde que se envía en Telegram hasta la respuesta del modelo:
 ![Diagrama de Secuencia UML](diagrams/secuencia_interaccion.svg)
 
-### 2. Matriz de Habilidades y Herramientas por Agente
+### 2. Ciclo de Vida de una Skill en Hermes Agent
+Proceso metódico en 5 pasos para crear, validar y activar nuevas habilidades en el sistema:
+![Ciclo de Vida de una Skill](diagrams/ciclo_vida_skill.svg)
+
+### 3. Arquitectura de Seguridad, Filtrado y Sandbox Educativo
+Mecanismos multicapa para proteger la integridad del aula y la infraestructura técnica:
+![Arquitectura de Seguridad](diagrams/seguridad_sandbox.svg)
+
+### 4. Matriz de Habilidades y Herramientas por Agente
 Mapeo exhaustivo de las herramientas asociadas a cada archivo `SKILL.md` del ecosistema:
 ![Matriz de Habilidades](diagrams/mapa_habilidades_skills.svg)
 
-### 3. Mapa de Colaboración Inter-Cluster
+### 5. Mapa de Colaboración Inter-Cluster
 Demuestra cómo colaboran los tres clusters durante el desarrollo de un proyecto escolar integrado:
 ![Mapa Inter-Cluster](diagrams/matriz_clusters_stem.svg)
 
@@ -142,9 +153,12 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 ```
 Raspy_Hermes/
 ├── README.md                           # Presentación principal del proyecto
-├── diagrams/                           # Diagramas vectoriales en formato SVG
+├── CONTRIBUTING.md                     # Guía para proponer skills y contribuir
+├── diagrams/                           # 14 diagramas vectoriales en formato SVG
 │   ├── ecosistema_general.svg          # Mapa general del ecosistema
 │   ├── secuencia_interaccion.svg       # Diagrama de Secuencia UML de mensajería
+│   ├── ciclo_vida_skill.svg            # Ciclo de vida de una skill en Hermes
+│   ├── seguridad_sandbox.svg           # Arquitectura de seguridad y sandbox
 │   ├── mapa_habilidades_skills.svg     # Matriz de herramientas y skills por agente
 │   ├── matriz_clusters_stem.svg        # Mapa de colaboración inter-cluster
 │   ├── capa_flujo.svg                  # Flujo de Maestro Capa
@@ -169,8 +183,10 @@ Raspy_Hermes/
     │   ├── guias_docentes.md
     │   ├── guia_interaccion_estudiantes.md
     │   └── casos_de_uso.md
-    └── referencias/                    # Catálogos técnicos y glosarios
+    └── referencias/                    # Catálogos técnicos y arquitectura
         ├── diccionario_skills.md
+        ├── ciclo_vida_skills.md
+        ├── arquitectura_seguridad.md
         └── glosario_stem.md
 ```
 

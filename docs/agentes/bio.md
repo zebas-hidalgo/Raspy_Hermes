@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # Bio — Mentor de Bioplásticos y Materiales Sostenibles
 
 ## Rol y Propósito
@@ -19,3 +23,7 @@ Bio es el agente especializado en bioplásticos, materiales sostenibles, químic
 - `recetario-bioplasticos`: Recetas con proporciones exactas en gramos y mililitros.
 - `pdf-export`: Generación de fichas de datos de materiales y guías de laboratorio.
 - `diagnostico-bug`: Solución de problemas durante el secado (grietas, rigidez/flexibilidad).
+
+---
+
+[← Volver al README Principal](../../README.md)

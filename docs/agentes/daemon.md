@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # Daemon — Creador y Mantenedor de Skills
 
 ## Rol y Propósito
@@ -19,3 +23,7 @@ Daemon es el agente especializado en la creación, actualización, documentació
 - `skill-generator`: Creación de archivos `SKILL.md` con frontmatter YAML válido.
 - `writing-plans`: Guías de despliegue y versionado semántico.
 - `excalidraw`: Diagramación de la estructura interna de skills.
+
+---
+
+[← Volver al README Principal](../../README.md)

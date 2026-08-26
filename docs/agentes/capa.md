@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # Maestro Capa — Experto en Impresión 3D
 
 ## Rol y Propósito
@@ -20,3 +24,7 @@ Maestro Capa es el agente especializado en impresión 3D, diseño para fabricaci
 - `stl_analyzer`: Análisis de archivos STL para detección de volumen, sobrevuelos y orientación óptima.
 - `excalidraw`: Diagramación de piezas y ensamblajes técnicos.
 - `slicer_config`: Parámetros recomendados para Cura/OrcaSlicer (PLA, Ender 3, 200°C boquilla, 50°C cama).
+
+---
+
+[← Volver al README Principal](../../README.md)

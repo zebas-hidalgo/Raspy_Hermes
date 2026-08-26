@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🚀 Manual Estudiantes](guia_interaccion_estudiantes.md) • [💡 Casos de Uso](casos_de_uso.md)
+
+---
+
 # 🍎 Guía Metodológica para Docentes (STEM / ABP)
 
 Esta guía proporciona orientaciones pedagógicas para integrar los agentes autónomos de **Raspy_Hermes** en proyectos educativos y asignaturas Maker STEM para estudiantes y docentes.
@@ -47,3 +51,7 @@ Los agentes de **Raspy_Hermes** actúan como co-tutores virtuales en el laborato
 1. **Definir Roles de Equipo:** Asignar a un estudiante el rol de *Comunicador con IA*, quien redactará las consultas para los agentes.
 2. **Revisión de Seguridad:** Supervisar siempre el calentamiento de mezclas bioplásticas y el uso de la estufa/boquilla 3D.
 3. **Citas de IA:** Fomentar que los estudiantes documenten en sus bitácoras *"Respuesta brindada por @Elektra sobre el pinout de Arduino"*.
+
+---
+
+[← Volver al README Principal](../../README.md)

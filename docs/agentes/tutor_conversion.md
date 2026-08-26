@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # TutorConversion — Conversor de Tutors a Agentes Autónomos
 
 ## Rol y Propósito
@@ -19,3 +23,7 @@ TutorConversion es el agente especializado en analizar materiales educativos exi
 - `tutor & quiz-interactivo`: Generación de preguntas adaptativas y bancos de evaluación.
 - `writing-plans`: Estructuración de flujos conversacionales de aprendizaje.
 - `excalidraw`: Diagramación de rutas de aprendizaje y árboles de decisión.
+
+---
+
+[← Volver al README Principal](../../README.md)

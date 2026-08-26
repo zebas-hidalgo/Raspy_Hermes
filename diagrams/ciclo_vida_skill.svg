@@ -1,0 +1,96 @@
+<svg viewBox="0 0 940 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .step-num { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 14px; fill: #ffffff; }
+    .step-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 12px; }
+    .step-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; fill: #64748b; }
+    .agent-tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 10px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <rect width="940" height="440" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- TITLE -->
+  <text x="470" y="35" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="16" fill="#0f172a">CICLO DE VIDA DE UNA SKILL EN HERMES AGENT</text>
+
+  <!-- STEP 1: DETECCIÓN -->
+  <rect x="30" y="70" width="160" height="320" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <circle cx="110" cy="105" r="18" fill="#475569"/>
+  <text x="110" y="110" text-anchor="middle" class="step-num">1</text>
+  <text x="110" y="145" text-anchor="middle" class="step-title" fill="#0f172a">Detección</text>
+  <text x="110" y="165" text-anchor="middle" class="step-desc">Identificación de</text>
+  <text x="110" y="180" text-anchor="middle" class="step-desc">necesidad educativa</text>
+  <rect x="45" y="210" width="130" height="80" rx="6" fill="#f1f5f9"/>
+  <text x="110" y="235" text-anchor="middle" class="step-desc">• Preguntas docentes</text>
+  <text x="110" y="255" text-anchor="middle" class="step-desc">• Nuevo sensor/material</text>
+  <text x="110" y="275" text-anchor="middle" class="step-desc">• Guía de laboratorio</text>
+  <rect x="45" y="310" width="130" height="26" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="110" y="327" text-anchor="middle" class="agent-tag" fill="#475569">Docente / Estudiante</text>
+
+  <path d="M 190 230 L 210 230" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 2: ESPECIFICACIÓN -->
+  <rect x="215" y="70" width="160" height="320" rx="10" fill="#ffffff" stroke="#7dd3fc" stroke-width="1.5"/>
+  <circle cx="295" cy="105" r="18" fill="#0284c7"/>
+  <text x="295" y="110" text-anchor="middle" class="step-num">2</text>
+  <text x="295" y="145" text-anchor="middle" class="step-title" fill="#0369a1">Diseño C4</text>
+  <text x="295" y="165" text-anchor="middle" class="step-desc">Modelado de flujos</text>
+  <text x="295" y="180" text-anchor="middle" class="step-desc">e interfaces</text>
+  <rect x="230" y="210" width="130" height="80" rx="6" fill="#e0f2fe"/>
+  <text x="295" y="235" text-anchor="middle" class="step-desc">• Límites de turnos</text>
+  <text x="295" y="255" text-anchor="middle" class="step-desc">• Entradas y salidas</text>
+  <text x="295" y="275" text-anchor="middle" class="step-desc">• Plan de integración</text>
+  <rect x="230" y="310" width="130" height="26" rx="4" fill="#bae6fd"/>
+  <text x="295" y="327" text-anchor="middle" class="agent-tag" fill="#0369a1">@Caraxes</text>
+
+  <path d="M 375 230 L 395 230" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 3: CREACIÓN SKILL.MD -->
+  <rect x="400" y="70" width="160" height="320" rx="10" fill="#ffffff" stroke="#7dd3fc" stroke-width="1.5"/>
+  <circle cx="480" cy="105" r="18" fill="#0284c7"/>
+  <text x="480" y="110" text-anchor="middle" class="step-num">3</text>
+  <text x="480" y="145" text-anchor="middle" class="step-title" fill="#0369a1">Empaquetado</text>
+  <text x="480" y="165" text-anchor="middle" class="step-desc">Redacción de</text>
+  <text x="480" y="180" text-anchor="middle" class="step-desc">archivo SKILL.md</text>
+  <rect x="415" y="210" width="130" height="80" rx="6" fill="#e0f2fe"/>
+  <text x="480" y="235" text-anchor="middle" class="step-desc">• Frontmatter YAML</text>
+  <text x="480" y="255" text-anchor="middle" class="step-desc">• Directrices claras</text>
+  <text x="480" y="275" text-anchor="middle" class="step-desc">• Herramientas helper</text>
+  <rect x="415" y="310" width="130" height="26" rx="4" fill="#bae6fd"/>
+  <text x="480" y="327" text-anchor="middle" class="agent-tag" fill="#0369a1">@Daemon</text>
+
+  <path d="M 560 230 L 580 230" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 4: AUDITORÍA & SALUD -->
+  <rect x="585" y="70" width="160" height="320" rx="10" fill="#ffffff" stroke="#7dd3fc" stroke-width="1.5"/>
+  <circle cx="665" cy="105" r="18" fill="#0284c7"/>
+  <text x="665" y="110" text-anchor="middle" class="step-num">4</text>
+  <text x="665" y="145" text-anchor="middle" class="step-title" fill="#0369a1">Auditoría</text>
+  <text x="665" y="165" text-anchor="middle" class="step-desc">Pruebas en Sandbox</text>
+  <text x="665" y="180" text-anchor="middle" class="step-desc">y control de RAM</text>
+  <rect x="600" y="210" width="130" height="80" rx="6" fill="#e0f2fe"/>
+  <text x="665" y="235" text-anchor="middle" class="step-desc">• Verificación seguridad</text>
+  <text x="665" y="255" text-anchor="middle" class="step-desc">• Testeo de comandos</text>
+  <text x="665" y="275" text-anchor="middle" class="step-desc">• Registro en catálogo</text>
+  <rect x="600" y="310" width="130" height="26" rx="4" fill="#bae6fd"/>
+  <text x="665" y="327" text-anchor="middle" class="agent-tag" fill="#0369a1">@Warden</text>
+
+  <path d="M 745 230 L 765 230" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 5: DESPLIEGUE & USO -->
+  <rect x="770" y="70" width="140" height="320" rx="10" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.5"/>
+  <circle cx="840" cy="105" r="18" fill="#059669"/>
+  <text x="840" y="110" text-anchor="middle" class="step-num">5</text>
+  <text x="840" y="145" text-anchor="middle" class="step-title" fill="#065f46">Activación</text>
+  <text x="840" y="165" text-anchor="middle" class="step-desc">Disponible en</text>
+  <text x="840" y="180" text-anchor="middle" class="step-desc">modo bot 24/7</text>
+  <rect x="780" y="210" width="120" height="80" rx="6" fill="#d1fae5"/>
+  <text x="840" y="235" text-anchor="middle" class="step-desc">• Menciones @Bot</text>
+  <text x="840" y="255" text-anchor="middle" class="step-desc">• Comandos /slash</text>
+  <text x="840" y="275" text-anchor="middle" class="step-desc">• Resolución STEM</text>
+  <rect x="780" y="310" width="120" height="26" rx="4" fill="#a7f3d0"/>
+  <text x="840" y="327" text-anchor="middle" class="agent-tag" fill="#065f46">Ecosistema Hermes</text>
+</svg>

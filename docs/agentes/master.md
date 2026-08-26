@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # Master — Orquestador de Agentes y Flujos Complejos
 
 ## Rol y Propósito
@@ -19,3 +23,7 @@ Master es el agente especializado en orquestación, coordinación de múltiples 
 - `delegation`: Despacho y asignación de sub-tareas a agentes de dominio.
 - `dispatching-parallel-agents`: Ejecución concurrente y sincronización de avances.
 - `plan & excalidraw`: Generación de planes de proyecto con tableros Gantt/Kanban.
+
+---
+
+[← Volver al README Principal](../../README.md)

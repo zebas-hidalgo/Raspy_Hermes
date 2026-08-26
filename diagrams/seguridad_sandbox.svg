@@ -1,0 +1,81 @@
+<svg viewBox="0 0 940 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .sec-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 13px; }
+    .sec-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; }
+    .head-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 12px; fill: #ffffff; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <rect width="940" height="460" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- TITLE -->
+  <text x="470" y="35" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="16" fill="#0f172a">ARQUITECTURA DE SEGURIDAD, FILTRADO Y SANDBOX EDUCATIVO</text>
+
+  <!-- LAYER 1: INGESTION & SANITIZATION -->
+  <rect x="40" y="70" width="260" height="350" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="55" y="85" width="230" height="30" rx="6" fill="#475569"/>
+  <text x="170" y="105" text-anchor="middle" class="head-text">1. SANITIZACIÓN DE ENTRADA</text>
+
+  <rect x="55" y="130" width="230" height="75" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="65" y="150" class="sec-title" fill="#0f172a">Filtro de Archivos</text>
+  <text x="65" y="170" class="sec-sub">• Solo extensiones permitidas</text>
+  <text x="65" y="185" class="sec-sub">• Límite estricto: 10 MB</text>
+
+  <rect x="55" y="215" width="230" height="75" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="65" y="235" class="sec-title" fill="#0f172a">Anti-Prompt Injection</text>
+  <text x="65" y="255" class="sec-sub">• Aislamiento de instrucciones</text>
+  <text x="65" y="270" class="sec-sub">• Preservación del System Prompt</text>
+
+  <rect x="55" y="300" width="230" height="75" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="65" y="320" class="sec-title" fill="#0f172a">Rate Limiting</text>
+  <text x="65" y="340" class="sec-sub">• Prevención de spam en Telegram</text>
+  <text x="65" y="355" class="sec-sub">• Cola de mensajes regulada</text>
+
+  <path d="M 300 245 L 340 245" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- LAYER 2: ISOLATION & RESOURCE LIMITS -->
+  <rect x="340" y="70" width="260" height="350" rx="10" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+  <rect x="355" y="85" width="230" height="30" rx="6" fill="#0284c7"/>
+  <text x="470" y="105" text-anchor="middle" class="head-text">2. SANDBOX &amp; LÍMITES</text>
+
+  <rect x="355" y="130" width="230" height="75" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="365" y="150" class="sec-title" fill="#0369a1">Control de Turnos</text>
+  <text x="365" y="170" class="sec-sub">• Límite por sesión (20-40 turnos)</text>
+  <text x="365" y="185" class="sec-sub">• Evita bucles infinitos</text>
+
+  <rect x="355" y="215" width="230" height="75" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="365" y="235" class="sec-title" fill="#0369a1">Aislamiento de Código</text>
+  <text x="365" y="255" class="sec-sub">• Contenedor Docker cerrado</text>
+  <text x="365" y="270" class="sec-sub">• Sin acceso a host ni root</text>
+
+  <rect x="355" y="300" width="230" height="75" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="365" y="320" class="sec-title" fill="#0369a1">Vigilancia Warden</text>
+  <text x="365" y="340" class="sec-sub">• Monitoreo en vivo de RAM</text>
+  <text x="365" y="355" class="sec-sub">• Matado preventivo de procesos</text>
+
+  <path d="M 600 245 L 640 245" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- LAYER 3: OUTPUT FILTER & PEDAGOGICAL SAFETY -->
+  <rect x="640" y="70" width="260" height="350" rx="10" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+  <rect x="655" y="85" width="230" height="30" rx="6" fill="#059669"/>
+  <text x="770" y="105" text-anchor="middle" class="head-text">3. SEGURIDAD EDUCATIVA</text>
+
+  <rect x="655" y="130" width="230" height="75" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="665" y="150" class="sec-title" fill="#065f46">Check Voltajes y Calor</text>
+  <text x="665" y="170" class="sec-sub">• @Elektra verifica 5V/9V seguros</text>
+  <text x="665" y="185" class="sec-sub">• @Bio advierte calor en cocción</text>
+
+  <rect x="655" y="215" width="230" height="75" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="665" y="235" class="sec-title" fill="#065f46">Tono Pedagógico</text>
+  <text x="665" y="255" class="sec-sub">• Lenguaje constructivo y respetuoso</text>
+  <text x="665" y="270" class="sec-sub">• Sin respuestas dañinas o tóxicas</text>
+
+  <rect x="655" y="300" width="230" height="75" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="665" y="320" class="sec-title" fill="#065f46">Entrega Formateada</text>
+  <text x="665" y="340" class="sec-sub">• Markdown renderizado seguro</text>
+  <text x="665" y="355" class="sec-sub">• Código verificado y probado</text>
+</svg>

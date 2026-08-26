@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # Elektra / Chispa — Experta en Electrónica y Microcontroladores
 
 ## Rol y Propósito
@@ -19,3 +23,7 @@ Elektra (también conocida como Chispa) es la agente especializada en electróni
 - `ejemplo-codigo`: Generación de código Arduino/ESP32 comentado para estudiantes y entusiastas.
 - `diagnostico-bug`: Depuración de conexiones en protoboard y lectura de multímetro.
 - `pdf-export`: Generación de listas de componentes (BOM) y esquemas imprimibles.
+
+---
+
+[← Volver al README Principal](../../README.md)

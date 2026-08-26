@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🍎 Guía Docentes](guias_docentes.md) • [🚀 Manual Estudiantes](guia_interaccion_estudiantes.md)
+
+---
+
 # 💡 Casos de Uso Reales Multidisciplinarios
 
 Este documento muestra cómo interactúan los agentes de **Raspy_Hermes** para resolver proyectos escolares reales en **Kronos_School**.
@@ -54,3 +58,7 @@ Convertir un PDF estático sobre *"El Ciclo del Agua y la Evaporación"* en un b
 1. **Docente:** `@TutorConversion Adjunto la guía en PDF. Queremos convertirla en un bot de preguntas adaptativas.`
 2. **@TutorConversion:** Extrae los conceptos clave (Evaporación, Condensación, Precipitación), los categoriza según la Taxonomía de Bloom y genera un árbol de diálogo.
 3. **@Daemon:** Toma la especificación de `@TutorConversion` y empaqueta la nueva habilidad `ciclo_agua_tutor/SKILL.md` dentro del catálogo de Hermes Agent.
+
+---
+
+[← Volver al README Principal](../../README.md)

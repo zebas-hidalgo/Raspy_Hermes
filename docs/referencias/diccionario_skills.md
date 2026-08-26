@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [📚 Glosario](glosario_stem.md) • [🔄 Ciclo de Vida](ciclo_vida_skills.md) • [🛡️ Seguridad](arquitectura_seguridad.md)
+
+---
+
 # 📚 Diccionario de Skills — Catálogo Técnico de Habilidades
 
 Este diccionario actúa como la **referencia definitiva de habilidades (Skills)** para el ecosistema de **Hermes Agent** en Kronos_School. Cada habilidad está empaquetada mediante la especificación de archivos `SKILL.md` con su correspondiente frontmatter YAML y directrices operativas.
@@ -165,3 +169,7 @@ Además de las 8 habilidades nativas principales, el ecosistema cuenta con **her
 - **`ejemplo-codigo`:** Generador sintáctico de código para Arduino IDE (`.ino`) y MicroPython (`.py`).
 - **`recetario-bioplasticos`:** Base de datos de solubilidad y tiempos de curado para matrices poliméricas orgánicas.
 - **`excalidraw`:** Renderizador de diagramas esquemáticos en bloques visuales SVG/PNG.
+
+---
+
+[← Volver al README Principal](../../README.md)

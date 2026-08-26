@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🤖 Ver Todos los Agentes](../../README.md#-clusters-de-agentes) • [📖 Diccionario](../referencias/diccionario_skills.md)
+
+---
+
 # Caraxes — Arquitecto Estratega de Skills
 
 ## Rol y Propósito
@@ -19,3 +23,7 @@ Caraxes es el agente especializado en arquitectura de sistemas, diseño de habil
 - `plan & writing-plans`: Creación de especificaciones técnicas para nuevas habilidades.
 - `systematic-debugging`: Análisis de cuellos de botella y límites de turnos.
 - `excalidraw`: Generación de diagramas de arquitectura C4 y modelado D2.
+
+---
+
+[← Volver al README Principal](../../README.md)

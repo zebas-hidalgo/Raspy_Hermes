@@ -1,3 +1,7 @@
+[← Volver al README Principal](../../README.md) • [🍎 Guía Docentes](guias_docentes.md) • [💡 Casos de Uso](casos_de_uso.md)
+
+---
+
 # 🚀 Manual de Interacción para Estudiantes: ¡Cómo hablarle a tus Agentes!
 
 ¡Bienvenido al laboratorio de **Raspy_Hermes**! Aquí aprenderás a hacerle preguntas a tus mentores de IA para que tus proyectos de Impresión 3D, Electrónica y Bioplásticos salgan perfectos.
@@ -43,3 +47,7 @@ Para recibir la mejor respuesta, no le preguntes solo *"Hola"*. Incluye los **3 
 1. **Sé claro y específico:** Entre más detalles le des al bot, mejor será la ayuda.
 2. **Revisa las respuestas antes de armar:** Lee siempre los consejos de seguridad de `@Elektra` o `@Capa` antes de conectar cables o encender la máquina.
 3. **Reporta fallas a `@Warden`:** Si el bot tarda en responder o algo no funciona bien en la red, avísale a `@Warden`.
+
+---
+
+[← Volver al README Principal](../../README.md)
