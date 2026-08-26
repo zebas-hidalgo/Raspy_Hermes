@@ -37,6 +37,7 @@ Para sacar el máximo provecho al laboratorio y comprender en profundidad el fun
 
 | Recurso | Destinatario | Descripción | Enlace |
 | :--- | :--- | :--- | :--- |
+| **📚 Diccionario de Skills** | Desarrolladores / Docentes | Catálogo técnico de las 8 habilidades nativas y herramientas auxiliares del sistema. | [📘 Ver Diccionario](docs/DICCIONARIO_SKILLS.md) |
 | **🍎 Guía Metodológica para Docentes** | Profesores / UT P | Matriz de Objetivos de Aprendizaje (Mineduc Chile), metodología ABP y rúbrica de evaluación. | [📘 Ver Guía](docs/GUIAS_DOCENTES.md) |
 | **🚀 Manual de Interacción** | Estudiantes | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta digital. | [📘 Ver Manual](docs/GUIA_INTERACCION.md) |
 | **💡 Casos de Uso Reales** | Docentes y Alumnos | Proyectos integrados desglosados paso a paso (Maceta Inteligente, Brazo Robótico). | [📘 Ver Casos](docs/CASOS_DE_USO.md) |
@@ -155,6 +156,7 @@ Raspy_Hermes/
 │   ├── master_flujo.svg                # Flujo de Master
 │   └── tutor_conversion_flujo.svg      # Flujo de TutorConversion
 └── docs/                               # Documentación pedagógica y por agente
+    ├── DICCIONARIO_SKILLS.md           # Catálogo técnico completo de habilidades y herramientas
     ├── GUIAS_DOCENTES.md               # Guía metodológica para profesores y rúbrica
     ├── GUIA_INTERACCION.md             # Manual para estudiantes e ingeniería de prompts
     ├── CASOS_DE_USO.md                 # Ejemplos de proyectos reales multidisciplinarios
