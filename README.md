@@ -17,7 +17,7 @@
   <a href="#-visión-general">Visión General</a> •
   <a href="#-recursos-educativos-destacados">Recursos Educativos</a> •
   <a href="#-clusters-de-agentes">Clusters</a> •
-  <a href="#-diagrama-del-ecosistema">Arquitectura</a> •
+  <a href="#-diagramas-avanzados-de-arquitectura">Arquitectura Avanzada</a> •
   <a href="#-guía-de-interacción">Modo Bot</a>
 </p>
 
@@ -47,6 +47,24 @@ Para sacar el máximo provecho al laboratorio y comprender en profundidad el fun
 ## 🏛️ Diagrama del Ecosistema
 
 ![Ecosistema General de Agentes](diagrams/ecosistema_general.svg)
+
+---
+
+## 📊 Diagramas Avanzados de Arquitectura
+
+Para comprender en detalle la traza de ejecución, el mapeo de habilidades y la colaboración entre clusters:
+
+### 1. Diagrama de Secuencia UML — Traza de Mensajería y Enrutamiento
+Muestra el recorrido temporal de un mensaje desde que se envía en Telegram hasta la respuesta del modelo:
+![Diagrama de Secuencia UML](diagrams/secuencia_interaccion.svg)
+
+### 2. Matriz de Habilidades y Herramientas por Agente
+Mapeo exhaustivo de las herramientas asociadas a cada archivo `SKILL.md` del ecosistema:
+![Matriz de Habilidades](diagrams/mapa_habilidades_skills.svg)
+
+### 3. Mapa de Colaboración Inter-Cluster
+Demuestra cómo colaboran los tres clusters durante el desarrollo de un proyecto escolar integrado:
+![Mapa Inter-Cluster](diagrams/matriz_clusters_stem.svg)
 
 ---
 
@@ -124,15 +142,18 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 Raspy_Hermes/
 ├── README.md                           # Presentación principal del proyecto
 ├── diagrams/                           # Diagramas vectoriales en formato SVG
-│   ├── ecosistema_general.svg
-│   ├── capa_flujo.svg
-│   ├── elektra_flujo.svg
-│   ├── bio_flujo.svg
-│   ├── caraxes_flujo.svg
-│   ├── daemon_flujo.svg
-│   ├── warden_flujo.svg
-│   ├── master_flujo.svg
-│   └── tutor_conversion_flujo.svg
+│   ├── ecosistema_general.svg          # Mapa general del ecosistema
+│   ├── secuencia_interaccion.svg       # Diagrama de Secuencia UML de mensajería
+│   ├── mapa_habilidades_skills.svg     # Matriz de herramientas y skills por agente
+│   ├── matriz_clusters_stem.svg        # Mapa de colaboración inter-cluster
+│   ├── capa_flujo.svg                  # Flujo de Maestro Capa
+│   ├── elektra_flujo.svg               # Flujo de Elektra
+│   ├── bio_flujo.svg                   # Flujo de Bio
+│   ├── caraxes_flujo.svg               # Flujo de Caraxes
+│   ├── daemon_flujo.svg                # Flujo de Daemon
+│   ├── warden_flujo.svg                # Flujo de Warden
+│   ├── master_flujo.svg                # Flujo de Master
+│   └── tutor_conversion_flujo.svg      # Flujo de TutorConversion
 └── docs/                               # Documentación pedagógica y por agente
     ├── GUIAS_DOCENTES.md               # Guía metodológica para profesores y rúbrica
     ├── GUIA_INTERACCION.md             # Manual para estudiantes e ingeniería de prompts

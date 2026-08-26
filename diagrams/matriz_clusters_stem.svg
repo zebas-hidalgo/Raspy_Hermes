@@ -1,0 +1,88 @@
+<svg viewBox="0 0 940 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .node-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 13px; fill: #ffffff; }
+    .node-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #1e293b; }
+    .flow-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; font-weight: 600; fill: #475569; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect width="940" height="520" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- TITLE HEADER -->
+  <text x="470" y="35" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="16" fill="#0f172a">MAPA DE COLABORACIÓN MULTIDISCIPLINARIA INTER-CLUSTER</text>
+
+  <!-- MASTER ORCHESTRATOR NODE (CENTER TOP) -->
+  <rect x="340" y="60" width="260" height="90" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="350" y="70" width="240" height="30" rx="6" fill="#7c3aed"/>
+  <text x="470" y="90" text-anchor="middle" class="node-title">@Master (Orquestador)</text>
+  <text x="470" y="115" text-anchor="middle" class="node-sub">Planifica, asigna y consolida el proyecto</text>
+
+  <!-- DOMAIN CLUSTER BOX (LEFT) -->
+  <rect x="40" y="210" width="410" height="270" rx="12" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+  <rect x="55" y="225" width="380" height="28" rx="6" fill="#059669"/>
+  <text x="245" y="244" text-anchor="middle" class="node-title">CLUSTER DOMINIO (EJECUCIÓN PROYECTO STEM)</text>
+
+  <!-- Capa Sub-node -->
+  <rect x="60" y="270" width="110" height="70" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="115" y="295" text-anchor="middle" font-weight="bold" font-size="12" fill="#065f46">@Capa</text>
+  <text x="115" y="315" text-anchor="middle" font-size="10" fill="#047857">Carcasa 3D</text>
+
+  <!-- Elektra Sub-node -->
+  <rect x="190" y="270" width="110" height="70" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="245" y="295" text-anchor="middle" font-weight="bold" font-size="12" fill="#065f46">@Elektra</text>
+  <text x="245" y="315" text-anchor="middle" font-size="10" fill="#047857">Circuito 5V</text>
+
+  <!-- Bio Sub-node -->
+  <rect x="320" y="270" width="110" height="70" rx="6" fill="#ffffff" stroke="#6ee7b7"/>
+  <text x="375" y="295" text-anchor="middle" font-weight="bold" font-size="12" fill="#065f46">@Bio</text>
+  <text x="375" y="315" text-anchor="middle" font-size="10" fill="#047857">Bioplástico</text>
+
+  <!-- Domain Internal Inter-connections -->
+  <path d="M 170 305 L 190 305" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 300 305 L 320 305" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="245" y="380" text-anchor="middle" font-size="11" fill="#047857" font-weight="600">Integración Física del Prototipo Escolar</text>
+  <rect x="80" y="400" width="330" height="60" rx="6" fill="#ffffff" stroke="#a7f3d0"/>
+  <text x="245" y="423" text-anchor="middle" font-size="10" fill="#334155">Ejemplo: Maceta Bio + Sensores Arduino + Pieza 3D</text>
+  <text x="245" y="443" text-anchor="middle" font-size="10" fill="#059669" font-weight="bold">Entregable Final del Estudiante</text>
+
+  <!-- INFRASTRUCTURE CLUSTER BOX (RIGHT) -->
+  <rect x="490" y="210" width="410" height="270" rx="12" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+  <rect x="505" y="225" width="380" height="28" rx="6" fill="#0284c7"/>
+  <text x="695" y="244" text-anchor="middle" class="node-title">CLUSTER INFRAESTRUCTURA (SOPORTE Y SALUD)</text>
+
+  <!-- Caraxes Sub-node -->
+  <rect x="510" y="270" width="110" height="70" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="565" y="295" text-anchor="middle" font-weight="bold" font-size="12" fill="#0369a1">@Caraxes</text>
+  <text x="565" y="315" text-anchor="middle" font-size="10" fill="#0284c7">Espec Skill</text>
+
+  <!-- Daemon Sub-node -->
+  <rect x="640" y="270" width="110" height="70" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="695" y="295" text-anchor="middle" font-weight="bold" font-size="12" fill="#0369a1">@Daemon</text>
+  <text x="695" y="315" text-anchor="middle" font-size="10" fill="#0284c7">Crea Skill</text>
+
+  <!-- Warden Sub-node -->
+  <rect x="770" y="270" width="110" height="70" rx="6" fill="#ffffff" stroke="#7dd3fc"/>
+  <text x="825" y="295" text-anchor="middle" font-weight="bold" font-size="12" fill="#0369a1">@Warden</text>
+  <text x="825" y="315" text-anchor="middle" font-size="10" fill="#0284c7">Salud / RAM</text>
+
+  <!-- Infra Internal Connections -->
+  <path d="M 620 305 L 640 305" stroke="#0284c7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 750 305 L 770 305" stroke="#0284c7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="695" y="380" text-anchor="middle" font-size="11" fill="#0284c7" font-weight="600">Garantía de Estabilidad y Nuevas Capacidades</text>
+  <rect x="530" y="400" width="330" height="60" rx="6" fill="#ffffff" stroke="#bae6fd"/>
+  <text x="695" y="423" text-anchor="middle" font-size="10" fill="#334155">Crea nuevas skills para el laboratorio y vigila el sistema</text>
+  <text x="695" y="443" text-anchor="middle" font-size="10" fill="#0284c7" font-weight="bold">Soporte Técnico Continuo</text>
+
+  <!-- ARROWS FROM MASTER TO CLUSTERS -->
+  <path d="M 390 150 L 250 210" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="290" y="175" class="flow-label">Delegación de Subtareas</text>
+
+  <path d="M 550 150 L 695 210" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="640" y="175" class="flow-label">Validación de Salud &amp; Skills</text>
+</svg>
