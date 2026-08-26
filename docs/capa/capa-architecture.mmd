@@ -1,0 +1,110 @@
+graph TD
+    %% C4 Container Diagram - Capa (3D Printing Agent)
+    %% Sistema de impresión 3D con arquitectura de contenedores
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef agent fill:#f3e8fd,stroke:#8b5cf6,stroke-width:2px,color:#4c1d95
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef slicer fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#92400e
+    classDef printer fill:#fce7f3,stroke:#ec4899,stroke-width:2px,color:#9d174d
+    classDef storage fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#334155
+
+    %% Usuarios y sistemas externos
+    User[("👤 Usuario\n(Maker/Ingeniero)")]:::user
+    Discord[("💬 Discord/Telegram\nGateway")]:::gateway
+    WebUI[("🌐 Web UI\nDashboard")]:::gateway
+
+    %% Contenedores principales
+    subgraph "Hermes Gateway" 
+        direction TB
+        Gateway["🚪 Hermes Gateway\nRouter + Auth + Rate Limit\n(Node.js/TypeScript)"]:::gateway
+    end
+
+    subgraph "Agente Capa - Core" 
+        direction TB
+        CapaCore["🤖 Capa Core Agent\nOrquestador principal\n(Nemotron-3-Ultra via NIM)"]:::agent
+        CapaSkills["📦 Capa Skills\n• capa (principal)\n• stl_analyzer\n• stl_analysis_enhanced"]:::agent
+    end
+
+    subgraph "Modelos LLM" 
+        direction TB
+        NIM["☁️ NVIDIA NIM\nNemotron-3-Ultra-550B\n(API Cloud)"]:::nim
+        Ollama["🏠 Ollama Local\nModelos quantizados\n(Llama 3.1, CodeLlama)"]:::nim
+    end
+
+    subgraph "Motores de Slicing" 
+        direction TB
+        Cura["⚙️ Cura Engine\nSlicing tradicional\nPerfil MP10"]:::slicer
+        Orca["🐋 OrcaSlicer\nSlicing avanzado\nKlipperscreen"]:::slicer
+        Bambu["🎋 Bambu Studio\nCloud slicing\nMP10 nativo"]:::slicer
+    end
+
+    subgraph "Hardware Impresoras" 
+        direction TB
+        MP10["🖨️ Sovol SV08 / MP10\nKlipper + Moonraker\nAPI REST/WebSocket"]:::printer
+        Other["🖨️ Otras impresoras\n(Marlin, RepRapFirmware)\nvia OctoPrint/Klipper"]:::printer
+    end
+
+    subgraph "Almacenamiento y Estado" 
+        direction TB
+        STLStore["💾 STL Store\nArchivos .stl + metadatos\n(S3/MinIO + PostgreSQL)"]:::storage
+        GCodeStore["📄 G-code Store\nArchivos .gcode + preview\n(S3/MinIO)"]:::storage
+        JobDB["📊 Job Database\nHistorial + métricas\n(PostgreSQL + TimescaleDB)"]:::storage
+        ConfigDB["⚙️ Config Store\nPerfiles + materiales\n(YAML + SQLite)"]:::storage
+    end
+
+    %% Relaciones - Flujo principal
+    User -->|"/capa <prompt>\nCarga STL"| Discord
+    User -->|"Web Dashboard\nSubida STL"| WebUI
+    Discord -->|"HTTP/WebSocket\nAutenticado"| Gateway
+    WebUI -->|"REST API\nJWT"| Gateway
+    Gateway -->|"Route /capa\nContexto + STL"| CapaCore
+    
+    CapaCore -->|"Delega análisis\nvalidación STL"| CapaSkills
+    CapaSkills -->|"Métricas STL\nvolumen, soporte, orientación"| CapaCore
+    
+    CapaCore -->|"Prompt engineering\nContexto técnico"| NIM
+    CapaCore -.->|"Fallback local\nOffline/Privacidad"| Ollama
+    NIM -->|"Respuesta estructurada\nJSON + recomendaciones"| CapaCore
+    Ollama -->|"Respuesta local\nJSON + recomendaciones"| CapaCore
+    
+    CapaCore -->|"Parámetros slicing\nperfil material"| Cura
+    CapaCore -->|"Parámetros avanzados\nsoporte árbol, fuzzy skin"| Orca
+    CapaCore -.->|"Cloud slicing\nBambu Connect"| Bambu
+    
+    Cura -->|".gcode + preview\nestimación tiempo/filamento"| GCodeStore
+    Orca -->|".gcode + preview\nestimación tiempo/filamento"| GCodeStore
+    Bambu -.->|".gcode + preview\nBambu Cloud"| GCodeStore
+    
+    CapaCore -->|"Envío G-code\nInicio trabajo"| MP10
+    CapaCore -.->|"Compatibilidad\nOctoPrint/Klipper"| Other
+    
+    MP10 -->|"Estado temps\nprogreso, webcam"| JobDB
+    Other -->|"Estado temps\nprogreso"| JobDB
+    
+    CapaSkills -->|"Carga/Guarda STL\nMetadatos"| STLStore
+    CapaCore -->|"Guarda job\nmétricas, diagnóstico"| JobDB
+    CapaSkills -->|"Lee perfiles\nmaterial, boquilla"| ConfigDB
+    Cura -->|"Lee perfiles\nCura profiles"| ConfigDB
+    Orca -->|"Lee perfiles\nOrca profiles"| ConfigDB
+
+    %% Flujo diagnóstico y zero waste
+    CapaCore -->|"Análisis fallas\nG-code + logs"| CapaSkills
+    CapaSkills -->|"Diagnóstico\nroot cause + fix"| CapaCore
+    CapaCore -->|"Recomendación\nZero Waste"| User
+    
+    %% Feedback loop
+    MP10 -.->|"Métricas impresión\nCalidad real"| JobDB
+    JobDB -.->|"Entrenamiento\nMejora continua"| CapaCore
+
+    %% Leyenda
+    classDef legend fill:none,stroke:none
+    L1[["👤 Usuario / Interfaces"]]:::legend
+    L2[["🚪 Gateway / Entry Points"]]:::legend
+    L3[["🤖 Agente Capa Core"]]:::legend
+    L4[["☁️/🏠 Modelos LLM (NIM/Ollama)"]]:::legend
+    L5[["⚙️ Motores Slicing"]]:::legend
+    L6[["🖨️ Hardware Impresoras"]]:::legend
+    L7[["💾 Almacenamiento Estado"]]:::legend

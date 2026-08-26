@@ -1,0 +1,205 @@
+graph TD
+    %% Component Diagram - Capa Internal Architecture
+    %% Componentes internos del agente Capa
+
+    %% Estilos
+    classDef entry fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef core fill:#f3e8fd,stroke:#8b5cf6,stroke-width:2px,color:#4c1d95
+    classDef validator fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef slicer fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef gcode fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#92400e
+    classDef diagnostic fill:#fce7f3,stroke:#ec4899,stroke-width:2px,color:#9d174d
+    classDef zerowaste fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef infra fill:#f1f5f9,stroke:#64748b,stroke-width:1px,stroke-dasharray: 5 5,color:#334155
+    classDef external fill:#fff,stroke:#94a3b8,stroke-width:1px,stroke-dasharray: 5 5,color:#475569
+
+    %% Entry Points
+    subgraph "Entry Points" 
+        direction TB
+        DiscordAPI["📥 Discord Adapter\nSlash commands + attachments\nWebhook handler"]:::entry
+        WebAPI["🌐 Web API Adapter\nREST + WebSocket\nFile upload + SSE"]:::entry
+        CLICmd["⌨️ CLI Adapter\ncapa CLI tool\nBatch processing"]:::entry
+    end
+
+    %% Capa Core Orchestrator
+    subgraph "Capa Core Orchestrator" 
+        direction TB
+        Router["🎯 Request Router\nIntent classification\nParameter extraction\nContext enrichment"]:::core
+        SessionMgr["📋 Session Manager\nConversation history\nUser preferences\nPrinter profiles cache"]:::core
+        PromptEng["🧠 Prompt Engineer\nTechnical context injection\nFew-shot examples\nTool definitions"]:::core
+        ResponseFmt["📤 Response Formatter\nStructured output\nMarkdown + Embeds\nAction buttons"]:::core
+    end
+
+    %% STL Validator Component
+    subgraph "STL Validator" 
+        direction TB
+        STLLoader["📂 STL Loader\ntrimesh + numpy-stl\nAsync load + cache"]:::validator
+        GeometryCheck["🔍 Geometry Validator\n- Watertight test\n- Non-manifold detection\n- Normal consistency\n- Self-intersection"]:::validator
+        MetricsCalc["📐 Metrics Calculator\n- Volume (convex hull)\n- Surface area\n- Bounding box\n- Center of mass\n- Aspect ratios"]:::validator
+        OrientationEngine["🧭 Orientation Optimizer\n- Support minimization\n- Surface quality\n- Build plate adhesion\n- Multi-objective scoring"]:::validator
+        EnhancedAnalysis["✨ Enhanced Analyzer\n- Feature recognition\n- Thin wall detection\n- Overhang mapping\n- Printability score\n- Material estimation"]:::validator
+    end
+
+    %% Slicer Engine Component
+    subgraph "Slicer Engine" 
+        direction TB
+        ProfileManager["⚙️ Profile Manager\n- MP10 profiles (PLA/PETG/TPU/ABS)\n- Nozzle variants (0.4/0.6/0.8)\n- Cura + Orca + Bambu formats\n- Version control"]:::slicer
+        CuraAdapter["🔧 Cura Engine Adapter\nCuraEngine CLI wrapper\nParameter mapping\nProfile translation"]:::slicer
+        OrcaAdapter["🐋 OrcaSlicer Adapter\nOrcaSlicer CLI\nAdvanced features:\n- Variable layer height\n- Adaptive infill\n- Support painting"]:::slicer
+        BambuAdapter["🎋 Bambu Studio Adapter\nBambu Cloud API\nAMS filament mapping\nRemote slicing"]:::slicer
+        SliceOrchestrator["🎼 Slice Orchestrator\nEngine selection logic\nParameter optimization\nFallback chain\nProgress tracking"]:::slicer
+    end
+
+    %% G-code Generator Component
+    subgraph "G-code Generator" 
+        direction TB
+        PostProcessor["🔧 Post Processor\n- G-code cleanup\n- Header/footer injection\n- Firmware macros (Klipper)\n- Temperature schedules"]:::gcode
+        PreviewGen["🖼️ Preview Generator\n- Layer-by-layer PNG\n- 3D WebGL preview\n- G-code simulation\n- Time/filament estimation"]:::gcode
+        Validator["✅ G-code Validator\n- Syntax check\n- Command whitelist\n- Safety bounds\n- M109/M190 verification"]:::gcode
+        Optimizer["⚡ G-code Optimizer\n- Travel move reduction\n- Retraction tuning\n- Pressure advance\n- Arc fitting (G2/G3)"]:::gcode
+    end
+
+    %% Diagnostic Engine Component
+    subgraph "Diagnostic Engine" 
+        direction TB
+        LogParser["📜 Log Parser\nKlipper/Moonraker logs\nOctoPrint serial\nError pattern matching\nRegex + ML classifier"]:::diagnostic
+        TelemetryAnalyzer["📊 Telemetry Analyzer\nReal-time stream\n- Temp PID tuning\n- Flow rate tracking\n- Vibration (ADXL345)\n- Layer time analysis"]:::diagnostic
+        RootCause["🎯 Root Cause Engine\nFault tree analysis\nKnowledge base\n- Clog detection\n- Layer shift\n- Warping\n- Stringing\n- Elephant foot"]:::diagnostic
+        FixRecommender["🔧 Fix Recommender\nActionable steps\n- Priority ranked\n- Risk assessment\n- Automated fixes (macros)\n- Part replacement guide"]:::diagnostic
+        VisualInspection["👁️ Visual Inspection\nWebcam frames\n- Spaghetti detection\n- First layer analysis\n- CV + ML models\n- Anomaly scoring"]:::diagnostic
+    end
+
+    %% Zero Waste Component
+    subgraph "Zero Waste Engine" 
+        direction TB
+        MaterialTracker["📦 Material Tracker\nFilament inventory\n- Spool tracking\n- Remaining weight\n- Cost per print\n- Supplier integration"]:::zerowaste
+        SupportOptimizer["🌳 Support Optimizer\n- Tree/organic supports\n- Support blockers\n- Interface layers\n- Soluble material (PVA)\n- Minimal contact area"]:::zerowaste
+        NestingEngine["📦 Nesting Engine\nMulti-part arrangement\n- Bin packing 2D/3D\n- Build plate utilization\n- Print sequence optimization\n- Travel minimization"]:::zerowaste
+        WasteAnalytics["📈 Waste Analytics\nHistorical analysis\n- Support waste %\n- Failed print cost\n- Orientation savings\n- Material recovery\n- Monthly reports"]:::zerowaste
+        CircularAdvisor["♻️ Circular Advisor\n- Filament recycling\n- Failed print reuse\n- Spool return programs\n- Biomaterial options\n- LCA integration"]:::zerowaste
+    end
+
+    %% Infrastructure / Shared Services
+    subgraph "Shared Infrastructure" 
+        direction TB
+        LLMClient["🤖 LLM Client\nNIM (Nemotron-3-Ultra)\nOllama (local fallback)\nTool calling + JSON mode\nRetry + circuit breaker"]:::infra
+        Cache["⚡ Cache Layer\nRedis + in-memory\nSTL metrics (24h)\nSlicing profiles\nLLM responses"]:::infra
+        EventBus["📡 Event Bus\nJob lifecycle events\nTelemetry stream\nWebhook notifications\nInter-component messaging"]:::infra
+        ConfigStore["⚙️ Config Store\nYAML + SQLite\nUser prefs\nPrinter profiles\nMaterial database"]:::infra
+        MetricsDB["📊 Metrics DB\nTimescaleDB\nPrint history\nQuality scores\nPerformance trends"]:::infra
+    end
+
+    %% External Integrations
+    subgraph "External Systems" 
+        direction TB
+        NIM_API["☁️ NVIDIA NIM API\nNemotron-3-Ultra"]:::external
+        Ollama_API["🏠 Ollama Local\nLlama 3.1 / CodeLlama"]:::external
+        CuraEngine["⚙️ CuraEngine\nLocal binary"]:::external
+        OrcaCLI["🐋 OrcaSlicer CLI\nLocal binary"]:::external
+        BambuCloud["🎋 Bambu Cloud\nREST API"]:::external
+        KlipperAPI["🖨️ Klipper/Moonraker\nREST + WebSocket"]:::external
+        OctoPrintAPI["🐙 OctoPrint\nREST API"]:::external
+        MinIO["💾 MinIO/S3\nObject storage"]:::external
+        PostgreSQL["🗄️ PostgreSQL\nTimescaleDB"]:::external
+    end
+
+    %% Conexiones - Entry Points a Core
+    DiscordAPI --> Router
+    WebAPI --> Router
+    CLICmd --> Router
+
+    %% Core interno
+    Router --> SessionMgr
+    Router --> PromptEng
+    Router --> ResponseFmt
+    SessionMgr --> PromptEng
+    PromptEng --> LLMClient
+    LLMClient --> ResponseFmt
+
+    %% Router a componentes principales
+    Router --> STLLoader
+    Router --> SliceOrchestrator
+    Router --> PostProcessor
+    Router --> LogParser
+    Router --> MaterialTracker
+
+    %% STL Validator flow
+    STLLoader --> GeometryCheck
+    STLLoader --> MetricsCalc
+    GeometryCheck --> OrientationEngine
+    MetricsCalc --> OrientationEngine
+    OrientationEngine --> EnhancedAnalysis
+    EnhancedAnalysis --> Cache
+    EnhancedAnalysis --> PromptEng
+
+    %% Slicer Engine flow
+    SliceOrchestrator --> ProfileManager
+    ProfileManager --> CuraAdapter
+    ProfileManager --> OrcaAdapter
+    ProfileManager --> BambuAdapter
+    CuraAdapter --> CuraEngine
+    OrcaAdapter --> OrcaCLI
+    BambuAdapter --> BambuCloud
+    CuraAdapter --> Cache
+    OrcaAdapter --> Cache
+    SliceOrchestrator --> PostProcessor
+
+    %% G-code Generator flow
+    PostProcessor --> PreviewGen
+    PostProcessor --> Validator
+    PostProcessor --> Optimizer
+    Validator --> MinIO
+    PreviewGen --> MinIO
+    Optimizer --> MinIO
+    PostProcessor --> MetricsDB
+
+    %% Diagnostic Engine flow
+    LogParser --> RootCause
+    TelemetryAnalyzer --> RootCause
+    VisualInspection --> RootCause
+    RootCause --> FixRecommender
+    FixRecommender --> KlipperAPI
+    FixRecommender --> OctoPrintAPI
+    FixRecommender --> EventBus
+    TelemetryAnalyzer --> EventBus
+    TelemetryAnalyzer --> MetricsDB
+    VisualInspection --> MetricsDB
+
+    %% Zero Waste flow
+    MaterialTracker --> SupportOptimizer
+    MaterialTracker --> NestingEngine
+    MaterialTracker --> WasteAnalytics
+    SupportOptimizer --> ProfileManager
+    NestingEngine --> SliceOrchestrator
+    WasteAnalytics --> MetricsDB
+    CircularAdvisor --> MaterialTracker
+    CircularAdvisor --> WasteAnalytics
+
+    %% LLM Client connections
+    LLMClient --> NIM_API
+    LLMClient --> Ollama_API
+    LLMClient --> Cache
+
+    %% Config y Cache shared
+    ProfileManager --> ConfigStore
+    STLLoader --> ConfigStore
+    SessionMgr --> ConfigStore
+    Router --> Cache
+    SessionMgr --> Cache
+
+    %% Event Bus connections
+    EventBus --> DiscordAPI
+    EventBus --> WebAPI
+    EventBus --> MetricsDB
+
+    %% Leyenda
+    classDef legend fill:none,stroke:none
+    L1[["📥 Entry Points"]]:::legend
+    L2[["🎯 Core Orchestrator"]]:::legend
+    L3[["🔍 STL Validator"]]:::legend
+    L4[["⚙️ Slicer Engine"]]:::legend
+    L5[["📄 G-code Generator"]]:::legend
+    L6[["🎯 Diagnostic Engine"]]:::legend
+    L7[["🌱 Zero Waste Engine"]]:::legend
+    L8[["⚡ Shared Infra"]]:::legend
+    L9[["🔗 External Systems"]]:::legend

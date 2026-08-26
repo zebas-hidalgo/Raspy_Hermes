@@ -1,0 +1,94 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 Usuario\n(Maker/Ingeniero)
+    participant Discord as 💬 Discord/Telegram\nGateway
+    participant Gateway as 🚪 Hermes Gateway\n(Router + Auth)
+    participant Capa as 🤖 Capa Core Agent\n(Nemotron-3-Ultra)
+    participant Skills as 📦 Capa Skills\n(stl_analyzer, enhanced)
+    participant NIM as ☁️ NVIDIA NIM\nNemotron-3-Ultra
+    participant Ollama as 🏠 Ollama Local\n(Fallback)
+    participant Slicer as ⚙️ Slicer Engine\n(Cura/OrcaSlicer)
+    participant Printer as 🖨️ Impresora MP10\n(Klipper/Moonraker)
+    participant Store as 💾 Almacenamiento\n(STL + G-code + Jobs)
+
+    Note over User,Store: === FLUJO PRINCIPAL /capa ===
+
+    User->>Discord: /capa "analiza este STL para MP10 con PLA"
+    User->>Discord: Adjunta archivo .stl (drag & drop)
+
+    Discord->>Gateway: POST /api/v1/capa/analyze\n{file: STL, prompt, user_id, session_id}
+    Gateway->>Gateway: Validar JWT\nRate limit (10/min)\nSanitizar input
+    Gateway->>Capa: Route: /capa\nContexto: {STL, prompt, user_prefs, printer_profile}
+
+    Note over Capa,Skills: === FASE 1: VALIDACIÓN Y ANÁLISIS STL ===
+
+    Capa->>Skills: delegar: stl_analyzer.analyze(STL)
+    Skills->>Store: GET STL metadata\n(verificar cache)
+    alt STL en cache
+        Store-->>Skills: Retornar métricas cached
+    else STL nuevo
+        Skills->>Skills: trimesh load + validación\n- Watertight check\n- Non-manifold edges\n- Normals consistency\n- Bounding box
+        Skills->>Skills: stl_analysis_enhanced\n- Orientación óptima\n- Volumen real vs hull\n- Sopportes necesarios\n- Tiempo estimado\n- Filamento estimado (g)
+        Skills->>Store: PUT STL + métricas\n(cache 24h)
+    end
+    Skills-->>Capa: Resultado análisis\n{valid: true, metrics: {...}, warnings: [...], orientation: "optimal"}
+
+    Note over Capa,NIM: === FASE 2: LLM REASONING (NIM/Ollama) ===
+
+    Capa->>Capa: Construir prompt técnico\n- Métricas STL\n- Perfil impresora MP10\n- Material PLA\n- Objetivo usuario\n- Contexto zero-waste
+
+    alt NIM disponible (online)
+        Capa->>NIM: POST /v1/chat/completions\nModel: nemotron-3-ultra\nMessages: [system, user, assistant]\nTools: [slicing_params, diagnosis]\nTemperature: 0.3
+        NIM-->>Capa: Respuesta estructurada JSON\n{slicing_profile, recommendations, warnings, zero_waste_tips}
+    else NIM falla / usuario offline
+        Capa->>Ollama: POST /api/chat\nModel: llama3.1:70b-q4\nPrompt: mismo contexto\nTemperature: 0.3
+        Ollama-->>Capa: Respuesta local JSON\n(similar estructura, menor calidad)
+    end
+
+    Note over Capa,Slicer: === FASE 3: SLICING Y G-CODE ===
+
+    Capa->>Slicer: Slice request\n{STL, profile: MP10_PLA_0.2mm, params: NIM_recommendations}
+    alt Cura Engine (local)
+        Slicer->>Slicer: CuraEngine slice\n- Layer height 0.2mm\n- Infill 15% gyroid\n- Support tree/organic\n- Fuzzy skin off\n- Ironing top layers
+    else OrcaSlicer (avanzado)
+        Slicer->>Slicer: OrcaSlicer CLI\n- Variable layer height\n- Adaptive infill\n- Support painting manual\n- Seam alignment rear
+    else Bambu Studio (cloud)
+        Slicer->>Slicer: Bambu Cloud API\n- MP10 profile nativo\n- AMS mapping automático
+    end
+    Slicer->>Store: PUT G-code + preview\n{file: .gcode, preview: .png, est_time, est_filament}
+    Slicer-->>Capa: Resultado slicing\n{gcode_path, preview_url, est_time: "2h 34m", est_filament: "42g", warnings: []}
+
+    Note over Capa,Printer: === FASE 4: ENVÍO A IMPRESORA ===
+
+    Capa->>Printer: POST /printer/print/start\n{file: gcode_path, filament: "PLA", bed_temp: 60, nozzle_temp: 210}
+    Printer->>Printer: Preheat + Home + Bed mesh\nKlipper: PRINT_START macro
+    Printer-->>Capa: {status: "printing", job_id: "job_abc123", eta: "2026-08-26T14:30:00Z"}
+
+    Capa->>Store: PUT Job record\n{job_id, user_id, STL, gcode, slicer_params, status: "printing", started_at}
+
+    Capa-->>Gateway: Respuesta completa\n{analysis, recommendations, gcode_preview, job_id, eta, status: "printing"}
+    Gateway-->>Discord: Webhook response\nEmbed: análisis + preview + botones [Pausar, Cancelar, Ver cámara]
+    Discord-->>User: 📊 **Análisis completo**\n✅ STL válido | ⏱️ 2h 34m | ⚖️ 42g PLA\n🎯 Orientación óptima detectada\n🌳 Zero-waste: 3% soporte → 1.2g\n🖨️ **Imprimiendo en MP10** (job_abc123)\n[📷 Ver cámara] [⏸️ Pausar] [❌ Cancelar]
+
+    Note over User,Printer: === MONITOREO Y DIAGNÓSTICO (ASYNC) ===
+
+    loop Cada 30s durante impresión
+        Printer->>Store: POST /jobs/job_abc123/telemetry\n{layer: 142, temp_nozzle: 210, temp_bed: 60, flow: 98%, webcam: url}
+        Store->>Capa: (event-driven) Telemetry update
+        Capa->>Capa: Anomaly detection\n- Layer shift check\n- Temp deviation\n- Flow rate anomaly\n- Spaghetti detection (webcam)
+        alt Anomalía detectada
+            Capa->>Skills: delegar: diagnostic_engine.analyze(telemetry, gcode)
+            Skills-->>Capa: Diagnóstico\n{issue: "under_extrusion", cause: "partial_clog", fix: "cold_pull + temp+5"}
+            Capa->>User: 🔔 **Alerta: Sub-extrusión capa 142**\n🔧 Causa probable: Obstrucción parcial\n✅ Fix: Cold pull + subir temp 5°C\n[🔧 Aplicar fix] [⏸️ Pausar para revisar]
+        end
+    end
+
+    Note over User,Store: === FINALIZACIÓN Y ZERO WASTE ===
+
+    Printer->>Store: POST /jobs/job_abc123/complete\n{status: "success", final_weight: 41.8g, time: "2h 32m", quality_score: 9.2/10}
+    Store->>Capa: Job completed event
+    Capa->>Skills: delegar: zero_waste.analyze(job_abc123)
+    Skills->>Store: GET job history\n(últimos 50 jobs)
+    Skills-->>Capa: Zero-waste report\n{material_saved: "12.4g this month", support_reduction: "23%", orientation_optimization: "15%", recommendations: ["Usar support tree para orgánicos", "Orientar 45° para overhangs"]}
+
+    Capa->>User: ✅ **Impresión completada**\n📏 41.8g PLA | ⏱️ 2h 32m | ⭐ 9.2/10\n🌱 **Zero Waste este mes: 12.4g ahorrados**\n💡 Sugerencia: Support tree para próximas piezas orgánicas\n[📊 Ver dashboard] [🔄 Imprimir otra] [📤 Compartir resultado]
