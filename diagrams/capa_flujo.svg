@@ -45,7 +45,7 @@
   <text x="275" y="125" class="card-title" fill="#065f46">Prompt System</text>
   <text x="275" y="145" class="card-sub-green">• Técnico y paciente</text>
   <text x="275" y="160" class="card-sub-green">• Cero Residuos</text>
-  <text x="275" y="175" class="card-sub-green">• Nivel 6to grado</text>
+  <text x="275" y="175" class="card-sub-green">• Adaptado a estudiantes</text>
 
   <rect x="265" y="210" width="150" height="90" rx="6" fill="#ffffff" stroke="#a7f3d0"/>
   <text x="275" y="230" class="card-title" fill="#065f46">Filtro Seguridad</text>

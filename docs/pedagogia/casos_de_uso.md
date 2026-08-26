@@ -47,7 +47,7 @@ Imprimir las piezas mecánicas de un brazo de 3 ejes y controlar servomotores SG
 ## 📚 Caso 3: Transformación de Guía en Bot Tutor
 
 ### 🎯 Objetivo del Proyecto:
-Convertir un PDF estático sobre *"El Ciclo del Agua y la Evaporación"* en un bot tutor interactivo para 6to grado.
+Convertir un PDF estático sobre *"El Ciclo del Agua y la Evaporación"* en un bot tutor interactivo para estudiantes.
 
 ### 💬 Flujo de Interacción:
 

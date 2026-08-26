@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">🤖 Raspy_Hermes</h1>
   <p align="center">
-    <b>Documentación y Ecosistema de Agentes Autónomos para Kronos_School (6to Grado STEM)</b>
+    <b>Documentación y Ecosistema de Agentes Autónomos para Kronos_School (Educación & Maker STEM)</b>
   </p>
 </p>
 
@@ -25,9 +25,9 @@
 
 ## 🌟 Visión General
 
-**Raspy_Hermes** es un ecosistema educativo compuesto por **8 agentes de IA autónomos** basados en el motor de **Hermes Agent**. Los agentes están diseñados para apoyar el aprendizaje basado en proyectos STEM en 6to grado básico (Chile), facilitando la resolución de dudas sobre **Impresión 3D**, **Electrónica**, **Bioplásticos**, **Arquitectura de Sistemas** y **Orquestación**.
+**Raspy_Hermes** es un ecosistema educativo compuesto por **8 agentes de IA autónomos** basados en el motor de **Hermes Agent**. Los agentes están diseñados para apoyar el aprendizaje basado en proyectos en entornos educativos y laboratorios Maker STEM, facilitando la resolución de dudas sobre **Impresión 3D**, **Electrónica**, **Bioplásticos**, **Arquitectura de Sistemas** y **Orquestación**.
 
-Los usuarios (estudiantes y profesores) interactúan con la red de bots en plataformas de mensajería (Telegram y Discord) mediante la sintaxis `@NombreAgent` o comandos `/slash`.
+Los usuarios (estudiantes, docentes y entusiastas) interactúan con la red de bots en plataformas de mensajería (Telegram y Discord) mediante la sintaxis `@NombreAgent` o comandos `/slash`.
 
 ---
 
@@ -38,8 +38,8 @@ Para sacar el máximo provecho al laboratorio y comprender en profundidad el fun
 | Recurso | Destinatario | Descripción | Enlace |
 | :--- | :--- | :--- | :--- |
 | **📚 Diccionario de Skills** | Desarrolladores / Docentes | Catálogo técnico de las 8 habilidades nativas y herramientas auxiliares del sistema. | [📘 Ver Diccionario](docs/referencias/diccionario_skills.md) |
-| **🍎 Guía Metodológica para Docentes** | Profesores / UTP | Matriz de Objetivos de Aprendizaje (Mineduc Chile), metodología ABP y rúbrica de evaluación. | [📘 Ver Guía](docs/pedagogia/guias_docentes.md) |
-| **🚀 Manual de Interacción** | Estudiantes | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta digital. | [📘 Ver Manual](docs/pedagogia/guia_interaccion_estudiantes.md) |
+| **🍎 Guía Metodológica para Docentes** | Profesores / UTP | Matriz de Objetivos de Aprendizaje Transversales STEM, metodología ABP y rúbrica de evaluación. | [📘 Ver Guía](docs/pedagogia/guias_docentes.md) |
+| **🚀 Manual de Interacción** | Estudiantes / Usuarios | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta digital. | [📘 Ver Manual](docs/pedagogia/guia_interaccion_estudiantes.md) |
 | **💡 Casos de Uso Reales** | Docentes y Alumnos | Proyectos integrados desglosados paso a paso (Maceta Inteligente, Brazo Robótico). | [📘 Ver Casos](docs/pedagogia/casos_de_uso.md) |
 | **📖 Glosario Técnico STEM** | Comunidad | Definición sencilla de términos sobre Impresión 3D, Arduino, Bioplásticos e IA. | [📘 Ver Glosario](docs/referencias/glosario_stem.md) |
 
@@ -119,7 +119,7 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 ```text
 @Elektra ¿Cómo conecto una fotoresistencia LDR a un Arduino para encender un LED?
 ```
-> **Respuesta:** Diagrama ASCII de conexiones, ley de Ohm explicada para 11 años y código `.ino` comentado listo para subir.
+> **Respuesta:** Diagrama ASCII de conexiones, ley de Ohm explicada de forma sencilla y código `.ino` comentado listo para subir.
 
 #### 🌿 Mención a @Bio:
 ```text

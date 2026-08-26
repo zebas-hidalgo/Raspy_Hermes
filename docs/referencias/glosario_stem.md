@@ -1,6 +1,6 @@
 # 📖 Glosario Técnico Educativo STEM
 
-Este glosario define los términos técnicos utilizados por los agentes de **Raspy_Hermes** en un lenguaje claro para estudiantes de 6to grado y docentes.
+Este glosario define los términos técnicos utilizados por los agentes de **Raspy_Hermes** en un lenguaje claro para estudiantes, docentes y entusiastas Maker.
 
 ---
 

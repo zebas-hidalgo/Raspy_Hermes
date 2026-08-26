@@ -1,12 +1,12 @@
 # 🍎 Guía Metodológica para Docentes (STEM / ABP)
 
-Esta guía proporciona orientaciones pedagógicas para integrar los agentes autónomos de **Raspy_Hermes** en asignaturas de Ciencias Naturales, Tecnología y Matemáticas para estudiantes de **6to Grado Básico (Chile)**.
+Esta guía proporciona orientaciones pedagógicas para integrar los agentes autónomos de **Raspy_Hermes** en proyectos educativos y asignaturas Maker STEM para estudiantes y docentes.
 
 ---
 
 ## 🎯 Marco Pedagógico: Aprendizaje Basado en Proyectos (ABP)
 
-Los agentes de **Raspy_Hermes** actúan como co-tutores virtuales en el aula maker/laboratorio, guiando a los estudiantes sin entregar respuestas directas, promoviendo el pensamiento crítico y la indagación científica.
+Los agentes de **Raspy_Hermes** actúan como co-tutores virtuales en el laboratorio o aula Maker, guiando a los estudiantes sin entregar respuestas directas, promoviendo el pensamiento crítico y la indagación científica.
 
 ```
        ┌────────────────────────────────────────────────────────┐
@@ -21,13 +21,13 @@ Los agentes de **Raspy_Hermes** actúan como co-tutores virtuales en el aula mak
 
 ---
 
-## 📋 Matriz de Objetivos de Aprendizaje (OA - Mineduc Chile)
+## 📋 Matriz de Objetivos de Aprendizaje Transversales (STEM / ABP)
 
-| Asignatura | Objetivo de Aprendizaje (OA) | Agente Apoyo | Actividad Sugerida |
+| Área / Dimensión | Objetivo Transversal | Agente Apoyo | Actividad Sugerida |
 | :--- | :--- | :--- | :--- |
-| **Tecnología** | **OA 02:** Diseñar objetos o sistemas tecnológicos para resolver problemas aprovechando recursos. | `@Capa` <br> `@Elektra` | Modelar en 3D la carcasa de un circuito e integrar sensores con Arduino. |
-| **Ciencias Naturales** | **OA 03:** Investigar experimentalmente las características de los materiales y sus transformaciones ecológicas. | `@Bio` | Sintetizar bioplásticos con almidón y analizar su biodegradabilidad. |
-| **Tecnología/Matemática**| **OA 04:** Probar y evaluar soluciones tecnológicas aplicando criterios de eficiencia y seguridad. | `@Warden` <br> `@Master` | Monitorear el uso de insumos y estructurar el plan de trabajo del equipo. |
+| **Tecnología & Diseño** | Diseñar y fabricar objetos o sistemas tecnológicos para resolver problemas aprovechando recursos de forma eficiente. | `@Capa` <br> `@Elektra` | Modelar en 3D la carcasa de un circuito e integrar sensores con Arduino. |
+| **Ciencias Naturales** | Investigar experimentalmente las características de los materiales y sus transformaciones ecológicas. | `@Bio` | Sintetizar bioplásticos con almidón y analizar su biodegradabilidad. |
+| **Evaluación & Calidad** | Probar y evaluar soluciones tecnológicas aplicando criterios de eficiencia, sostenibilidad y seguridad. | `@Warden` <br> `@Master` | Monitorear el uso de insumos y estructurar el plan de trabajo del equipo. |
 
 ---
 
