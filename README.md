@@ -1,9 +1,5 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=26&duration=2500&pause=1000&color=7C3AED&center=true&vCenter=true&width=650&height=50&lines=🤖+Raspy_Hermes;Ecosistema+de+8+Agentes+Autónomos;Impresión+3D+•+Electrónica+•+Bioplásticos;Orquestación+Maker+STEM+en+Kronos_School" alt="Typing SVG" />
-</p>
-
-<p align="center">
-  <b>Plataforma de Asistencia Inteligente y Mentoría Autónoma para Laboratorios Educativos y Maker Spaces</b>
+  <img src="diagrams/hero_banner.svg" alt="Raspy_Hermes Banner" width="100%">
 </p>
 
 <p align="center">
@@ -11,7 +7,7 @@
   <img alt="Entorno Kronos_School" src="https://img.shields.io/badge/Entorno-Kronos__School-10b981.svg?style=for-the-badge&logo=googleclassroom&logoColor=white">
   <img alt="Agentes" src="https://img.shields.io/badge/Agentes-8%20Bots-8b5cf6.svg?style=for-the-badge&logo=probot&logoColor=white">
   <img alt="Último Commit" src="https://img.shields.io/github/last-commit/zebas-hidalgo/Raspy_Hermes?style=for-the-badge&color=0284c7&logo=git&logoColor=white">
-  <img alt="Formato Diagramas" src="https://img.shields.io/badge/Diagramas-14%20SVG%20Vectoriales-f59e0b.svg?style=for-the-badge&logo=svg&logoColor=white">
+  <img alt="Formato Diagramas" src="https://img.shields.io/badge/Diagramas-15%20SVG%20Vectoriales-f59e0b.svg?style=for-the-badge&logo=svg&logoColor=white">
 </p>
 
 <p align="center">
@@ -170,7 +166,8 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 Raspy_Hermes/
 ├── README.md                           # Presentación principal del proyecto
 ├── CONTRIBUTING.md                     # Guía para proponer skills y contribuir
-├── diagrams/                           # 14 diagramas vectoriales en formato SVG
+├── diagrams/                           # 15 diagramas vectoriales en formato SVG
+│   ├── hero_banner.svg                 # Banner de cabecera nativo
 │   ├── ecosistema_general.svg          # Mapa general del ecosistema
 │   ├── secuencia_interaccion.svg       # Diagrama de Secuencia UML de mensajería
 │   ├── ciclo_vida_skill.svg            # Ciclo de vida de una skill en Hermes
