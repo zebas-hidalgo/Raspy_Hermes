@@ -6,7 +6,7 @@ Elektra (también conocida como Chispa) es la agente especializada en electróni
 
 **Trigger de Slash:** `/elektra` o mencionar `@Elektra` o `@Chispa` en modo bot.
 
-![Flujo de Funcionamiento de Elektra](../diagrams/elektra_flujo.svg)
+![Flujo de Funcionamiento de Elektra](../../diagrams/elektra_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 

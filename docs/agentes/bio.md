@@ -6,7 +6,7 @@ Bio es el agente especializado en bioplásticos, materiales sostenibles, químic
 
 **Trigger de Slash:** `/bio` o mencionar `@Bio` en modo bot.
 
-![Flujo de Funcionamiento de Bio](../diagrams/bio_flujo.svg)
+![Flujo de Funcionamiento de Bio](../../diagrams/bio_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 

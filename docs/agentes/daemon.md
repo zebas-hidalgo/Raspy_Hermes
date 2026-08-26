@@ -6,7 +6,7 @@ Daemon es el agente especializado en la creación, actualización, documentació
 
 **Trigger de Slash:** `/daemon` o mencionar `@Daemon` en modo bot.
 
-![Flujo de Funcionamiento de Daemon](../diagrams/daemon_flujo.svg)
+![Flujo de Funcionamiento de Daemon](../../diagrams/daemon_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 

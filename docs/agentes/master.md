@@ -6,7 +6,7 @@ Master es el agente especializado en orquestación, coordinación de múltiples 
 
 **Trigger de Slash:** `/master` o mencionar `@Master` en modo bot.
 
-![Flujo de Funcionamiento de Master](../diagrams/master_flujo.svg)
+![Flujo de Funcionamiento de Master](../../diagrams/master_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 

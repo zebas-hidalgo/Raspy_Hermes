@@ -6,7 +6,7 @@ Warden es el agente especializado en monitoreo, mantenimiento, seguridad y gesti
 
 **Trigger de Slash:** `/warden` o mencionar `@Warden` en modo bot.
 
-![Flujo de Funcionamiento de Warden](../diagrams/warden_flujo.svg)
+![Flujo de Funcionamiento de Warden](../../diagrams/warden_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 

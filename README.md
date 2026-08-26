@@ -33,15 +33,15 @@ Los usuarios (estudiantes y profesores) interactúan con la red de bots en plata
 
 ## 📚 Recursos Educativos Destacados
 
-Para sacar el máximo provecho al laboratorio y comprender en profundidad el funcionamiento del ecosistema, consulta nuestras guías especializadas:
+Para sacar el máximo provecho al laboratorio y comprender en profundidad el funcionamiento del ecosistema, consulta nuestras guías especializadas organizadas por categorías:
 
 | Recurso | Destinatario | Descripción | Enlace |
 | :--- | :--- | :--- | :--- |
-| **📚 Diccionario de Skills** | Desarrolladores / Docentes | Catálogo técnico de las 8 habilidades nativas y herramientas auxiliares del sistema. | [📘 Ver Diccionario](docs/DICCIONARIO_SKILLS.md) |
-| **🍎 Guía Metodológica para Docentes** | Profesores / UT P | Matriz de Objetivos de Aprendizaje (Mineduc Chile), metodología ABP y rúbrica de evaluación. | [📘 Ver Guía](docs/GUIAS_DOCENTES.md) |
-| **🚀 Manual de Interacción** | Estudiantes | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta digital. | [📘 Ver Manual](docs/GUIA_INTERACCION.md) |
-| **💡 Casos de Uso Reales** | Docentes y Alumnos | Proyectos integrados desglosados paso a paso (Maceta Inteligente, Brazo Robótico). | [📘 Ver Casos](docs/CASOS_DE_USO.md) |
-| **📖 Glosario Técnico STEM** | Comunidad | Definición sencilla de términos sobre Impresión 3D, Arduino, Bioplásticos e IA. | [📘 Ver Glosario](docs/GLOSARIO.md) |
+| **📚 Diccionario de Skills** | Desarrolladores / Docentes | Catálogo técnico de las 8 habilidades nativas y herramientas auxiliares del sistema. | [📘 Ver Diccionario](docs/referencias/diccionario_skills.md) |
+| **🍎 Guía Metodológica para Docentes** | Profesores / UTP | Matriz de Objetivos de Aprendizaje (Mineduc Chile), metodología ABP y rúbrica de evaluación. | [📘 Ver Guía](docs/pedagogia/guias_docentes.md) |
+| **🚀 Manual de Interacción** | Estudiantes | Guía paso a paso sobre cómo redactar consultas efectivas y normas de etiqueta digital. | [📘 Ver Manual](docs/pedagogia/guia_interaccion_estudiantes.md) |
+| **💡 Casos de Uso Reales** | Docentes y Alumnos | Proyectos integrados desglosados paso a paso (Maceta Inteligente, Brazo Robótico). | [📘 Ver Casos](docs/pedagogia/casos_de_uso.md) |
+| **📖 Glosario Técnico STEM** | Comunidad | Definición sencilla de términos sobre Impresión 3D, Arduino, Bioplásticos e IA. | [📘 Ver Glosario](docs/referencias/glosario_stem.md) |
 
 ---
 
@@ -77,9 +77,9 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 
 | Agente | Alias / Trigger | Rol Principal | Documentación | Diagrama de Flujo |
 | :--- | :--- | :--- | :--- | :--- |
-| **Maestro Capa** | `@Capa` <br> `/capa` | Experto en impresión 3D, análisis STL y optimización cero residuos | [📘 Ver Doc](docs/capa.md) | ![Capa](diagrams/capa_flujo.svg) |
-| **Elektra** | `@Elektra` <br> `@Chispa` <br> `/elektra` | Experta en electrónica, microcontroladores Arduino/ESP32 y circuitos | [📘 Ver Doc](docs/elektra.md) | ![Elektra](diagrams/elektra_flujo.svg) |
-| **Bio** | `@Bio` <br> `/bio` | Mentor de bioplásticos, química verde y economía circular | [📘 Ver Doc](docs/bio.md) | ![Bio](diagrams/bio_flujo.svg) |
+| **Maestro Capa** | `@Capa` <br> `/capa` | Experto en impresión 3D, análisis STL y optimización cero residuos | [📘 Ver Doc](docs/agentes/capa.md) | ![Capa](diagrams/capa_flujo.svg) |
+| **Elektra** | `@Elektra` <br> `@Chispa` <br> `/elektra` | Experta en electrónica, microcontroladores Arduino/ESP32 y circuitos | [📘 Ver Doc](docs/agentes/elektra.md) | ![Elektra](diagrams/elektra_flujo.svg) |
+| **Bio** | `@Bio` <br> `/bio` | Mentor de bioplásticos, química verde y economía circular | [📘 Ver Doc](docs/agentes/bio.md) | ![Bio](diagrams/bio_flujo.svg) |
 
 ---
 
@@ -87,9 +87,9 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 
 | Agente | Trigger | Rol Principal | Documentación | Diagrama de Flujo |
 | :--- | :--- | :--- | :--- | :--- |
-| **Caraxes** | `@Caraxes` <br> `/caraxes` | Arquitecto de skills y modelado de arquitecturas C4/D2 | [📘 Ver Doc](docs/caraxes.md) | ![Caraxes](diagrams/caraxes_flujo.svg) |
-| **Daemon** | `@Daemon` <br> `/daemon` | Creador y artesano de habilidades (`SKILL.md`) | [📘 Ver Doc](docs/daemon.md) | ![Daemon](diagrams/daemon_flujo.svg) |
-| **Warden** | `@Warden` <br> `/warden` | Guardián del sistema, monitoreo de salud (RAM/CPU) y seguridad | [📘 Ver Doc](docs/warden.md) | ![Warden](diagrams/warden_flujo.svg) |
+| **Caraxes** | `@Caraxes` <br> `/caraxes` | Arquitecto de skills y modelado de arquitecturas C4/D2 | [📘 Ver Doc](docs/agentes/caraxes.md) | ![Caraxes](diagrams/caraxes_flujo.svg) |
+| **Daemon** | `@Daemon` <br> `/daemon` | Creador y artesano de habilidades (`SKILL.md`) | [📘 Ver Doc](docs/agentes/daemon.md) | ![Daemon](diagrams/daemon_flujo.svg) |
+| **Warden** | `@Warden` <br> `/warden` | Guardián del sistema, monitoreo de salud (RAM/CPU) y seguridad | [📘 Ver Doc](docs/agentes/warden.md) | ![Warden](diagrams/warden_flujo.svg) |
 
 ---
 
@@ -97,8 +97,8 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 
 | Agente | Trigger | Rol Principal | Documentación | Diagrama de Flujo |
 | :--- | :--- | :--- | :--- | :--- |
-| **Master** | `@Master` <br> `/master` | Orquestador de proyectos multidisciplinarios y resolución de bloqueos | [📘 Ver Doc](docs/master.md) | ![Master](diagrams/master_flujo.svg) |
-| **TutorConversion** | `@TutorConversion` <br> `/tutor_conversion` | Conversor pedagógico de guías pasivas PDF a bots interactivos | [📘 Ver Doc](docs/tutor_conversion.md) | ![TutorConversion](diagrams/tutor_conversion_flujo.svg) |
+| **Master** | `@Master` <br> `/master` | Orquestador de proyectos multidisciplinarios y resolución de bloqueos | [📘 Ver Doc](docs/agentes/master.md) | ![Master](diagrams/master_flujo.svg) |
+| **TutorConversion** | `@TutorConversion` <br> `/tutor_conversion` | Conversor pedagógico de guías pasivas PDF a bots interactivos | [📘 Ver Doc](docs/agentes/tutor_conversion.md) | ![TutorConversion](diagrams/tutor_conversion_flujo.svg) |
 
 ---
 
@@ -137,7 +137,7 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 
 ---
 
-## 📂 Estructura del Repositorio
+## 📂 Estructura Modular del Repositorio
 
 ```
 Raspy_Hermes/
@@ -155,20 +155,23 @@ Raspy_Hermes/
 │   ├── warden_flujo.svg                # Flujo de Warden
 │   ├── master_flujo.svg                # Flujo de Master
 │   └── tutor_conversion_flujo.svg      # Flujo de TutorConversion
-└── docs/                               # Documentación pedagógica y por agente
-    ├── DICCIONARIO_SKILLS.md           # Catálogo técnico completo de habilidades y herramientas
-    ├── GUIAS_DOCENTES.md               # Guía metodológica para profesores y rúbrica
-    ├── GUIA_INTERACCION.md             # Manual para estudiantes e ingeniería de prompts
-    ├── CASOS_DE_USO.md                 # Ejemplos de proyectos reales multidisciplinarios
-    ├── GLOSARIO.md                     # Glosario técnico de términos STEM
-    ├── capa.md
-    ├── elektra.md
-    ├── bio.md
-    ├── caraxes.md
-    ├── daemon.md
-    ├── warden.md
-    ├── master.md
-    └── tutor_conversion.md
+└── docs/                               # Documentación organizada por subcarpetas
+    ├── agentes/                        # Fichas técnicas de los 8 agentes de IA
+    │   ├── capa.md
+    │   ├── elektra.md
+    │   ├── bio.md
+    │   ├── caraxes.md
+    │   ├── daemon.md
+    │   ├── warden.md
+    │   ├── master.md
+    │   └── tutor_conversion.md
+    ├── pedagogia/                      # Guías educativas, metodológicas y casos
+    │   ├── guias_docentes.md
+    │   ├── guia_interaccion_estudiantes.md
+    │   └── casos_de_uso.md
+    └── referencias/                    # Catálogos técnicos y glosarios
+        ├── diccionario_skills.md
+        └── glosario_stem.md
 ```
 
 ---

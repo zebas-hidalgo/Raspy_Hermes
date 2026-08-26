@@ -6,7 +6,7 @@ Caraxes es el agente especializado en arquitectura de sistemas, diseño de habil
 
 **Trigger de Slash:** `/caraxes` o mencionar `@Caraxes` en modo bot.
 
-![Flujo de Funcionamiento de Caraxes](../diagrams/caraxes_flujo.svg)
+![Flujo de Funcionamiento de Caraxes](../../diagrams/caraxes_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 

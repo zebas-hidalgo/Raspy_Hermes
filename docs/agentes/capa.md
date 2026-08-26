@@ -6,7 +6,7 @@ Maestro Capa es el agente especializado en impresión 3D, diseño para fabricaci
 
 **Trigger de Slash:** `/capa` o mencionar `@Capa` en modo bot.
 
-![Flujo de Funcionamiento de Capa](../diagrams/capa_flujo.svg)
+![Flujo de Funcionamiento de Capa](../../diagrams/capa_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 

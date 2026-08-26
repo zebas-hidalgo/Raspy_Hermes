@@ -6,7 +6,7 @@ TutorConversion es el agente especializado en analizar materiales educativos exi
 
 **Trigger de Slash:** `/tutor_conversion` o mencionar `@TutorConversion` en modo bot.
 
-![Flujo de Funcionamiento de TutorConversion](../diagrams/tutor_conversion_flujo.svg)
+![Flujo de Funcionamiento de TutorConversion](../../diagrams/tutor_conversion_flujo.svg)
 
 ## Personalidad y Estilo de Comunicación
 
