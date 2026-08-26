@@ -1,98 +1,24 @@
-# Flujo de Interacción - Modo Bot (@Agent)
-
-```mermaid
 sequenceDiagram
     autonumber
-    actor Profesor as Profesor/a
-    actor Estudiante as Estudiante
-    participant Gateway as Hermes Gateway
-    participant Router as Router de Perfiles
-    participant Capa as 🔵 Capa
-    participant Elektra as 🟠 Elektra
-    participant Bio as 🟢 Bio
-    participant Caraxes as 🟣 Caraxes
-    participant Daemon as 🟡 Daemon
-    participant Warden as 🛡️ Warden
-    participant Master as 🟡 Master
-    participant Tutor as 🟢 TutorConv
-    participant NIM as NVIDIA NIM
-    participant Ollama as Ollama Local
+    actor Usuario as Estudiante / Docente
+    participant Gateway as Telegram / Discord Gateway
+    participant Agent as Agente Autónomo (@Agent)
+    participant Skills as Sistema de Skills (Hermes)
+    participant Warden as Warden (Monitoreo)
 
-    Note over Profesor, Estudiante: INICIO: Usuario envía mensaje con @Agent
-
-    Profesor->>Gateway: Envía mensaje "@capa ¿temp PLA?"
-    Gateway->>Router: Analiza trigger "@capa"
-    Router-->>Capa: Activa perfil "capa"
+    Usuario->>Gateway: @NombreAgent + Consulta / Archivo (STL, INO, PDF)
+    Gateway->>Agent: Enruta mensaje + Contexto (.env, Memoria, System Prompt)
     
-    Capa->>Capa: Carga SKILL.md + SOUL.md + Skills habilitadas
-    Capa->>Capa: Valida intención: diagnóstico temperatura PLA
-    Capa->>NIM: Consulta modelo (nemotron-3-ultra)
-    NIM-->>Capa: Respuesta técnica precisa
-    Capa->>Capa: Formatea respuesta + métricas + G-code
-    Capa->>Gateway: Respuesta formateada + métricas
-    Gateway-->>Profesor: Respuesta formateada + nota de voz
-    
-    Note over Profesor, Estudiante: CASO 2: Múltiples agentes (Master orquesta)
-
-    Profesor->>Gateway: "@master diseñar impresora IoT bioplástico"
-    Gateway->>Router: Detecta trigger "master" + orquestación
-    Router-->>Master: Activa Agente Master
-    
-    Master->>Master: Analiza request → Descompone en sub-tareas
-    Master->>Capa: Delegar: Diseño mecánico + slicing
-    Master->>Elektra: Delegar: Sensor IoT + PCB + Firmware
-    Master->>Bio: Delegar: Bioplástico para carcasa
-    Master->>Caraxes: Delegar: Arquitectura skill integración
-    Master->>Warden: Delegar: Monitoreo impresión
-    Master->>Daemon: Delegar: Skill unificada
-    Master->>Tutor: Delegar: Guía pedagógica
-    
-    par Paralelo: Capa diseña chasis
-        Capa->>Capa: STL chasis + perfiles Cura/Orca
-        Capa-->>Master: STL + G-code + métricas
-    and Paralelo: Elektra diseña electrónica
-        Elektra->>Elektra: PCB KiCad + Firmware ESP32
-        Elektra-->>Master: Esquema + Firmware + BOM
-    and Paralelo: Bio asesora material
-        Bio->>Bio: Bioplástico recomendado + ficha técnica
-        Bio-->>Master: Ficha técnica + LCA
-    and Paralelo: Caraxes diseña skill unificada
-        Caraxes->>Caraxes: Arquitectura skill integración
-        Caraxes-->>Master: Skill unificada + tests
-    end
-    
-    Master->>Master: Consolida entregables + Integración
-    Master->>Gateway: Entrega consolidada + Plan de integración
-    Gateway-->>Profesor: Entrega completa + Plan de integración
-
-    Note over Profesor, Estudiante: Flujo diagnóstico (Warden)
-
-    Warden->>Warden: Monitorea métricas (disco, RAM, CPU, logs)
-    alt Anomalía detectada
-        Warden->>Warden: Detecta anomalía (ej. disco 87%)
-        Warden->>Warden: Identifica causa raíz (logs Docker)
-        Warden->>Gateway: Alerta + Remediación sugerida
-        Gateway-->>Profesor: ⚠️ ALERTA + Acción sugerida
-        Profesor->>Gateway: Confirma remediación
-        Warden->>Warden: Ejecuta remediación (docker prune, logrotate)
-        Warden->>Gateway: Reporte post-remediación
+    rect rgb(240, 253, 250)
+        Note over Agent,Skills: Etapa de Evaluación y Ejecución de Skills
+        Agent->>Skills: Evalúa trigger y selecciona Skill (ej: stl_analyzer, ejemplo-codigo)
+        Skills-->>Agent: Retorna resultados estructurados / análisis
     end
 
-    Note over Profesor, Estudiante: Fallback a Ollama local
-
-    Capa->>NIM: Consulta nemotron-3-ultra
-    alt NIM falla / timeout
-        Capa->>Ollama: Fallback a phi3:3.8b (local)
-        Ollama-->>Capa: Respuesta local
-        Capa->>Gateway: Respuesta + nota "usó fallback local"
-    else NIM responde
-        NIM-->>Capa: Respuesta nemotron-3-ultra
-        Capa->>Gateway: Respuesta + métricas
+    alt Falla o Inconsistencia Detectada
+        Agent->>Warden: Emite alerta / ticket de mantenimiento preventivo
+        Warden-->>Agent: Confirma registro de incidente
     end
 
-    Note over Profesor, Estudiante: Cross-machine (Peer)
-
-    Master->>Peer: hermes peer dm pi2/capa "iniciar impresión"
-    Peer-->>Capa: Mensaje entregado en otra máquina
-    Capa->>Peer: Respuesta + métricas
-    Peer-->>Master: Confirmación cross-machine
+    Agent->>Gateway: Retorna respuesta formateada (200-400 chars, valores técnicos exactos)
+    Gateway->>Usuario: Muestra mensaje en el chat/hilo de origen

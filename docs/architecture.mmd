@@ -1,103 +1,32 @@
-# Arquitectura del Sistema Hermes - Kronos School
+flowchart TB
+    subgraph GATEWAY[" Gateway de Mensajería (Telegram / Discord) "]
+        USER["Estudiantes & Docentes"] -->|@Agent / Slash Commands| MSG_ROUTER["Router de Mensajes & Sesiones"]
+    end
 
-```mermaid
-C4Context
-    title Arquitectura del Sistema: 8 Agentes Autónomos en 3 Clusters
+    subgraph DOMAIN[" Cluster Dominio (STEM) "]
+        CAPA["@Capa<br/>(Impresión 3D & STL)"]
+        ELEKTRA["@Elektra / @Chispa<br/>(Electrónica & Arduino)"]
+        BIO["@Bio<br/>(Bioplásticos & Sostenibilidad)"]
+    end
 
-    Person(teacher, "Profesor/a", "Interactúa vía Telegram/Discord usando @Agent")
-    Person(student, "Estudiante 6° Básico", "Recibe guía de los agentes")
+    subgraph ORCH[" Cluster Orquestación "]
+        MASTER["@Master<br/>(Orquestador Multidisciplinario)"]
+        TUTOR["@TutorConversion<br/>(Conversor Pedagógico)"]
+    end
 
-    System_Boundary(c1, "Cluster: Dominio (Especialistas STEM)") {
-        Container(capa, "🔵 Capa\nMaestro Impresión 3D", "Hermes Agent", "MP10, Cura, OrcaSlicer, STL, G-code\nTrigger: /capa")
-        Container(elektra, "🟠 Elektra\nTutora Electrónica", "Hermes Agent", "Arduino, ESP32, PCB, KiCad, Sensores\nTrigger: /elektra")
-        Container(bio, "🟢 Bio\nMentor Bioplásticos", "Hermes Agent", "PHA, PLA, Micelio, LCA, Compostaje\nTrigger: /bio")
-    }
+    subgraph INFRA[" Cluster Infraestructura "]
+        CARAXES["@Caraxes<br/>(Arquitecto de Skills)"]
+        DAEMON["@Daemon<br/>(Creador de Skills)"]
+        WARDEN["@Warden<br/>(Guardián & Monitoreo)"]
+    end
 
-    System_Boundary(c2, "Cluster: Infraestructura (Soporte)") {
-        Container(caraxes, "🟣 Caraxes\nArquitecto Skills", "Hermes Agent", "Superpowers, Brainstorming, TDD, Code Review\nTrigger: /caraxes")
-        Container(daemon, "🟡 Daemon\nSkill Creator", "Hermes Agent", "anthropics/skill-creator, Diagramas, Skills\nTrigger: /skill-creator")
-        Container(warden, "🛡️ Warden\nGuardián Sistema", "Hermes Agent", "Limpieza, Backups, Monitoreo, Salud\nTrigger: /warden")
-    }
+    MSG_ROUTER -->|@Capa / @Elektra / @Bio| DOMAIN
+    MSG_ROUTER -->|@Master / @TutorConversion| ORCH
+    MSG_ROUTER -->|@Caraxes / @Daemon / @Warden| INFRA
 
-    System_Boundary(c3, "Cluster: Orquestación") {
-        Container(master, "🟡 Agente Master\nOrquestador", "Hermes Agent", "Coordina 8 bots, Delega tareas\nTrigger: (orquestación)")
-        Container(tutor, "🟢 Tutor Conversion\nConversor Tutors", "Hermes Agent", "Tutor → Agent, Pedagogía, Andamiaje\nTrigger: (workflow)")
-    }
-
-    System_Ext(gateway, "Hermes Gateway\nTelegram + Discord", "Gateway", "Recibe @mentions, Enruta a perfiles")
-    System_Ext(nim, "NVIDIA NIM\nNemotron 3 Ultra", "LLM API", "Modelo unificado: nemotron-3-ultra")
-    System_Ext(ollama, "Ollama Local\nphi3:3.8b (fallback)", "Local LLM", "Modelo gratuito local")
-    System_Ext(peer, "Peer Hermes\nOtras máquinas", "Peer API", "Bot-to-Bot cross-machine")
-
-    Rel(teacher, gateway, "Envía @Agent mensaje", "Telegram/Discord")
-    Rel(student, gateway, "Recibe guía", "Telegram/Discord")
-    Rel(gateway, capa, "Rutea /capa")
-    Rel(gateway, elektra, "Rutea /elektra")
-    Rel(gateway, bio, "Rutea /bio")
-    Rel(gateway, caraxes, "Rutea /caraxes")
-    Rel(gateway, daemon, "Rutea /skill-creator")
-    Rel(gateway, warden, "Rutea /warden")
-    Rel(gateway, master, "Rutea orquestación")
-    Rel(gateway, tutor, "Rutea workflow")
-
-    Rel(capa, gateway, "Respuesta + G-code + Métricas")
-    Rel(elektra, gateway, "Esquemas + Firmware + Código")
-    Rel(bio, gateway, "Fichas técnicas + LCA")
-    Rel(caraxes, gateway, "Skills + Arquitectura + Reviews")
-    Rel(daemon, gateway, "Skills creadas/gestionadas")
-    Rel(warden, gateway, "Alertas + Reportes salud")
-    Rel(master, gateway, "Orquesta + Delega")
-    Rel(tutor, gateway, "Agent pedagógico listo")
-
-    Rel(master, capa, "Orquesta")
-    Rel(master, elektra, "Orquesta")
-    Rel(master, bio, "Orquesta")
-    Rel(master, caraxes, "Orquesta")
-    Rel(master, daemon, "Orquesta")
-    Rel(master, warden, "Orquesta")
-    Rel(master, tutor, "Orquesta")
-
-    Rel(caraxes, capa, "Diseña/mejora skill")
-    Rel(caraxes, elektra, "Diseña/mejora skill")
-    Rel(caraxes, bio, "Diseña/mejora skill")
-    Rel(caraxes, daemon, "Diseña/mejora skill")
-    Rel(caraxes, warden, "Diseña/mejora skill")
-    Rel(caraxes, master, "Diseña/mejora skill")
-    Rel(caraxes, tutor, "Diseña/mejora skill")
-
-    Rel(daemon, capa, "Crea/gestiona skill")
-    Rel(daemon, elektra, "Crea/gestiona skill")
-    Rel(daemon, bio, "Crea/gestiona skill")
-    Rel(daemon, caraxes, "Crea/gestiona skill")
-    Rel(daemon, master, "Crea/gestiona skill")
-    Rel(daemon, warden, "Crea/gestiona skill")
-    Rel(daemon, tutor, "Crea/gestiona skill")
-
-    Rel(warden, capa, "Monitorea salud")
-    Rel(warden, elektra, "Monitorea salud")
-    Rel(warden, bio, "Monitorea salud")
-    Rel(warden, caraxes, "Monitorea salud")
-    Rel(warden, daemon, "Monitorea salud")
-    Rel(warden, master, "Monitorea salud")
-    Rel(warden, tutor, "Monitorea salud")
-
-    Rel(capa, nim, "Usa modelo", "NVIDIA NIM API")
-    Rel(elektra, nim, "Usa modelo", "NVIDIA NIM API")
-    Rel(bio, nim, "Usa modelo", "NVIDIA NIM API")
-    Rel(caraxes, nim, "Usa modelo", "NVIDIA NIM API")
-    Rel(daemon, nim, "Usa modelo", "NVIDIA NIM API")
-    Rel(warden, nim, "Usa modelo", "NVIDIA NIM API")
-    Rel(master, nim, "Usa modelo", "NVIDIA NIM API")
-    Rel(tutor, nim, "Usa modelo", "NVIDIA NIM API")
-
-    Rel(capa, ollama, "Fallback local", "Ollama phi3:3.8b")
-    Rel(elektra, ollama, "Fallback local", "Ollama phi3:3.8b")
-    Rel(bio, ollama, "Fallback local", "Ollama phi3:3.8b")
-
-    Rel(master, peer, "Bot-to-Bot cross-machine")
-    Rel(capa, peer, "Cross-machine DM")
-    Rel(elektra, peer, "Cross-machine DM")
-
-    Layout_Landscape
-    Show_Legend
-```
+    MASTER <-->|Delegación & Síntesis| DOMAIN
+    MASTER <-->|Planificación de Infraestructura| CARAXES
+    CARAXES -->|Especificación SKILL.md| DAEMON
+    DAEMON -->|Registro & Auditoría| WARDEN
+    WARDEN -.->|Monitoreo de Salud| DOMAIN
+    WARDEN -.->|Monitoreo de Salud| ORCH
