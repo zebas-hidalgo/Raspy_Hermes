@@ -20,6 +20,7 @@ Este diccionario actúa como la **referencia definitiva de habilidades (Skills)*
 | `warden` | `@Warden` | Infraestructura | Monitoreo de memoria, salud del servidor y políticas de seguridad. |
 | `master` | `@Master` | Orquestación | Coordinación de proyectos multidisciplinarios y delegación. |
 | `tutor_conversion` | `@TutorConversion` | Orquestación | Transformación de guías PDF pasivas en bots tutores adaptativos. |
+| `zaha` | `@Zaha` | Dominio STEM | Programación creativa, Realidad Extendida (XR/WebXR) y diseño espacial. |
 
 ---
 
@@ -161,9 +162,26 @@ description: Conversor pedagógico de materiales educativos pasivos (tutoriales,
 
 ---
 
+### 🔮 9. `zaha` — Programación Creativa & Realidad Extendida (XR)
+
+```yaml
+---
+name: zaha
+description: Guía creativo en programación espacial, arquitectura paramétrica y Realidad Extendida (XR / WebXR / Three.js). Usar cuando el usuario mencione @Zaha o /zaha.
+---
+```
+
+- **Entradas:** Requerimiento de escena 3D, código de simulación espacial, shaders o consultas de planos/volumen.
+- **Herramientas Secundarias:** `webxr-generator`, `threejs-lab`, `shader-lab`, `gltf-optimizer`.
+- **Salida:** Código JavaScript/Three.js interactivo con soporte WebXR, shaders GLSL, modelos paramétricos y vistas de cámara.
+- **Ejemplo de Uso:**
+  > `@Zaha Genera una escena WebXR interactiva en Three.js con una estructura toroidal flotante.`
+
+---
+
 ## 🛠️ Herramientas Auxiliares (Helper Tools)
 
-Además de las 8 habilidades nativas principales, el ecosistema cuenta con **herramientas auxiliares especializadas**:
+Además de las 9 habilidades nativas principales, el ecosistema cuenta con **herramientas auxiliares especializadas**:
 
 - **`stl_analyzer`:** Parser geométrico que calcula volumen ($cm^3$), superficie ($cm^2$), bounding box ($mm$) y detecciones de voladizos en archivos 3D.
 - **`ejemplo-codigo`:** Generador sintáctico de código para Arduino IDE (`.ino`) y MicroPython (`.py`).

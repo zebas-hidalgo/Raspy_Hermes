@@ -1,0 +1,83 @@
+graph TD
+    %% C4 Container Diagram - Zaha (Creative Programming & Extended Reality - XR / WebXR Agent)
+    %% Arquitectura técnica del agente Zaha
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef agent fill:#f5d0fe,stroke:#c026d3,stroke-width:2px,color:#701a75
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef xr fill:#ccfbf1,stroke:#0d9488,stroke-width:2px,color:#115e59
+    classDef devices fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#4c1d95
+    classDef storage fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#334155
+
+    %% Actores y canales
+    User[("👤 Estudiante / Desarrollador Maker\n(Programación Creativa & XR)")]:::user
+    Discord[("💬 Discord / Telegram\nGateway Bot")]:::gateway
+    WebXRPortal[("🌐 WebXR Canvas / Viewport\nKronos 3D Spatial Sandbox")]:::gateway
+
+    %% Hermes Gateway
+    subgraph "Hermes Gateway"
+        direction TB
+        Gateway["🚪 Hermes Gateway\nRouter + Auth + Media Pipeline\n(Node.js / Python API :8377)"]:::gateway
+    end
+
+    %% Núcleo Agente Zaha
+    subgraph "Agente Zaha - Core"
+        direction TB
+        ZahaCore["🔮 Zaha Core Agent\nGuía de Programación Espacial y Realidad Extendida\n(Metodología Z.A.H.A.)"]:::agent
+        ZahaSkills["📦 Zaha Skills Ecosystem\n• zaha (núcleo diseño arquitectónico & paramétrico)\n• webxr-generator (experiencias inmersivas VR/AR)\n• threejs-lab (geometría procedural & shaders GLSL)\n• python-spatial (álgebra lineal 3D & transformaciones)\n• gltf-optimizer (exportación .glb / Draco compression)"]:::agent
+    end
+
+    %% Modelos LLM
+    subgraph "Modelos LLM"
+        direction TB
+        NIM["☁️ NVIDIA NIM Cloud\nNemotron-3-Ultra / Llama 3.1\n(Generación de Código 3D y Shaders)"]:::nim
+        Ollama["🏠 Ollama Local\nModelos locales en Raspberry Pi\n(Inferencia Offline)"]:::nim
+    end
+
+    %% Motores y Frameworks XR
+    subgraph "Motores Gráficos & Frameworks XR"
+        direction TB
+        ThreeJS["📐 Three.js / WebGL\nEscenas 3D interactivas, mallas y luces"]:::xr
+        Babylon["🪐 Babylon.js / A-Frame\nEntornos inmersivos declarativos"]:::xr
+        ShaderLab["✨ GLSL Shaders\nVertex & Fragment Shaders procedurales"]:::xr
+    end
+
+    %% Dispositivos de Visualización & XR
+    subgraph "Dispositivos & Runtimes de Salida"
+        direction TB
+        Headsets["🥽 Visores XR / Espaciales\nMeta Quest, Apple Vision Pro, WebXR API"]:::devices
+        Browser3D["🖥️ Navegadores WebGL / Canvas\nChrome / Firefox / Safari Spatial"]:::devices
+        MobileAR["📱 Mobile AR\nWebXR Hit Test, QuickLook, ARCore"]:::devices
+    end
+
+    %% Persistencia y Modelos 3D
+    subgraph "Almacenamiento de Escenas & Assets"
+        direction TB
+        AssetStore["💾 3D Asset Store\nModelos .gltf, .glb, texturas PBR y materiales"]:::storage
+        CodeRepo["📄 Scripts & Shaders\nArchivos .js, .ts, .py, .frag, .vert"]:::storage
+        StateDB["⚙️ Hermes State DB\nSesiones y estado de canvas interactivo"]:::storage
+    end
+
+    %% Relaciones
+    User -->|"/zaha o @Zaha\nCódigo o escena XR"| Discord
+    User -->|"Interacción en viewport 3D"| WebXRPortal
+    Discord --> Gateway
+    WebXRPortal --> Gateway
+    Gateway -->|"/zaha route"| ZahaCore
+    ZahaCore <--> ZahaSkills
+    ZahaCore -->|Inferencia espacial| NIM
+    NIM -.->|Fallback local| Ollama
+
+    ZahaSkills --> ThreeJS
+    ZahaSkills --> Babylon
+    ZahaSkills --> ShaderLab
+
+    ThreeJS --> Browser3D
+    Babylon --> Headsets
+    ThreeJS --> MobileAR
+
+    ZahaSkills --> AssetStore
+    ZahaSkills --> CodeRepo
+    ZahaCore --> StateDB

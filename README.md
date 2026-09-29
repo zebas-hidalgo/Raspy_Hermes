@@ -5,9 +5,9 @@
 <p align="center">
   <img alt="Licencia MIT" src="https://img.shields.io/badge/license-MIT-3b82f6.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white">
   <img alt="Entorno Kronos_School" src="https://img.shields.io/badge/Entorno-Kronos__School-10b981.svg?style=for-the-badge&logo=googleclassroom&logoColor=white">
-  <img alt="Agentes" src="https://img.shields.io/badge/Agentes-8%20Bots-8b5cf6.svg?style=for-the-badge&logo=probot&logoColor=white">
+  <img alt="Agentes" src="https://img.shields.io/badge/Agentes-9%20Bots-8b5cf6.svg?style=for-the-badge&logo=probot&logoColor=white">
   <img alt="Último Commit" src="https://img.shields.io/github/last-commit/zebas-hidalgo/Raspy_Hermes?style=for-the-badge&color=0284c7&logo=git&logoColor=white">
-  <img alt="Formato Diagramas" src="https://img.shields.io/badge/Diagramas-15%20SVG%20Vectoriales-f59e0b.svg?style=for-the-badge&logo=svg&logoColor=white">
+  <img alt="Formato Diagramas" src="https://img.shields.io/badge/Diagramas-16%20SVG%20Vectoriales-f59e0b.svg?style=for-the-badge&logo=svg&logoColor=white">
 </p>
 
 <p align="center">
@@ -33,7 +33,7 @@
 
 ## 🌟 Visión General
 
-**Raspy_Hermes** es un ecosistema educativo compuesto por **8 agentes de IA autónomos** basados en el motor de **Hermes Agent**. Los agentes están diseñados para apoyar el aprendizaje basado en proyectos en entornos educativos y laboratorios Maker STEM, facilitando la resolución de dudas sobre **Impresión 3D**, **Electrónica**, **Bioplásticos**, **Arquitectura de Sistemas** y **Orquestación**.
+**Raspy_Hermes** es un ecosistema educativo compuesto por **9 agentes de IA autónomos** basados en el motor de **Hermes Agent**. Los agentes están diseñados para apoyar el aprendizaje basado en proyectos en entornos educativos y laboratorios Maker STEM, facilitando la resolución de dudas sobre **Impresión 3D**, **Electrónica**, **Bioplásticos**, **Arquitectura de Sistemas**, **Programación Creativa y WebXR** y **Orquestación**.
 
 Los usuarios (estudiantes, docentes y entusiastas) interactúan con la red de bots en plataformas de mensajería (Telegram y Discord) mediante la sintaxis `@NombreAgent` o comandos `/slash`.
 
@@ -45,7 +45,7 @@ Para sacar el máximo provecho al laboratorio y comprender en profundidad el fun
 
 | Recurso | Destinatario | Descripción | Enlace |
 | :--- | :--- | :--- | :--- |
-| **📚 Diccionario de Skills** | Desarrolladores / Docentes | Catálogo técnico de las 8 habilidades nativas y herramientas auxiliares del sistema. | [📘 Ver Diccionario](docs/referencias/diccionario_skills.md) |
+| **📚 Diccionario de Skills** | Desarrolladores / Docentes | Catálogo técnico de las 9 habilidades nativas y herramientas auxiliares del sistema. | [📘 Ver Diccionario](docs/referencias/diccionario_skills.md) |
 | **🔄 Ciclo de Vida de Skills** | Arquitectos / Creadores | Fases de diseño, empaquetado, validación y activación de habilidades. | [📘 Ver Ciclo de Vida](docs/referencias/ciclo_vida_skills.md) |
 | **🛡️ Arquitectura de Seguridad** | Administradores / IT | Mecanismos de sanitización, rate limiting, control de turnos y sandbox. | [📘 Ver Seguridad](docs/referencias/arquitectura_seguridad.md) |
 | **🍎 Guía Metodológica para Docentes** | Profesores / UTP | Matriz de Objetivos de Aprendizaje Transversales STEM, metodología ABP y rúbrica. | [📘 Ver Guía](docs/pedagogia/guias_docentes.md) |
@@ -101,6 +101,7 @@ Cada agente cuenta con su suite de diagramas C4 (Container), Flujo de Ejecución
 | **🛡️ Warden** | [warden-architecture.mmd](docs/warden/warden-architecture.mmd) | [warden-flow.mmd](docs/warden/warden-flow.mmd) | [warden-components.mmd](docs/warden/warden-components.mmd) | [`docs/warden/`](docs/warden/) |
 | **🟡 Master** | [master-architecture.mmd](docs/master/master-architecture.mmd) | [master-flow.mmd](docs/master/master-flow.mmd) | [master-components.mmd](docs/master/master-components.mmd) | [`docs/master/`](docs/master/) |
 | **🎓 Tutor Conversion** | [tutor_conversion-architecture.mmd](docs/tutor_conversion/tutor_conversion-architecture.mmd) | [tutor_conversion-flow.mmd](docs/tutor_conversion/tutor_conversion-flow.mmd) | [tutor_conversion-components.mmd](docs/tutor_conversion/tutor_conversion-components.mmd) | [`docs/tutor_conversion/`](docs/tutor_conversion/) |
+| **🎨 Zaha** | [zaha-architecture.mmd](docs/zaha/zaha-architecture.mmd) | [zaha-flow.mmd](docs/zaha/zaha-flow.mmd) | [zaha-components.mmd](docs/zaha/zaha-components.mmd) | [`docs/zaha/`](docs/zaha/) |
 
 </details>
 
@@ -108,7 +109,7 @@ Cada agente cuenta con su suite de diagramas C4 (Container), Flujo de Ejecución
 
 ## 🤖 Clusters de Agentes
 
-Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales**:
+Los 9 agentes están distribuidos estratégicamente en **3 clusters funcionales**:
 
 ### 🟢 1. Cluster Dominio (STEM)
 
@@ -117,6 +118,7 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 | **Maestro Capa** | `@Capa` <br> `/capa` | Experto en impresión 3D, análisis STL y optimización cero residuos | [📘 Ver Doc](docs/agentes/capa.md) | [📐 C4 / Sequence / Components](docs/capa/) | ![Capa](diagrams/capa_flujo.svg) |
 | **Elektra** | `@Elektra` <br> `@Chispa` <br> `/elektra` | Experta en electrónica, microcontroladores Arduino/ESP32 y circuitos | [📘 Ver Doc](docs/agentes/elektra.md) | [📐 C4 / Sequence / Components](docs/elektra/) | ![Elektra](diagrams/elektra_flujo.svg) |
 | **Bio** | `@Bio` <br> `/bio` | Mentor de bioplásticos, química verde y economía circular | [📘 Ver Doc](docs/agentes/bio.md) | [📐 C4 / Sequence / Components](docs/bio/) | ![Bio](diagrams/bio_flujo.svg) |
+| **Zaha** | `@Zaha` <br> `/zaha` | Experta en programación creativa, WebXR, Three.js y modelado espacial | [📘 Ver Doc](docs/agentes/zaha.md) | [📐 C4 / Sequence / Components](docs/zaha/) | ![Zaha](diagrams/zaha_flujo.svg) |
 
 ---
 
@@ -170,6 +172,12 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 ```
 > **Respuesta:** Desglose del proyecto en 3 fases asignando tareas específicas a `@Capa`, `@Elektra` y `@Bio`.
 
+#### 🎨 Mención a @Zaha:
+```text
+@Zaha ¿Cómo creo una escena WebXR interactiva en Three.js con un objeto geométrico que responde al movimiento espacial?
+```
+> **Respuesta:** Estructura completa de escena HTML/JS con `renderer.xr.enabled = true`, shaders GLSL de distorsión armónica y optimización a 90 FPS para visores de Realidad Virtual.
+
 </details>
 
 ---
@@ -180,7 +188,7 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 Raspy_Hermes/
 ├── README.md                           # Presentación principal del proyecto
 ├── CONTRIBUTING.md                     # Guía para proponer skills y contribuir
-├── diagrams/                           # 15 diagramas vectoriales en formato SVG
+├── diagrams/                           # 16 diagramas vectoriales en formato SVG
 │   ├── hero_banner.svg                 # Banner de cabecera nativo
 │   ├── ecosistema_general.svg          # Mapa general del ecosistema
 │   ├── secuencia_interaccion.svg       # Diagrama de Secuencia UML de mensajería
@@ -195,9 +203,10 @@ Raspy_Hermes/
 │   ├── daemon_flujo.svg                # Flujo de Daemon
 │   ├── warden_flujo.svg                # Flujo de Warden
 │   ├── master_flujo.svg                # Flujo de Master
-│   └── tutor_conversion_flujo.svg      # Flujo de TutorConversion
-└── docs/                               # Documentación organizada por subcarpetas
-    ├── agentes/                        # Fichas técnicas de los 8 agentes de IA
+│   ├── tutor_conversion_flujo.svg      # Flujo de TutorConversion
+│   └── zaha_flujo.svg                  # Flujo de Zaha (WebXR & Código Creativo)
+└── docs/                               # Documentación y C4 organizada por agente
+    ├── agentes/                        # Fichas técnicas de los 9 agentes de IA
     │   ├── capa.md
     │   ├── elektra.md
     │   ├── bio.md
@@ -205,7 +214,17 @@ Raspy_Hermes/
     │   ├── daemon.md
     │   ├── warden.md
     │   ├── master.md
-    │   └── tutor_conversion.md
+    │   ├── tutor_conversion.md
+    │   └── zaha.md
+    ├── capa/                           # Diagramas C4 Mermaid de Capa
+    ├── elektra/                        # Diagramas C4 Mermaid de Elektra
+    ├── bio/                            # Diagramas C4 Mermaid de Bio
+    ├── caraxes/                        # Diagramas C4 Mermaid de Caraxes
+    ├── daemon/                         # Diagramas C4 Mermaid de Daemon
+    ├── warden/                         # Diagramas C4 Mermaid de Warden
+    ├── master/                         # Diagramas C4 Mermaid de Master
+    ├── tutor_conversion/               # Diagramas C4 Mermaid de TutorConversion
+    ├── zaha/                           # Diagramas C4 Mermaid de Zaha
     ├── pedagogia/                      # Guías educativas, metodológicas y casos
     │   ├── guias_docentes.md
     │   ├── guia_interaccion_estudiantes.md

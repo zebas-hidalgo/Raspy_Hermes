@@ -1,0 +1,33 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 Programador / Estudiante Maker
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Zaha as 🔮 Zaha Core Agent
+    participant Skills as 📦 Zaha Skills
+    participant NIM as ☁️ NVIDIA NIM LLM
+    participant ThreeEngine as 📐 Three.js / WebXR Runtime
+    participant Store as 💾 Asset Store & State DB
+
+    Note over User,Store: === FLUJO DE PROGRAMACIÓN Y CREACIÓN XR /zaha ===
+
+    User->>Channel: /zaha "programa un espacio inmersivo en Three.js con geometría paramétrica flotante y soporte WebXR"
+    Channel->>Gateway: POST /api/v1/agent/zaha\n{prompt, user_id, channel}
+    Gateway->>Gateway: Validar token y rate limit
+    Gateway->>Zaha: Despachar contexto de programación espacial
+
+    Note over Zaha,NIM: === FASE 1: SÍNTESIS DE GEOMETRÍA PARAMÉTRICA (Z.A.H.A.) ===
+    Zaha->>NIM: Formular escena espacial 3D con metodología Z.A.H.A.:\n- Escena Three.js con render loop a 60/90 fps\n- Malla paramétrica (superficie sinuosa / toroide orgánico)\n- Shaders GLSL para iluminación y reflejos\n- WebXRManager habilitado con botón VR/AR
+    NIM-->>Zaha: Código limpio HTML5 + JavaScript + GLSL
+
+    Note over Zaha,Skills: === FASE 2: COMPILACIÓN Y OPTIMIZACIÓN DE ASSETS ===
+    Zaha->>Skills: delegar: threejs-lab.bundle(code)
+    Skills->>ThreeEngine: Validar sintaxis y compatibilidad WebGL2/WebXR
+    ThreeEngine-->>Skills: Render válido (0 WebGL warnings, 90 fps target)
+    Skills->>Skills: Empaquetar escena en archivo interactivo standalone (`scene_xr.html`)
+    Skills->>Store: Guardar archivo .html y texturas en Asset Store
+
+    Note over Zaha,Channel: === FASE 3: ENTREGA DE CÓDIGO Y ACCESO INMERSIVO ===
+    Zaha-->>Gateway: Preparar respuesta con preview visual y snippet de código
+    Gateway-->>Channel: Despachar mensaje enriquecido
+    Channel-->>User: 🔮 **¡Espacio Inmersivo XR Generado!**\n\n🪐 **Detalles del Entorno:**\n• Motor: Three.js r160 + WebXR Device API\n• Geometría: Superficie paramétrica basada en armónicos esféricos\n• Material: MeshPhysicalMaterial con transmisión y roughness 0.1\n• Controles: OrbitControls en PC/móvil + XR Controller Raycasting en VR\n\n💻 [Ver Código Fuente en JavaScript]\n🥽 [Abrir Visor WebXR en Navegador / Casco VR]\n📦 [Descargar Asset .glb optimizado]

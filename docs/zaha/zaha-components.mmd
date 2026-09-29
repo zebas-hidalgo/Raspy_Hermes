@@ -1,0 +1,48 @@
+graph LR
+    %% Component Diagram - Zaha Core Agent
+    %% Subcomponentes y servicios especializados de Zaha
+
+    classDef core fill:#f5d0fe,stroke:#c026d3,stroke-width:2px,color:#701a75
+    classDef skill fill:#ccfbf1,stroke:#0d9488,stroke-width:1.5px,color:#115e59
+    classDef webxr fill:#ede9fe,stroke:#8b5cf6,stroke-width:1.5px,color:#4c1d95
+    classDef asset fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#334155
+
+    subgraph "Zaha Core Engine"
+        SpatialRouter["Spatial Query & Code Router"]:::core
+        MethodologyZaha["Z.A.H.A. Spatial Pipeline"]:::core
+        ParametricMath["Parametric & Vector Math Solver"]:::core
+    end
+
+    subgraph "XR & Graphics Skills"
+        SkillZahaCore["zaha Design Skill Handler"]:::skill
+        SkillWebXR["webxr-generator Inmersive Bridge"]:::skill
+        SkillThree["threejs-lab Scene Graph Builder"]:::skill
+        SkillShaders["GLSL Shader Synthesis Engine"]:::skill
+    end
+
+    subgraph "Interactive Viewport & Runtimes"
+        WebGLCanvas["WebGL2 / Canvas Context Validator"]:::webxr
+        WebXRController["WebXR Session & Controller Manager"]:::webxr
+        RaycasterService["Spatial Raycasting & Physics Engine"]:::webxr
+    end
+
+    subgraph "Asset Pipeline & Storage"
+        GLTFOptimizer["glTF / Draco Geometry Compressor"]:::asset
+        StandaloneBundler["Single-File HTML/Canvas Bundler"]:::asset
+        SceneStore["Scene & State DB Persister"]:::asset
+    end
+
+    SpatialRouter --> MethodologyZaha
+    MethodologyZaha --> ParametricMath
+    MethodologyZaha --> SkillZahaCore
+    MethodologyZaha --> SkillWebXR
+    MethodologyZaha --> SkillThree
+    MethodologyZaha --> SkillShaders
+
+    SkillThree --> WebGLCanvas
+    SkillWebXR --> WebXRController
+    SkillThree --> RaycasterService
+
+    SkillThree --> GLTFOptimizer
+    GLTFOptimizer --> StandaloneBundler
+    StandaloneBundler --> SceneStore
