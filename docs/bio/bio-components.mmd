@@ -1,0 +1,46 @@
+graph LR
+    %% Component Diagram - Bio Core Agent
+    %% Submódulos y motores especializados de Bio
+
+    classDef core fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef skill fill:#e0f2fe,stroke:#0284c7,stroke-width:1.5px,color:#075985
+    classDef lca fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#92400e
+    classDef ext fill:#f3e8fd,stroke:#9333ea,stroke-width:1.5px,color:#581c87
+
+    subgraph "Bio Core Engine"
+        BioRouter["Bio Query Dispatcher"]:::core
+        MethodologyBio["B.I.O. Lifecycle Orchestrator"]:::core
+        RecipeFormulator["Biopolymer Stoichiometry Solver"]:::core
+    end
+
+    subgraph "Environmental & Safety Assessment"
+        LCACalculator["LCA Carbon & Water Footprint Engine"]:::lca
+        BiodegradationRules["ISO 14855 / ASTM D6400 Checker"]:::lca
+        ToxicityFilter["Non-Toxic Reagent Gatekeeper"]:::lca
+    end
+
+    subgraph "Biomaterial Skill Modules"
+        SkillBioCore["bio Main Skill Handler"]:::skill
+        SkillDiagram["biomaterial-diagram Generator"]:::skill
+        SkillPDF["pdf-export Lab Sheets Module"]:::skill
+        SkillFerment["Fermentation Growth Curve Tracker"]:::skill
+    end
+
+    subgraph "Knowledge Bases & AI"
+        EcoinventBridge["Ecoinvent / Agri-footprint Connector"]:::ext
+        NIMBioModel["NVIDIA NIM Molecular Model"]:::ext
+    end
+
+    BioRouter --> MethodologyBio
+    MethodologyBio --> RecipeFormulator
+    RecipeFormulator --> ToxicityFilter
+    ToxicityFilter --> LCACalculator
+    LCACalculator --> BiodegradationRules
+
+    MethodologyBio --> SkillBioCore
+    MethodologyBio --> SkillDiagram
+    MethodologyBio --> SkillPDF
+    MethodologyBio --> SkillFerment
+
+    LCACalculator --> EcoinventBridge
+    RecipeFormulator --> NIMBioModel

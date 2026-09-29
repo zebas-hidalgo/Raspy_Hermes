@@ -1,0 +1,68 @@
+graph TD
+    %% C4 Container Diagram - Daemon / Skill-Creator (Skill Forger & Visual Architect)
+    %% Arquitectura técnica del agente Daemon
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef agent fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef visual fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e40af
+    classDef catalog fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#334155
+
+    %% Actores y canales
+    User[("👤 Desarrollador / Docente Maker\n(Creador de Capacidades)")]:::user
+    Discord[("💬 Discord / Telegram\nGateway Bot")]:::gateway
+    WebUI[("🌐 Web UI Portal\nSkill Studio")]:::gateway
+
+    %% Hermes Gateway
+    subgraph "Hermes Gateway"
+        direction TB
+        Gateway["🚪 Hermes Gateway\nRouter + Auth + Rate Limit\n(Node.js / Python API :8377)"]:::gateway
+    end
+
+    %% Núcleo Agente Daemon
+    subgraph "Agente Daemon - Core"
+        direction TB
+        DaemonCore["🟡 Daemon Core Agent\nEl Creador de Skills - Forjador de Invocaciones\n(Metodología D.A.E.M.O.N.)"]:::agent
+        SkillForge["🔨 Skill Creator Engine\n• Scaffolding SKILL.md / SOUL.md\n• YAML Frontmatter Validation\n• Invocabilidad y SemVer Versioning"]:::agent
+    end
+
+    %% Modelos LLM
+    subgraph "Modelos LLM"
+        direction TB
+        NIM["☁️ NVIDIA NIM Cloud\nNemotron-3-Ultra / Llama 3.1\n(Síntesis de Prompts y Código)"]:::nim
+        Ollama["🏠 Ollama Local\nModelos locales en Raspberry Pi\n(Fallback Offline)"]:::nim
+    end
+
+    %% Suite Visual y Diagramación
+    subgraph "Suite de Diagramación & Estética (14 Skills)"
+        direction TB
+        ArtisticDiagrams["🎨 Diagramas Artísticos\ndaemon_pintor / da_vinci / leonardo / rembrandt"]:::visual
+        TechnicalDiagrams["📐 Diagramas Técnicos\nraspy_design / diagram-design / visual-explainer"]:::visual
+        ExcalidrawTools["✏️ Excalidraw Engine\nexcalidraw_to_png / drawio-headless-fallback"]:::visual
+    end
+
+    %% Almacenamiento y Registro de Skills
+    subgraph "Persistencia & Catálogo de Skills"
+        direction TB
+        SkillsRegistry["📁 Global Skills Directory\n~/.hermes/skills/ (83 skills activas)"]:::catalog
+        ProfileSkills["👤 Profile Skills Directory\n~/.hermes/profiles/<agente>/skills/"]:::catalog
+        SandboxRunner["🧪 Sandbox de Prueba\nAislamiento de ejecución para validación"]:::catalog
+    end
+
+    %% Relaciones
+    User -->|"/daemon o /skill-creator\nNueva skill o diagrama"| Discord
+    User -->|"Diseño visual interactivo"| WebUI
+    Discord --> Gateway
+    WebUI --> Gateway
+    Gateway -->|"/daemon route"| DaemonCore
+    DaemonCore <--> SkillForge
+    DaemonCore -->|Inferencia de habilidades| NIM
+    NIM -.->|Fallback local| Ollama
+    DaemonCore --> ArtisticDiagrams
+    DaemonCore --> TechnicalDiagrams
+    DaemonCore --> ExcalidrawTools
+    SkillForge -->|Validar en sandbox| SandboxRunner
+    SkillForge -->|Publicar habilidad forjada| SkillsRegistry
+    SkillForge -->|Asignar a perfil específico| ProfileSkills

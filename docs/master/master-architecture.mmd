@@ -1,0 +1,81 @@
+graph TD
+    %% C4 Container Diagram - Master (Multi-Agent Symphony Orchestrator)
+    %% Arquitectura técnica del Agente Master
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef master fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#713f12
+    classDef bot fill:#ede9fe,stroke:#8b5cf6,stroke-width:1.5px,color:#4c1d95
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef bus fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#334155
+
+    %% Actores y canales
+    User[("👤 Docente / Estudiante / Maker\n(Proyecto Integrado Multidisciplinario)")]:::user
+    Discord[("💬 Discord / Telegram\nGateway Bot Multi-Canal")]:::gateway
+    WebPortal[("🌐 Kronos School Hub\nDashboard Orquestado")]:::gateway
+
+    %% Hermes Gateway
+    subgraph "Hermes Gateway"
+        direction TB
+        Gateway["🚪 Hermes Gateway\nEnrutador Central y Despachador de Triggers\n(Node.js / Python API :8377)"]:::gateway
+    end
+
+    %% Núcleo Agente Master
+    subgraph "Agente Master - Director de Orquesta"
+        direction TB
+        MasterCore["🟡 Agente Master Core\nDirector de la Sinfonía de Bots\n(Metodología M.A.E.S.T.R.O.)"]:::master
+        SymphonySkills["📦 Master Skills Stack\n• agente_master (orquestación & handoffs)\n• delegation & dispatching-parallel-agents\n• kanban-state & shared-memory sync"]:::master
+    end
+
+    %% Modelos LLM
+    subgraph "Modelos LLM"
+        direction TB
+        NIM["☁️ NVIDIA NIM Cloud\nNemotron-3-Ultra / Llama 3.1\n(Planificación y Descomposición de Tareas)"]:::nim
+        Ollama["🏠 Ollama Local\nModelos en Raspberry Pi\n(Fallback Offline)"]:::nim
+    end
+
+    %% El Ensamble: 7 Agentes Especializados
+    subgraph "Los Solistas - Ensamble Especializado"
+        direction TB
+        Capa["🔵 Capa\nImpresión 3D"]:::bot
+        Elektra["🟠 Elektra\nElectrónica"]:::bot
+        Bio["🟢 Bio\nBiomateriales"]:::bot
+        Caraxes["🟣 Caraxes\nArquitectura"]:::bot
+        Daemon["🟡 Daemon\nSkills & Dibujo"]:::bot
+        Warden["🛡️ Warden\nSalud Host"]:::bot
+        Tutor["🎓 Tutor\nPedagogía"]:::bot
+    end
+
+    %% Bus de Estado Compartido
+    subgraph "Bus de Mensajería & Estado Compartido"
+        direction TB
+        KanbanDB["📋 Kanban & Task DB\n(kanban.db / shared-state.db)"]:::bus
+        ContextBus["🔄 Inter-Agent Handoff Bus\nContext passing con payloads estructurados"]:::bus
+        SharedMemory["🧠 Memoria Compartida Global\nSesiones, decisiones y entregables"]:::bus
+    end
+
+    %% Relaciones
+    User -->|"/master o proyecto multidisciplinar"| Discord
+    User -->|"Diseño de proyectos integrados"| WebPortal
+    Discord --> Gateway
+    WebPortal --> Gateway
+    Gateway -->|"/master route"| MasterCore
+    MasterCore <--> SymphonySkills
+    MasterCore -->|Inferencia de planificación| NIM
+    NIM -.->|Fallback| Ollama
+
+    MasterCore -->|Despacho de subtareas| ContextBus
+    ContextBus --> Capa
+    ContextBus --> Elektra
+    ContextBus --> Bio
+    ContextBus --> Caraxes
+    ContextBus --> Daemon
+    ContextBus --> Warden
+    ContextBus --> Tutor
+
+    SymphonySkills --> KanbanDB
+    SymphonySkills --> SharedMemory
+    Capa -.->|Retorno de entregables| MasterCore
+    Elektra -.->|Retorno de entregables| MasterCore
+    Bio -.->|Retorno de entregables| MasterCore

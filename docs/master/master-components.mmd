@@ -1,0 +1,50 @@
+graph LR
+    %% Component Diagram - Agente Master
+    %% Componentes internos del Director de Orquesta
+
+    classDef core fill:#fef3c7,stroke:#eab308,stroke-width:2px,color:#713f12
+    classDef orch fill:#ede9fe,stroke:#8b5cf6,stroke-width:1.5px,color:#4c1d95
+    classDef bus fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#334155
+    classDef bot fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
+
+    subgraph "Master Core Engine"
+        MasterRouter["Master Intent & Project Decomposer"]:::core
+        MethodologyMaster["M.A.E.S.T.R.O. Orchestration Engine"]:::core
+        SymphonySynthesizer["Inter-Bot Tutti Synthesizer"]:::core
+    end
+
+    subgraph "Multi-Agent Coordination Stack"
+        TaskDecomposer["Task Graph & Dependency Solver"]:::orch
+        BotRouter["Specialist Bot Dispatcher"]:::orch
+        ConflictResolver["Dissonance & Collision Arbiter"]:::orch
+        SuperpowersPlanner["Caraxes & Superpowers Bridge"]:::orch
+    end
+
+    subgraph "Shared State & Memory Bus"
+        KanbanManager["Kanban State Synchronizer (kanban.db)"]:::bus
+        ContextHandoffBus["Payload Handoff & Memory Bus"]:::bus
+        SharedMemoryStore["Global Episodic Store (shared-state.db)"]:::bus
+    end
+
+    subgraph "Ensemble Adapters"
+        CapaAdapter["Capa (3D Printing) Adapter"]:::bot
+        ElektraAdapter["Elektra (Electronics) Adapter"]:::bot
+        BioAdapter["Bio (Biomaterials) Adapter"]:::bot
+        OtherAdapters["Caraxes / Daemon / Warden / Tutor Adapters"]:::bot
+    end
+
+    MasterRouter --> MethodologyMaster
+    MethodologyMaster --> TaskDecomposer
+    TaskDecomposer --> BotRouter
+    MethodologyMaster --> ConflictResolver
+    MethodologyMaster --> SuperpowersPlanner
+
+    BotRouter --> CapaAdapter
+    BotRouter --> ElektraAdapter
+    BotRouter --> BioAdapter
+    BotRouter --> OtherAdapters
+
+    TaskDecomposer --> KanbanManager
+    BotRouter --> ContextHandoffBus
+    ContextHandoffBus --> SharedMemoryStore
+    MethodologyMaster --> SymphonySynthesizer

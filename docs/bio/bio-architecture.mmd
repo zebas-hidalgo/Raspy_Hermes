@@ -1,0 +1,72 @@
+graph TD
+    %% C4 Container Diagram - Bio (Biomaterials, Bioplastics & Fermentation Agent)
+    %% Arquitectura técnica del agente Bio
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef agent fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef lab fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
+    classDef lca fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#334155
+
+    %% Canales y usuarios
+    User[("👤 Investigador / Estudiante STEM\n(Lab Maker Verde)")]:::user
+    Discord[("💬 Discord / Telegram\nGateway Bot")]:::gateway
+    WebUI[("🌐 Web UI Portal\nKronos Green Lab")]:::gateway
+
+    %% Hermes Gateway
+    subgraph "Hermes Gateway"
+        direction TB
+        Gateway["🚪 Hermes Gateway\nRouter + Auth + Rate Limit\n(Node.js / Python API :8377)"]:::gateway
+    end
+
+    %% Núcleo Agente Bio
+    subgraph "Agente Bio - Core"
+        direction TB
+        BioCore["🌱 Bio Core Agent\nEl Guía Verde - Alquimista de Materia Viva\n(Metodología B.I.O.)"]:::agent
+        BioSkills["📦 Bio Skills Ecosystem\n• bio (núcleo formulación & bioensayos)\n• biomaterial-diagram (flujogramas síntesis)\n• lca-calculator (ISO 14040 huella CO2/H2O)\n• biodegradation-tracker (ISO 14855/ASTM D6400)\n• pdf-export (Fichas técnicas de formulación)"]:::agent
+    end
+
+    %% Modelos LLM
+    subgraph "Modelos LLM"
+        direction TB
+        NIM["☁️ NVIDIA NIM Cloud\nNemotron-3-Ultra / Llama 3.1\n(Inferencia Química / Biológica)"]:::nim
+        Ollama["🏠 Ollama Local\nModelos en Raspberry Pi\n(Modo Offline)"]:::nim
+    end
+
+    %% Bases de Datos y Estándares
+    subgraph "Bases de Datos & Estándares Científicos"
+        direction TB
+        LCA_DB["📊 LCA Data Sources\nEcoinvent / Agri-footprint / AGRIBALYSE"]:::lca
+        Standards["📜 Normativas Internacionales\nISO 14855, ASTM D6400, EN 13432"]:::lca
+    end
+
+    %% Laboratorio Físico y Sensores
+    subgraph "Laboratorio Físico & Sensores"
+        direction TB
+        Bioreactor["🧪 Biorreactores & Incubadoras\nMonitoreo pH, Temperatura, Humedad"]:::lab
+        MechanicalTest["🔬 Caracterización Mecánica\nEnsayo de Tracción, Flexión y Biodegradación"]:::lab
+    end
+
+    %% Persistencia
+    subgraph "Persistencia y Estado"
+        direction TB
+        RecipeDB["💾 Recipes & Formulations DB\nCatálogo de biopolímeros y micelio"]:::lca
+        StateDB["⚙️ Hermes State DB\nSesiones y trazabilidad de lotes"]:::lca
+    end
+
+    %% Relaciones
+    User -->|"/bio o @Bio\nReceta o consulta biomaterial"| Discord
+    User -->|"Subida de parámetros de fermentación"| WebUI
+    Discord --> Gateway
+    WebUI --> Gateway
+    Gateway -->|"/bio route"| BioCore
+    BioCore <--> BioSkills
+    BioCore -->|Inferencia biomateriales| NIM
+    NIM -.->|Fallback local| Ollama
+    BioSkills -->|Consulta factores de emisión| LCA_DB
+    BioSkills -->|Validación de compostaje| Standards
+    BioSkills -->|Recolección de telemetría| Bioreactor
+    BioCore --> RecipeDB
+    BioCore --> StateDB

@@ -1,0 +1,42 @@
+graph LR
+    %% Component Diagram - Tutor Conversion Core Agent
+    %% Subcomponentes internos del transformador pedagógico
+
+    classDef core fill:#ecfdf5,stroke:#059669,stroke-width:2px,color:#064e3b
+    classDef ped fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f
+    classDef gen fill:#ede9fe,stroke:#8b5cf6,stroke-width:1.5px,color:#4c1d95
+    classDef lms fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#334155
+
+    subgraph "Tutor Conversion Core Engine"
+        PedagogicalDispatcher["Curriculum Input Parser"]:::core
+        MethodologyTransforma["T.R.A.N.S.F.O.R.M.A. Pipeline Orchestrator"]:::core
+        PromptAlchemist["Pedagogical Persona & SOUL.md Synthesizer"]:::core
+    end
+
+    subgraph "Instructional Design Framework"
+        BloomClassifier["Bloom Taxonomy & Competency Classifier"]:::ped
+        ScaffoldingLadder["Bruner / Vygotsky Scaffolding Engine"]:::ped
+        AssessmentEngine["Interactive Quiz & Rubric Generator"]:::ped
+    end
+
+    subgraph "Agent Deployment & Hermes Profiles"
+        ProfileScaffolder["Hermes Profile & Config Generator"]:::gen
+        InteractiveBotTester["Pedagogical Dialogue Sandbox Tester"]:::gen
+    end
+
+    subgraph "Curricular Integrations"
+        LMSExporter["LMS Exporter (Moodle / Classroom / SCORM)"]:::lms
+        TeacherDossier["Teacher Methodological Dossier Generator"]:::lms
+    end
+
+    PedagogicalDispatcher --> MethodologyTransforma
+    MethodologyTransforma --> BloomClassifier
+    BloomClassifier --> ScaffoldingLadder
+    ScaffoldingLadder --> AssessmentEngine
+
+    MethodologyTransforma --> PromptAlchemist
+    PromptAlchemist --> ProfileScaffolder
+    ProfileScaffolder --> InteractiveBotTester
+
+    AssessmentEngine --> LMSExporter
+    MethodologyTransforma --> TeacherDossier

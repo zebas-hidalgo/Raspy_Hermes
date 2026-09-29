@@ -1,0 +1,48 @@
+graph LR
+    %% Component Diagram - Warden Core Agent
+    %% Subcomponentes y servicios internos de Warden
+
+    classDef core fill:#f1f5f9,stroke:#475569,stroke-width:2px,color:#0f172a
+    classDef skills fill:#fee2e2,stroke:#dc2626,stroke-width:1.5px,color:#991b1b
+    classDef sys fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#1e40af
+    classDef bk fill:#e0e7ff,stroke:#4338ca,stroke-width:1.5px,color:#312e81
+
+    subgraph "Warden Core Engine"
+        HealthCoordinator["System Health Coordinator"]:::core
+        MethodologyWarden["W.A.R.D.E.N. Protocol Engine"]:::core
+        TriageEngine["Incident Triage & Root Cause Analyzer"]:::core
+    end
+
+    subgraph "Specialized Maintenance Skills (3)"
+        SkillSysMaint["system_maintenance Executor"]:::skills
+        SkillMaintenance["maintenance Routine Handler"]:::skills
+        SkillWardenCore["warden Anomaly Detector"]:::skills
+    end
+
+    subgraph "OS Host Probes & Cleaners"
+        DiskCleaner["Disk & Temp Space Pruner"]:::sys
+        LogRotator["Journald Vacuum & Logrotate Inspector"]:::sys
+        DockerPruner["Docker Container/Image Scavenger"]:::sys
+        SecurityAuditor["UFW / Fail2ban Hardening Probe"]:::sys
+        HardwareTelemetry["vcgencmd Temp & CPU Monitor"]:::sys
+    end
+
+    subgraph "Backup & Integrity Layer"
+        BackupVerifier["3-2-1 Backup Integrity Verifier"]:::bk
+        DBVacuumService["SQLite WAL & State Vacuum Worker"]:::bk
+    end
+
+    HealthCoordinator --> MethodologyWarden
+    MethodologyWarden --> TriageEngine
+    MethodologyWarden --> SkillSysMaint
+    MethodologyWarden --> SkillMaintenance
+    MethodologyWarden --> SkillWardenCore
+
+    SkillSysMaint --> DiskCleaner
+    SkillSysMaint --> LogRotator
+    SkillSysMaint --> DockerPruner
+    SkillWardenCore --> SecurityAuditor
+    SkillWardenCore --> HardwareTelemetry
+
+    SkillMaintenance --> BackupVerifier
+    SkillSysMaint --> DBVacuumService

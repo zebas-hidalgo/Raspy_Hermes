@@ -1,0 +1,67 @@
+graph TD
+    %% C4 Container Diagram - Caraxes (Systems Architect & Superpowers Agent)
+    %% Arquitectura técnica del agente Caraxes
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef agent fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef git fill:#fce7f3,stroke:#db2777,stroke-width:2px,color:#831843
+    classDef obs fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#334155
+
+    %% Actores y canales
+    User[("👤 Tech Lead / Arquitecto / Dev\n(Ecosistema de Software)")]:::user
+    Discord[("💬 Discord / Telegram\nGateway Bot")]:::gateway
+    WebUI[("🌐 Web UI Dashboard\nKronos Architecture Portal")]:::gateway
+
+    %% Hermes Gateway
+    subgraph "Hermes Gateway"
+        direction TB
+        Gateway["🚪 Hermes Gateway\nRouter + Auth + Rate Limit\n(Node.js / Python API :8377)"]:::gateway
+    end
+
+    %% Núcleo Agente Caraxes
+    subgraph "Agente Caraxes - Core"
+        direction TB
+        CaraxesCore["🟣 Caraxes Core Agent\nEl Planificador Metódico\n(Metodología C.A.R.A.X.E.S.)"]:::agent
+        SuperpowersStack["⚡ Superpowers Framework (14 Skills)\n• brainstorming & writing-plans\n• subagent-driven-development\n• test-driven-development (TDD)\n• verification-before-completion\n• systematic-debugging & code-review\n• using-git-worktrees"]:::agent
+    end
+
+    %% Modelos LLM
+    subgraph "Modelos LLM"
+        direction TB
+        NIM["☁️ NVIDIA NIM Cloud\nNemotron-3-Ultra (120B/550B)\n(Razonamiento Arquitectónico Complejo)"]:::nim
+        Ollama["🏠 Ollama Local\nLlama 3.1 / CodeLlama en Pi\n(Modo Offline)"]:::nim
+    end
+
+    %% Entorno Git y Versionado
+    subgraph "GitOps & Workspaces Aislados"
+        direction TB
+        GitWorktrees["🌿 Git Worktrees Engine\nAislamiento total de ramas y features"]:::git
+        GitRepo["📦 Repositorios GitHub / Local\nControl de versiones e historial"]:::git
+        PlanDocs["📑 Architecture Decision Records (ADR)\nPlanes ejecutables en Markdown"]:::git
+    end
+
+    %% Observabilidad y Métricas
+    subgraph "Observabilidad & Gobernanza"
+        direction TB
+        OpenTelemetry["📊 OpenTelemetry Collector\nTrazas y métricas de agentes"]:::obs
+        Prometheus["📈 Prometheus & Grafana\nSLI / SLO y alertas de rendimiento"]:::obs
+        StateDB["⚙️ Hermes State DB\nRuns idempotentes y memoria de diseño"]:::obs
+    end
+
+    %% Relaciones
+    User -->|"/caraxes o @Caraxes\nRequerimiento o diseño"| Discord
+    User -->|"Subida de especificación técnica"| WebUI
+    Discord --> Gateway
+    WebUI --> Gateway
+    Gateway -->|"/caraxes route"| CaraxesCore
+    CaraxesCore <--> SuperpowersStack
+    CaraxesCore -->|Inferencia arquitectónica| NIM
+    NIM -.->|Fallback local| Ollama
+    SuperpowersStack -->|Gestión de aislamiento| GitWorktrees
+    SuperpowersStack -->|Guardar planes y ADRs| PlanDocs
+    GitWorktrees --> GitRepo
+    CaraxesCore --> OpenTelemetry
+    CaraxesCore --> StateDB

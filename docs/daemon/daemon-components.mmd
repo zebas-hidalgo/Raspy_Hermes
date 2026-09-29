@@ -1,0 +1,46 @@
+graph LR
+    %% Component Diagram - Daemon Core Agent
+    %% Subcomponentes y motores internos de Daemon
+
+    classDef core fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
+    classDef forge fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#1e40af
+    classDef visual fill:#fce7f3,stroke:#db2777,stroke-width:1.5px,color:#831843
+    classDef reg fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#334155
+
+    subgraph "Daemon Core Engine"
+        DaemonRouter["Skill Request Dispatcher"]:::core
+        MethodologyDaemon["D.A.E.M.O.N. Forging Pipeline"]:::core
+        PromptSynthesizer["Prompt & Guardrails Synthesizer"]:::core
+    end
+
+    subgraph "Skill Creator Forge"
+        Scaffolder["Skill Directory & File Scaffolder"]:::forge
+        YAMLValidator["YAML Frontmatter Validator"]:::forge
+        ScriptGenerator["Python/Bash Helper Script Generator"]:::forge
+        SandboxTester["Isolated Test Runner"]:::forge
+    end
+
+    subgraph "Visual & Aesthetic Engine (14 Skills)"
+        ArtistEngines["Artistic Renderers (Da Vinci / Leonardo / Rembrandt)"]:::visual
+        TechnicalDiagrams["Technical Flowcharts & Raspy Design"]:::visual
+        ExcalidrawService["Excalidraw & Draw.io Headless Bridge"]:::visual
+    end
+
+    subgraph "Catalog & Persistence"
+        SkillCatalogManager["Hermes Skill Catalog Manager"]:::reg
+        ProfileAssigner["Multi-Profile Skill Assigner"]:::reg
+    end
+
+    DaemonRouter --> MethodologyDaemon
+    MethodologyDaemon --> PromptSynthesizer
+    PromptSynthesizer --> Scaffolder
+    Scaffolder --> YAMLValidator
+    Scaffolder --> ScriptGenerator
+    ScriptGenerator --> SandboxTester
+
+    MethodologyDaemon --> ArtistEngines
+    MethodologyDaemon --> TechnicalDiagrams
+    MethodologyDaemon --> ExcalidrawService
+
+    SandboxTester --> SkillCatalogManager
+    SkillCatalogManager --> ProfileAssigner

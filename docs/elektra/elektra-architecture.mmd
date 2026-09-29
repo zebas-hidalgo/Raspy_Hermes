@@ -1,0 +1,76 @@
+graph TD
+    %% C4 Container Diagram - Elektra (Electronics & Microcontrollers Agent)
+    %% Arquitectura técnica del agente Elektra / Chispa
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef agent fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#92400e
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef sim fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#075985
+    classDef hardware fill:#fce7f3,stroke:#ec4899,stroke-width:2px,color:#9d174d
+    classDef storage fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#334155
+
+    %% Usuarios y canales
+    User[("👤 Estudiante / Docente\n(Laboratorio STEM)")]:::user
+    Discord[("💬 Discord / Telegram\nGateway Bot")]:::gateway
+    WebUI[("🌐 Web UI Dashboard\nKronos Platform")]:::gateway
+
+    %% Hermes Gateway
+    subgraph "Hermes Gateway"
+        direction TB
+        Gateway["🚪 Hermes Gateway\nRouter + Auth + Rate Limit\n(Node.js / Python API :8377)"]:::gateway
+    end
+
+    %% Núcleo Agente Elektra
+    subgraph "Agente Elektra - Core"
+        direction TB
+        ElektraCore["⚡ Elektra Core Agent\nIngeniera de Circuitos Vivos\n(Metodología E.L.E.K.T.R.A.)"]:::agent
+        ElektraSkills["📦 Elektra Skills Ecosystem\n• asistente-electronica (núcleo)\n• diagnostico-bug\n• ejemplo-codigo (C++/MicroPython)\n• quiz-interactivo\n• seguridad-dinamica (<12V)\n• pdf-export (BOM/Guías)"]:::agent
+    end
+
+    %% Modelos LLM
+    subgraph "Modelos LLM"
+        direction TB
+        NIM["☁️ NVIDIA NIM Cloud\nNemotron-3-Ultra / Llama 3.1\n(Inferencia Primaria)"]:::nim
+        Ollama["🏠 Ollama Local\nQuantized Models en Pi\n(Fallback Offline)"]:::nim
+    end
+
+    %% Plataformas de Simulación y CAD
+    subgraph "Simuladores & Herramientas EDA"
+        direction TB
+        Wokwi["🔌 Wokwi API\nSimulación interactiva ESP32/Arduino"]:::sim
+        Tinkercad["🧩 Tinkercad Circuitos\nEsquemas visuales principiantes"]:::sim
+        KiCad["📐 KiCad / EasyEDA\nNetlists y diseño de PCB"]:::sim
+    end
+
+    %% Hardware Físico y Prototipado
+    subgraph "Hardware del Laboratorio"
+        direction TB
+        Microcontrollers["📟 MCU Boards\n• Arduino Uno / Nano / Mega\n• ESP32 / ESP8266 (WiFi/BLE)\n• Raspberry Pi Pico (RP2040)"]:::hardware
+        Instrumentation["🔬 Instrumental Maker\n• Multímetro Digital\n• Analizador Lógico USB\n• Osciloscopio Digital"]:::hardware
+    end
+
+    %% Almacenamiento y Estado
+    subgraph "Persistencia y Almacenamiento"
+        direction TB
+        CodeStore["💾 Code Store\nArchivos .ino, .py, .cpp\n(SQLite / Local Repo)"]:::storage
+        BOMStore["📑 BOM Database\nComponentes y stocks del taller"]:::storage
+        StateDB["⚙️ Hermes State DB\nSesiones y memoria episódica\n(state.db)"]:::storage
+    end
+
+    %% Relaciones
+    User -->|"/elektra o @Chispa\nConsulta o código"| Discord
+    User -->|"Subida de esquema o circuito"| WebUI
+    Discord --> Gateway
+    WebUI --> Gateway
+    Gateway -->|"/elektra route"| ElektraCore
+    ElektraCore <--> ElektraSkills
+    ElektraCore -->|Inferencia y razonamiento| NIM
+    NIM -.->|Fallback de conectividad| Ollama
+    ElektraSkills -->|Generar URL simulación| Wokwi
+    ElektraSkills -->|Exportar esquemático| KiCad
+    ElektraSkills -->|Compilar y verificar firmware| Microcontrollers
+    ElektraCore --> CodeStore
+    ElektraCore --> BOMStore
+    ElektraCore --> StateDB

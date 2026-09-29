@@ -1,0 +1,44 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 Docente / Estudiante
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Master as 🟡 Agente Master
+    participant Kanban as 📋 Kanban & Context Bus
+    participant Capa as 🔵 Capa (3D)
+    participant Elektra as 🟠 Elektra (Circuitos)
+    participant Bio as 🟢 Bio (Sustrato)
+
+    Note over User,Bio: === ORQUESTACIÓN DE PROYECTO STEM /master ===
+
+    User->>Channel: /master "crear una maceta inteligente automatizada con sensor de humedad y carcasa biodegradable"
+    Channel->>Gateway: POST /api/v1/agent/master\n{prompt, user_id, channel}
+    Gateway->>Master: Enrutar a Director de Orquesta
+
+    Note over Master,Kanban: === FASE 1: MAPEAR PARTITURA (M.A.E.S.T.R.O.) ===
+    Master->>Master: Descomponer en 3 movimientos técnicos:\n1. Bio: Sustrato orgánico y biopolímero maceta\n2. Capa: Modelado STL y slicing FDM de la maceta\n3. Elektra: Sensor suelo, bomba de agua y microcontrolador ESP32
+    Master->>Kanban: Registrar tareas en kanban.db (estado: PENDING)
+
+    Note over Master,Bio: === FASE 2: ENTRADA SOLISTA 1 (BIO) ===
+    Master->>Bio: Handoff: "Fórmula de biomaterial resistente a humedad para maceta"
+    Bio->>Bio: Diseñar receta agar-glicerol con refuerzo de cáscara de café
+    Bio-->>Master: Entregable: {receta, densidad, tiempo_curado: "36h"}
+    Master->>Kanban: Marcar Bio: DONE. Guardar payload en memoria compartida
+
+    Note over Master,Capa: === FASE 3: ENTRADA SOLISTA 2 (CAPA) ===
+    Master->>Capa: Handoff: "Generar STL de maceta con drenaje adaptado a parámetros de Bio"
+    Capa->>Capa: Validar malla STL, espesor de pared 3mm, orientación sin soportes
+    Capa-->>Master: Entregable: {stl_url, gcode_profile, tiempo_print: "3h 10m"}
+    Master->>Kanban: Marcar Capa: DONE. Enlazar STL a tarea de hardware
+
+    Note over Master,Elektra: === FASE 4: ENTRADA SOLISTA 3 (ELEKTRA) ===
+    Master->>Elektra: Handoff: "Circuito ESP32 + sensor resistivo/capacitivo + bomba sumergible 5V"
+    Elektra->>Elektra: Diseñar esquemático, verificar umbrales seguros (<5V), generar firmware C++
+    Elektra-->>Master: Entregable: {pinout, firmware_ino, wokwi_url, bom_pdf}
+    Master->>Kanban: Marcar Elektra: DONE. Todos los solistas completos
+
+    Note over Master,Channel: === FASE 5: EL TUTTI FINAL (SÍNTESIS INTEGRAL) ===
+    Master->>Master: Ensamblar la sinfonía técnica pedagógica
+    Master-->>Gateway: Entrega completa consolidada
+    Gateway-->>Channel: Despacho a chat multi-canal
+    Channel-->>User: 🟡 **Sinfonía Completa: Proyecto Maceta Inteligente**\n\n🎼 *Cada bot en su compás:*\n• 🌱 **@Bio:** Formulación biodegradable de café y agar.\n• 🖨️ **@Capa:** STL y G-code optimizado para fabricación limpia.\n• ⚡ **@Elektra:** Circuito ESP32 con bomba 5V y código probado.\n\n📊 [Ver Tablero Kanban del Proyecto]\n📑 [Descargar Dossier Completo del Proyecto en PDF]

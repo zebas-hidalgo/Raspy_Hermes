@@ -1,0 +1,51 @@
+graph LR
+    %% Component Diagram - Caraxes Core Agent
+    %% Subcomponentes y servicios internos de Caraxes
+
+    classDef core fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95
+    classDef sp fill:#fef3c7,stroke:#f59e0b,stroke-width:1.5px,color:#92400e
+    classDef git fill:#fce7f3,stroke:#db2777,stroke-width:1.5px,color:#831843
+    classDef obs fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#334155
+
+    subgraph "Caraxes Core Engine"
+        ArchitectureRouter["System Requirements Analyzer"]:::core
+        MethodologyCaraxes["C.A.R.A.X.E.S. Workflow Engine"]:::core
+        TradeoffEvaluator["Architectural Trade-offs Evaluator"]:::core
+    end
+
+    subgraph "Superpowers Execution Stack"
+        BrainstormModule["brainstorming Handler"]:::sp
+        PlanWriter["writing-plans Generator"]:::sp
+        SubagentOrchestrator["subagent-driven-development Dispatcher"]:::sp
+        TDDRunner["test-driven-development Supervisor"]:::sp
+        Verifier["verification-before-completion Guard"]:::sp
+    end
+
+    subgraph "GitOps & Workspace Manager"
+        WorktreeManager["using-git-worktrees Isolator"]:::git
+        BranchFinisher["finishing-a-development-branch Merger"]:::git
+        ADRPersister["ADR & Plan Markdown Serializer"]:::git
+    end
+
+    subgraph "Quality & Observability"
+        ReviewPipeline["requesting/receiving-code-review Engine"]:::obs
+        DebugSpecialist["systematic-debugging Analyzer"]:::obs
+        SLITracker["SLI / SLO & Metric Sentinel"]:::obs
+    end
+
+    ArchitectureRouter --> MethodologyCaraxes
+    MethodologyCaraxes --> TradeoffEvaluator
+    TradeoffEvaluator --> BrainstormModule
+    BrainstormModule --> PlanWriter
+
+    PlanWriter --> WorktreeManager
+    PlanWriter --> ADRPersister
+    MethodologyCaraxes --> SubagentOrchestrator
+
+    SubagentOrchestrator --> TDDRunner
+    SubagentOrchestrator --> ReviewPipeline
+    MethodologyCaraxes --> Verifier
+    Verifier --> BranchFinisher
+
+    TDDRunner -.-> DebugSpecialist
+    MethodologyCaraxes --> SLITracker

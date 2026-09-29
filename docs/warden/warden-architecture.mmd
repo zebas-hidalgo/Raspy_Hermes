@@ -1,0 +1,69 @@
+graph TD
+    %% C4 Container Diagram - Warden (System Health, Guardian & Maintenance Agent)
+    %% Arquitectura técnica del agente Warden
+
+    %% Estilos
+    classDef user fill:#e8f4fd,stroke:#2e5aa8,stroke-width:2px,color:#1a3a5c
+    classDef gateway fill:#fff3e0,stroke:#eb6c36,stroke-width:2px,color:#7a3d0e
+    classDef agent fill:#f1f5f9,stroke:#475569,stroke-width:2px,color:#0f172a
+    classDef nim fill:#e8f5e9,stroke:#22c55e,stroke-width:2px,color:#15803d
+    classDef sys fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#991b1b
+    classDef daemon fill:#e0e7ff,stroke:#4338ca,stroke-width:2px,color:#312e81
+
+    %% Actores y canales
+    Admin[("🛡️ SysAdmin / DevOps / User\n(Operador del Sistema)")]:::user
+    Discord[("💬 Discord / Telegram\nGateway Bot")]:::gateway
+    Console[("🖥️ Terminal / SSH\nAcceso Directo")]:::gateway
+
+    %% Hermes Gateway
+    subgraph "Hermes Gateway"
+        direction TB
+        Gateway["🚪 Hermes Gateway\nRouter + Auth + Health Check API\n(:8377 / :9119)"]:::gateway
+    end
+
+    %% Núcleo Agente Warden
+    subgraph "Agente Warden - Core"
+        direction TB
+        WardenCore["🛡️ Warden Core Agent\nEl Custodio Sereno - Centinela del Sistema\n(Metodología W.A.R.D.E.N.)"]:::agent
+        WardenSkills["📦 Warden Skills Ecosystem\n• system_maintenance (limpieza integral & prune)\n• maintenance (rutinas preventivas)\n• warden (análisis de salud & diagnóstico de fallas)"]:::agent
+    end
+
+    %% Modelos LLM
+    subgraph "Modelos LLM"
+        direction TB
+        NIM["☁️ NVIDIA NIM Cloud\nNemotron-3-Ultra\n(Análisis Complejo de Causa Raíz)"]:::nim
+        Ollama["🏠 Ollama Local\nModelos en Raspberry Pi\n(Diagnóstico Autónomo Offline)"]:::nim
+    end
+
+    %% Subsistemas Operativos del Host (Raspberry Pi OS)
+    subgraph "Subsistemas y Servicios del SO"
+        direction TB
+        Systemd["⚙️ Systemd & Timers\nControl de hermes-gateway, cron y servicios"]:::sys
+        Journald["📜 Journald & Logrotate\nRotación y vacuuming de logs de sistema"]:::sys
+        SecurityLayer["🔒 Seguridad & Firewall\nUFW, Fail2ban, SSH key-only policies"]:::sys
+        DockerEngine["🐳 Docker Engine\nContenedores, volúmenes e imágenes"]:::sys
+        HardwareMon["🌡️ Sensores Hardware\nvcgencmd measure_temp, df -h, free -m"]:::sys
+    end
+
+    %% Persistencia y Respaldo
+    subgraph "Backups & Almacenamiento"
+        direction TB
+        BackupStore["💾 Backup Repository\nCopias 3-2-1, snapshots comprimidos"]:::daemon
+        StateDB["📊 State & Metrics DB\nTrazabilidad histórica y SQLite vacuuming"]:::daemon
+    end
+
+    %% Relaciones
+    Admin -->|"/warden o alerta de salud"| Discord
+    Admin -->|"Mantenimiento por consola"| Console
+    Discord --> Gateway
+    Gateway -->|"/warden route"| WardenCore
+    WardenCore <--> WardenSkills
+    WardenCore -->|Inferencia de causas raíz| NIM
+    NIM -.->|Fallback de emergencia| Ollama
+    WardenSkills -->|Monitorear recursos| HardwareMon
+    WardenSkills -->|Inspección y vacuum| Journald
+    WardenSkills -->|Reinicio de unidades fallidas| Systemd
+    WardenSkills -->|Prune de recursos no usados| DockerEngine
+    WardenSkills -->|Auditoría de reglas| SecurityLayer
+    WardenSkills -->|Coordinar snapshots| BackupStore
+    WardenCore --> StateDB

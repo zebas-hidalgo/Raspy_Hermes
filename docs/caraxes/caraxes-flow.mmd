@@ -1,0 +1,47 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 Tech Lead / Arquitecto
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Caraxes as 🟣 Caraxes Core Agent
+    participant Superpowers as ⚡ Superpowers Engine
+    participant NIM as ☁️ NVIDIA NIM LLM
+    participant Worktree as 🌿 Git Worktree Engine
+    participant Store as 💾 State DB & ADR Repo
+
+    Note over User,Store: === FLUJO PRINCIPAL /caraxes ===
+
+    User->>Channel: /caraxes "diseña la arquitectura distribuida para sincronizar telemetría entre 8 bots"
+    Channel->>Gateway: POST /api/v1/agent/caraxes\n{spec_request, user_id}
+    Gateway->>Gateway: Validar permisos y rate limiting
+    Gateway->>Caraxes: Despachar contexto y directivas
+
+    Note over Caraxes,NIM: === FASE 1: BRAINSTORMING & ALINEACIÓN (C.A.R.A.X.E.S.) ===
+    Caraxes->>Superpowers: Invocar skill: brainstorming
+    Superpowers->>NIM: Descomponer requisitos funcionales y no funcionales (SLO: 99.9%, latencia < 200ms)
+    NIM-->>Superpowers: Matriz de compensaciones (Broker MQTT vs Redis PubSub vs SQLite compartido)
+    Superpowers-->>Caraxes: Arquitectura recomendada (Event-Driven con SQLite WAL + Gateway Bus)
+
+    Note over Caraxes,Worktree: === FASE 2: PLANIFICACIÓN Y AISLAMIENTO DE TRABAJO ===
+    Caraxes->>Superpowers: Invocar skill: writing-plans
+    Superpowers->>Worktree: Crear rama y worktree aislado (feature/telemetry-sync-bus)
+    Worktree-->>Superpowers: Worktree listo en path aislado
+    Superpowers->>Store: Guardar plan paso a paso con checkboxes sin placeholders
+    Store-->>Superpowers: Plan persistido (docs/superpowers/plans/YYYY-MM-DD-telemetry.md)
+
+    Note over Caraxes,Superpowers: === FASE 3: EJECUCIÓN DISCIPLINADA TDD ===
+    Caraxes->>Superpowers: Invocar skill: subagent-driven-development
+    loop Por cada tarea atómica del plan
+        Superpowers->>Superpowers: 1. Escribir test que falla (RED)
+        Superpowers->>Superpowers: 2. Implementar código mínimo (GREEN)
+        Superpowers->>Superpowers: 3. Refactorizar y verificar cobertura
+        Superpowers->>Store: Commit atómico con mensaje semántico
+    end
+
+    Note over Caraxes,Channel: === FASE 4: VERIFICACIÓN FINAL Y ENTREGA ===
+    Caraxes->>Superpowers: Invocar skill: verification-before-completion
+    Superpowers->>Superpowers: Ejecutar suite de pruebas de integración y linter
+    Superpowers-->>Caraxes: Evidencia técnica verificada (100% PASS)
+    Caraxes-->>Gateway: Reporte arquitectónico con diagramas C4 y resumen de decisión (ADR)
+    Gateway-->>Channel: Entrega estructurada
+    Channel-->>User: 🟣 **Arquitectura de Telemetría Diseñada y Verificada:**\n\n🏛️ **Patrón:** Event-Driven Bus sobre SQLite WAL + IPC Sockets\n⚡ **Garantías:** Idempotencia, entrega at-least-once, latencia p99 < 80ms\n🌿 **Branch Aislada:** `feature/telemetry-sync-bus` con 100% de tests pasando\n📑 [Ver Architecture Decision Record completo]\n📊 [Ver Diagrama de Contenedores C4]

@@ -1,0 +1,38 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 Creador de Skills / Docente
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Daemon as 🟡 Daemon Core Agent
+    participant Forge as 🔨 Skill Creator Engine
+    participant NIM as ☁️ NVIDIA NIM LLM
+    participant Sandbox as 🧪 Execution Sandbox
+    participant Registry as 📁 Skills Registry (~/.hermes/skills)
+
+    Note over User,Registry: === FLUJO DE FORJA DE SKILLS /daemon ===
+
+    User->>Channel: /skill-creator "crea una skill para calibrar motores paso a paso NEMA 17 en Klipper"
+    Channel->>Gateway: POST /api/v1/agent/daemon\n{prompt, user_id, channel}
+    Gateway->>Gateway: Validar permisos de administrador de skills
+    Gateway->>Daemon: Enrutar a Daemon / Skill-Creator
+
+    Note over Daemon,NIM: === FASE 1: DELIMITAR Y DISEÑAR CONTRATO (D.A.E.M.O.N.) ===
+    Daemon->>NIM: Descomponer intención técnica en contrato de skill:\n- Nombre kebab-case: `klipper-stepper-tuner`\n- Triggers de activación\n- Parámetros requeridos (pasos/mm, micropasos, corriente VREF)\n- Scripts de soporte
+    NIM-->>Daemon: Especificación completa YAML + Markdown
+
+    Note over Daemon,Forge: === FASE 2: ANDAMIAJE DE ARCHIVOS (SCAFFOLDING) ===
+    Daemon->>Forge: scaffold_skill(name: "klipper-stepper-tuner")
+    Forge->>Forge: Crear estructura de directorios:\n• SKILL.md (frontmatter + instrucciones)\n• scripts/calibrate_steps.py\n• references/klipper_stepper_guide.md\n• examples/run_calibration.json
+
+    Note over Daemon,Sandbox: === FASE 3: PRUEBA Y VALIDACIÓN EN SANDBOX ===
+    Forge->>Sandbox: Ejecutar script de calibración en entorno aislado
+    Sandbox->>Sandbox: Validar sintaxis Python + pruebas de ejecución ficticias
+    Sandbox-->>Forge: 0 errores de sintaxis, retorno exitoso (código 0)
+    Forge->>Forge: Validar frontmatter YAML contra esquema Hermes/Antigravity
+
+    Note over Daemon,Registry: === FASE 4: PUBLICACIÓN Y ENTREGA ===
+    Forge->>Registry: Registrar e instalar en `~/.hermes/skills/klipper-stepper-tuner/`
+    Registry-->>Daemon: Skill activa y disponible para todos los perfiles
+    Daemon-->>Gateway: Notificación de forja exitosa con resumen de comandos
+    Gateway-->>Channel: Entrega final con documentación y ejemplos
+    Channel-->>User: 🟡 **Skill forjada con éxito: `klipper-stepper-tuner`**\n\n🔨 **Contrato de Invocación:**\n• Trigger: "calibra pasos motor NEMA 17" o "ajusta rotation_distance"\n• Ubicación: `~/.hermes/skills/klipper-stepper-tuner/`\n• Herramientas auxiliares: `scripts/calibrate_steps.py`\n\n✨ **Estado:** Probada en sandbox y lista para ser invocada por @Capa o usuarios.

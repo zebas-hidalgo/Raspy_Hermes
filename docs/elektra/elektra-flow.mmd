@@ -1,0 +1,39 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 Estudiante / Docente
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Elektra as ⚡ Elektra Core Agent
+    participant Safety as 🛡️ Seguridad Dinámica
+    participant Skills as 📦 Elektra Skills
+    participant NIM as ☁️ NVIDIA NIM LLM
+    participant Sim as 🔌 Simulador Wokwi/KiCad
+    participant Store as 💾 Storage / State DB
+
+    Note over User,Store: === FLUJO PRINCIPAL /elektra ===
+
+    User->>Channel: /elektra "necesito conectar un sensor DHT22 y pantalla OLED I2C a un ESP32"
+    Channel->>Gateway: POST /api/v1/agent/elektra\n{prompt, user_id, channel}
+    Gateway->>Gateway: Validar token + rate limit (10 req/min)
+    Gateway->>Elektra: Despachar contexto y prompt
+
+    Note over Elektra,Safety: === FASE 1: AUDITORÍA DE SEGURIDAD ELÉCTRICA ===
+    Elektra->>Safety: Evaluar niveles de tensión y polaridad
+    Safety->>Safety: Verificar umbrales seguros (<12V DC)\nDetectar corto potencial o GPIO sobrecargado
+    Safety-->>Elektra: Auditoría aprobada (3.3V I2C seguro)
+
+    Note over Elektra,NIM: === FASE 2: RAZONAMIENTO Y GENERACIÓN TÉCNICA ===
+    Elektra->>NIM: Prompt ingeniería con metodología E.L.E.K.T.R.A.\n[pinout ESP32, pull-ups I2C, librerías, BOM]
+    NIM-->>Elektra: JSON estructurado:\n{pinout, firmware_cpp, libraries, bom, troubleshooting}
+
+    Note over Elektra,Skills: === FASE 3: VALIDACIÓN DE CÓDIGO Y SIMULACIÓN ===
+    Elektra->>Skills: delegar: ejemplo-codigo.generate(ESP32, DHT22, SSD1306)
+    Skills->>Sim: Compilar y validar diagrama de conexiones Wokwi
+    Sim-->>Skills: Código compila (0 errores) + URL diagrama
+    Skills->>Skills: Generar lista de componentes (BOM) con pdf-export
+    Skills->>Store: Guardar sketch y sesión en state.db
+
+    Note over Elektra,Channel: === FASE 4: RESPUESTA DIDÁCTICA Y GUIADA ===
+    Elektra-->>Gateway: Respuesta con formato Markdown enriquecido
+    Gateway-->>Channel: Embed completo con diagrama ASCII, código con comentarios y enlace interactivo
+    Channel-->>User: ⚡ **¡Circuito listo para armar!**\n\n📌 **Conexiones:**\n• OLED VCC -> 3.3V | GND -> GND\n• SDA -> GPIO 21 | SCL -> GPIO 22\n• DHT22 Data -> GPIO 4 (resistencia pull-up 10k)\n\n💻 Código verificado (PlatformIO / Arduino IDE)\n🔗 [Simular en Wokwi en vivo]\n📄 [Descargar Guía y BOM en PDF]

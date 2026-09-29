@@ -1,0 +1,40 @@
+sequenceDiagram
+    autonumber
+    actor Admin as 👤 SysAdmin / Usuario
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Warden as 🛡️ Warden Core Agent
+    participant Skills as 📦 Warden Skills
+    participant Host as 🖥️ Raspberry Pi OS (Host)
+    participant NIM as ☁️ NVIDIA NIM LLM
+    participant Store as 💾 Backups & State DB
+
+    Note over Admin,Store: === RUTINA DE MANTENIMIENTO PREVENTIVO /warden ===
+
+    Admin->>Channel: /warden "auditoría general de recursos, limpieza preventiva y estado de servicios"
+    Channel->>Gateway: POST /api/v1/agent/warden\n{prompt, user_id, channel}
+    Gateway->>Gateway: Verificar privilegios de administración
+    Gateway->>Warden: Despachar contexto de mantenimiento
+
+    Note over Warden,Host: === FASE 1: AUDITORÍA DE SALUD EN VIVO (W.A.R.D.E.N.) ===
+    Warden->>Skills: delegar: warden.audit_system()
+    Skills->>Host: Ejecutar sondeo de recursos:\n• df -h (uso almacenamiento disco)\n• free -m (presión RAM & Swap)\n• vcgencmd measure_temp (temperatura SoC)\n• systemctl --failed (servicios caídos)
+    Host-->>Skills: Telemetría: Disco 84% usado, RAM 68%, Temp 52°C, 0 servicios fallidos
+
+    Note over Warden,NIM: === FASE 2: DETECCIÓN DE ANOMALÍAS Y PLAN DE ACCIÓN ===
+    Warden->>NIM: Evaluar métricas y priorizar remediación segura
+    NIM-->>Warden: Plan: 1. Vacuum journald (>100MB) | 2. Prune Docker dangling | 3. Limpieza pip/npm cache
+
+    Note over Warden,Host: === FASE 3: REMEDIACIÓN Y PURGA CONTROLADA ===
+    Warden->>Skills: delegar: system_maintenance.execute(plan)
+    Skills->>Host: sudo journalctl --vacuum-time=3d
+    Skills->>Host: docker system prune -f --volumes=false
+    Skills->>Host: rm -rf ~/.cache/pip ~/.cache/npm /tmp/hermes_*
+    Skills->>Store: SQLite VACUUM en state.db
+    Host-->>Skills: 1.4 GB de espacio liberado exitosamente
+
+    Note over Warden,Store: === FASE 4: INTEGRIDAD DE BACKUPS Y CONFIRMACIÓN ===
+    Skills->>Store: Verificar última instantánea de backup (hace 18h, integridad sha256 OK)
+    Warden-->>Gateway: Compilar reporte estructurado de salud
+    Gateway-->>Channel: Entrega con indicadores visuales
+    Channel-->>Admin: 🛡️ **El sistema está íntegro. El orden ha sido restaurado.**\n\n📊 **Métricas Actualizadas:**\n• Almacenamiento: 72% usado (1.4 GB liberados)\n• Memoria RAM: 58% ocupada\n• Temperatura SoC: 49.8°C (Rango óptimo)\n• Servicios: hermes-gateway ACTIVO (30 tareas)\n• Backups: Válidos y verificados (Regla 3-2-1)\n\n✨ **Estado:** Sin anomalías detectadas. La vigilancia continúa.

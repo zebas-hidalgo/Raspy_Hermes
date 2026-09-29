@@ -1,0 +1,49 @@
+graph LR
+    %% Component Diagram - Elektra Core Agent
+    %% Desglose interno de submódulos y servicios de Elektra
+
+    classDef core fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#92400e
+    classDef skill fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#1e40af
+    classDef guard fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b
+    classDef external fill:#f3e8fd,stroke:#9333ea,stroke-width:1.5px,color:#581c87
+
+    subgraph "Elektra Core Engine"
+        ElektraRouter["Elektra Message Router"]:::core
+        MethodologyEngine["E.L.E.K.T.R.A. Pipeline Controller"]:::core
+        PromptBuilder["Technical Prompt Synthesizer"]:::core
+    end
+
+    subgraph "Safety & Governance"
+        VoltageGuard["Voltage & Current Guard (<12V)"]:::guard
+        PolarityChecker["Polarity & Short-Circuit Validator"]:::guard
+        ThermalRules["Thermal Dissipation Estimator"]:::guard
+    end
+
+    subgraph "Specialized Skill Modules"
+        SkillAssistant["asistente-electronica Handler"]:::skill
+        SkillDiagnostic["diagnostico-bug Engine"]:::skill
+        SkillCode["ejemplo-codigo Generator"]:::skill
+        SkillQuiz["quiz-interactivo Module"]:::skill
+        SkillPDF["pdf-export (BOM/Guía Maker)"]:::skill
+    end
+
+    subgraph "External Integrations"
+        WokwiClient["Wokwi Simulation Bridge"]:::external
+        KiCadNetlist["KiCad Netlist Generator"]:::external
+        NIMInference["NVIDIA NIM Client"]:::external
+    end
+
+    ElektraRouter --> MethodologyEngine
+    MethodologyEngine --> VoltageGuard
+    VoltageGuard --> PolarityChecker
+    MethodologyEngine --> PromptBuilder
+    PromptBuilder --> NIMInference
+
+    MethodologyEngine --> SkillAssistant
+    MethodologyEngine --> SkillDiagnostic
+    MethodologyEngine --> SkillCode
+    MethodologyEngine --> SkillQuiz
+    MethodologyEngine --> SkillPDF
+
+    SkillCode --> WokwiClient
+    SkillAssistant --> KiCadNetlist

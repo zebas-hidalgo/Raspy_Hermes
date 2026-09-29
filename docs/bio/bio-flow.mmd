@@ -1,0 +1,36 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 Maker / Estudiante
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Bio as 🌱 Bio Core Agent
+    participant Skills as 📦 Bio Skills
+    participant NIM as ☁️ NVIDIA NIM LLM
+    participant LCA as 📊 Motor LCA (Ecoinvent)
+    participant Store as 💾 Recipe Store & State DB
+
+    Note over User,Store: === FLUJO PRINCIPAL /bio ===
+
+    User->>Channel: /bio "receta para bioplástico translúcido y flexible usando agar y glicerol"
+    Channel->>Gateway: POST /api/v1/agent/bio\n{prompt, user_id, channel}
+    Gateway->>Gateway: Validar credenciales y rate limiting
+    Gateway->>Bio: Despachar consulta con contexto escolar/Maker
+
+    Note over Bio,NIM: === FASE 1: FORMULACIÓN ESTEQUIOMÉTRICA ===
+    Bio->>NIM: Formular biopolímero con metodología B.I.O.\n[Base: Agar, Plastificante: Glicerol vegetal, Solvente: Agua desmineralizada]
+    NIM-->>Bio: Respuesta estructurada:\n{proportions, preparation_steps, gelatinization_temp: "85-90C", curing_time: "48h", flexibility_rating}
+
+    Note over Bio,LCA: === FASE 2: EVALUACIÓN DE CICLO DE VIDA (LCA) ===
+    Bio->>Skills: delegar: lca-calculator.evaluate(Agar: 10g, Glicerol: 5ml, H2O: 100ml)
+    Skills->>LCA: Calcular huella de carbono y biodegradabilidad estimada
+    LCA-->>Skills: {co2_eq: "14g", h2o_usage: "0.2L", biodegradation_rate: "100% en 45 días (compost hogareño)"}
+
+    Note over Bio,Skills: === FASE 3: GENERACIÓN DE FICHA TÉCNICA Y DIAGRAMA ===
+    Bio->>Skills: delegar: biomaterial-diagram.render(flujo_elaboracion)
+    Skills-->>Bio: Diagrama de pasos térmicos y secado
+    Bio->>Store: Registrar formulación en catálogo de recetas
+
+    Note over Bio,Channel: === FASE 4: ENTREGA DIDÁCTICA Y SEGURIDAD ===
+    Bio-->>Gateway: Formatear respuesta con tono empático y poético
+    Gateway-->>Channel: Entrega con pasos numerados, advertencias térmicas y métricas verdes
+    Channel-->>User: 🌱 **¡Qué maravilla! La naturaleza nos enseña el camino:**\n\n🧪 **Fórmula Flexible de Agar:**\n• 4g de Agar-agar de grado alimenticio\n• 3ml de Glicerol vegetal (plastificante)\n• 60ml de Agua destilada\n\n🔥 **Curva de Cocción:** Calentar a 85°C con agitación constante hasta translucidez total.\n🌱 **Ciclo Verde:** 100% biodegradable en 45 días. Huella CO2: <15g.\n📄 [Descargar Guía de Laboratorio en PDF]

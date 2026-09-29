@@ -1,0 +1,36 @@
+sequenceDiagram
+    autonumber
+    actor Teacher as 👤 Docente / Diseñador
+    participant Channel as 💬 Discord / Telegram
+    participant Gateway as 🚪 Hermes Gateway
+    participant Tutor as 🎓 Tutor Conversion Core
+    participant Workflow as 📦 Conversion Workflow
+    participant NIM as ☁️ NVIDIA NIM LLM
+    participant Profiles as 📁 Hermes Profiles (~/.hermes/profiles)
+
+    Note over Teacher,Profiles: === FLUJO DE CONVERSIÓN TUTOR → AGENTE VIVO ===
+
+    Teacher->>Channel: /tutor "transforma esta guía PDF sobre Ley de Ohm en un bot socrático para 1° medio"
+    Teacher->>Channel: Adjunta `guia_ley_ohm.pdf`
+    Channel->>Gateway: POST /api/v1/agent/tutor\n{file: PDF, prompt, teacher_id}
+    Gateway->>Gateway: Extraer texto del documento PDF
+    Gateway->>Tutor: Despachar texto y objetivo curricular
+
+    Note over Tutor,NIM: === FASE 1: EXTRACCIÓN Y TAXONOMÍA (T.R.A.N.S.F.O.R.M.A.) ===
+    Tutor->>NIM: Analizar conceptos clave, prerrequisitos y objetivos (Taxonomía de Bloom: Comprender -> Aplicar -> Analizar)
+    NIM-->>Tutor: Estructura conceptual:\n{conceptos: [V, I, R], formulas, errores_comunes, niveles_dificultad}
+
+    Note over Tutor,Workflow: === FASE 2: DISEÑO DE ANDAMIAJE Y RETOS ===
+    Tutor->>Workflow: delegar: instructional-design-engine
+    Workflow->>Workflow: 1. Diseñar preguntas socráticas (no dar la respuesta directa)\n2. Crear 3 niveles de andamiaje (pistas progresivas)\n3. Generar retos de cálculo con feedback adaptativo
+
+    Note over Tutor,NIM: === FASE 3: FORJA DEL SOUL.MD Y PROMPT DEL AGENTE ===
+    Tutor->>NIM: Sintetizar personalidad docente empática, límites pedagógicos y herramientas
+    NIM-->>Tutor: Archivo SOUL.md completo + config.yaml con personalidad socrática
+
+    Note over Tutor,Profiles: === FASE 4: INSTALACIÓN DEL NUEVO BOT ===
+    Tutor->>Profiles: Crear nuevo perfil: `~/.hermes/profiles/tutor_ley_ohm/`
+    Profiles-->>Tutor: Perfil registrado y listo en gateway
+    Tutor-->>Gateway: Notificación con comando de activación y rúbrica docente
+    Gateway-->>Channel: Entrega final
+    Channel-->>Teacher: 🎓 **¡El conocimiento ha sido liberado! Otro agente ha nacido:**\n\n🤖 **Nuevo Agente:** `@TutorOhm` (`/tutor_ohm`)\n🪜 **Estrategia Pedagógica:** Método socrático con 3 niveles de andamiaje\n📊 **Evaluación Integrada:** Rúbrica de 4 niveles y quizzes adaptativos\n📁 **Perfil Instalado:** `~/.hermes/profiles/tutor_ley_ohm/`\n\n✨ Tus estudiantes ya pueden interactuar con él en Discord o Telegram.

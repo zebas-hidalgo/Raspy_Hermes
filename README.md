@@ -88,6 +88,20 @@ Mapeo exhaustivo de las herramientas asociadas a cada archivo `SKILL.md` del eco
 Demuestra cómo colaboran los tres clusters durante el desarrollo de un proyecto escolar integrado:
 ![Mapa Inter-Cluster](diagrams/matriz_clusters_stem.svg)
 
+### 6. Catálogo de Arquitecturas Técnicas C4, Flujos y Componentes (Mermaid)
+Cada agente cuenta con su suite de diagramas C4 (Container), Flujo de Ejecución (Sequence) y Componentes internos en sintaxis nativa Mermaid:
+
+| Agente | Arquitectura C4 (Container) | Flujo Secuencia (/slash Flow) | Componentes Internos | Carpeta Técnica |
+| :--- | :--- | :--- | :--- | :--- |
+| **🔵 Maestro Capa** | [capa-architecture.mmd](docs/capa/capa-architecture.mmd) | [capa-flow.mmd](docs/capa/capa-flow.mmd) | [capa-components.mmd](docs/capa/capa-components.mmd) | [`docs/capa/`](docs/capa/) |
+| **🟠 Elektra / Chispa** | [elektra-architecture.mmd](docs/elektra/elektra-architecture.mmd) | [elektra-flow.mmd](docs/elektra/elektra-flow.mmd) | [elektra-components.mmd](docs/elektra/elektra-components.mmd) | [`docs/elektra/`](docs/elektra/) |
+| **🟢 Bio** | [bio-architecture.mmd](docs/bio/bio-architecture.mmd) | [bio-flow.mmd](docs/bio/bio-flow.mmd) | [bio-components.mmd](docs/bio/bio-components.mmd) | [`docs/bio/`](docs/bio/) |
+| **🟣 Caraxes** | [caraxes-architecture.mmd](docs/caraxes/caraxes-architecture.mmd) | [caraxes-flow.mmd](docs/caraxes/caraxes-flow.mmd) | [caraxes-components.mmd](docs/caraxes/caraxes-components.mmd) | [`docs/caraxes/`](docs/caraxes/) |
+| **🟡 Daemon** | [daemon-architecture.mmd](docs/daemon/daemon-architecture.mmd) | [daemon-flow.mmd](docs/daemon/daemon-flow.mmd) | [daemon-components.mmd](docs/daemon/daemon-components.mmd) | [`docs/daemon/`](docs/daemon/) |
+| **🛡️ Warden** | [warden-architecture.mmd](docs/warden/warden-architecture.mmd) | [warden-flow.mmd](docs/warden/warden-flow.mmd) | [warden-components.mmd](docs/warden/warden-components.mmd) | [`docs/warden/`](docs/warden/) |
+| **🟡 Master** | [master-architecture.mmd](docs/master/master-architecture.mmd) | [master-flow.mmd](docs/master/master-flow.mmd) | [master-components.mmd](docs/master/master-components.mmd) | [`docs/master/`](docs/master/) |
+| **🎓 Tutor Conversion** | [tutor_conversion-architecture.mmd](docs/tutor_conversion/tutor_conversion-architecture.mmd) | [tutor_conversion-flow.mmd](docs/tutor_conversion/tutor_conversion-flow.mmd) | [tutor_conversion-components.mmd](docs/tutor_conversion/tutor_conversion-components.mmd) | [`docs/tutor_conversion/`](docs/tutor_conversion/) |
+
 </details>
 
 ---
@@ -98,30 +112,30 @@ Los 8 agentes están distribuidos estratégicamente en **3 clusters funcionales*
 
 ### 🟢 1. Cluster Dominio (STEM)
 
-| Agente | Alias / Trigger | Rol Principal | Documentación | Diagrama de Flujo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Maestro Capa** | `@Capa` <br> `/capa` | Experto en impresión 3D, análisis STL y optimización cero residuos | [📘 Ver Doc](docs/agentes/capa.md) | ![Capa](diagrams/capa_flujo.svg) |
-| **Elektra** | `@Elektra` <br> `@Chispa` <br> `/elektra` | Experta en electrónica, microcontroladores Arduino/ESP32 y circuitos | [📘 Ver Doc](docs/agentes/elektra.md) | ![Elektra](diagrams/elektra_flujo.svg) |
-| **Bio** | `@Bio` <br> `/bio` | Mentor de bioplásticos, química verde y economía circular | [📘 Ver Doc](docs/agentes/bio.md) | ![Bio](diagrams/bio_flujo.svg) |
+| Agente | Alias / Trigger | Rol Principal | Documentación | Arquitectura C4 & Flujo | Diagrama de Flujo |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Maestro Capa** | `@Capa` <br> `/capa` | Experto en impresión 3D, análisis STL y optimización cero residuos | [📘 Ver Doc](docs/agentes/capa.md) | [📐 C4 / Sequence / Components](docs/capa/) | ![Capa](diagrams/capa_flujo.svg) |
+| **Elektra** | `@Elektra` <br> `@Chispa` <br> `/elektra` | Experta en electrónica, microcontroladores Arduino/ESP32 y circuitos | [📘 Ver Doc](docs/agentes/elektra.md) | [📐 C4 / Sequence / Components](docs/elektra/) | ![Elektra](diagrams/elektra_flujo.svg) |
+| **Bio** | `@Bio` <br> `/bio` | Mentor de bioplásticos, química verde y economía circular | [📘 Ver Doc](docs/agentes/bio.md) | [📐 C4 / Sequence / Components](docs/bio/) | ![Bio](diagrams/bio_flujo.svg) |
 
 ---
 
 ### 🔵 2. Cluster Infraestructura
 
-| Agente | Trigger | Rol Principal | Documentación | Diagrama de Flujo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Caraxes** | `@Caraxes` <br> `/caraxes` | Arquitecto de skills y modelado de arquitecturas C4/D2 | [📘 Ver Doc](docs/agentes/caraxes.md) | ![Caraxes](diagrams/caraxes_flujo.svg) |
-| **Daemon** | `@Daemon` <br> `/daemon` | Creador y artesano de habilidades (`SKILL.md`) | [📘 Ver Doc](docs/agentes/daemon.md) | ![Daemon](diagrams/daemon_flujo.svg) |
-| **Warden** | `@Warden` <br> `/warden` | Guardián del sistema, monitoreo de salud (RAM/CPU) y seguridad | [📘 Ver Doc](docs/agentes/warden.md) | ![Warden](diagrams/warden_flujo.svg) |
+| Agente | Trigger | Rol Principal | Documentación | Arquitectura C4 & Flujo | Diagrama de Flujo |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Caraxes** | `@Caraxes` <br> `/caraxes` | Arquitecto de skills, metodologías de ingeniería y Superpowers | [📘 Ver Doc](docs/agentes/caraxes.md) | [📐 C4 / Sequence / Components](docs/caraxes/) | ![Caraxes](diagrams/caraxes_flujo.svg) |
+| **Daemon** | `@Daemon` <br> `/daemon` | Creador y artesano de habilidades (`SKILL.md`) y suite visual | [📘 Ver Doc](docs/agentes/daemon.md) | [📐 C4 / Sequence / Components](docs/daemon/) | ![Daemon](diagrams/daemon_flujo.svg) |
+| **Warden** | `@Warden` <br> `/warden` | Guardián del sistema, monitoreo de salud (RAM/CPU) y seguridad | [📘 Ver Doc](docs/agentes/warden.md) | [📐 C4 / Sequence / Components](docs/warden/) | ![Warden](diagrams/warden_flujo.svg) |
 
 ---
 
 ### 🟣 3. Cluster Orquestación
 
-| Agente | Trigger | Rol Principal | Documentación | Diagrama de Flujo |
-| :--- | :--- | :--- | :--- | :--- |
-| **Master** | `@Master` <br> `/master` | Orquestador de proyectos multidisciplinarios y resolución de bloqueos | [📘 Ver Doc](docs/agentes/master.md) | ![Master](diagrams/master_flujo.svg) |
-| **TutorConversion** | `@TutorConversion` <br> `/tutor_conversion` | Conversor pedagógico de guías pasivas PDF a bots interactivos | [📘 Ver Doc](docs/agentes/tutor_conversion.md) | ![TutorConversion](diagrams/tutor_conversion_flujo.svg) |
+| Agente | Trigger | Rol Principal | Documentación | Arquitectura C4 & Flujo | Diagrama de Flujo |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Master** | `@Master` <br> `/master` | Orquestador de proyectos multidisciplinarios y resolución de bloqueos | [📘 Ver Doc](docs/agentes/master.md) | [📐 C4 / Sequence / Components](docs/master/) | ![Master](diagrams/master_flujo.svg) |
+| **TutorConversion** | `@TutorConversion` <br> `/tutor_conversion` | Conversor pedagógico de guías pasivas PDF a bots interactivos | [📘 Ver Doc](docs/agentes/tutor_conversion.md) | [📐 C4 / Sequence / Components](docs/tutor_conversion/) | ![TutorConversion](diagrams/tutor_conversion_flujo.svg) |
 
 ---
 
